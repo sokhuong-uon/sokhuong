@@ -1,0 +1,11 @@
+{
+  "Home": {
+    "This is a button": "នេះគឺជាប៊ូតុង"
+  },
+  "DarkMode": {
+    "Light": "ភ្លឺ",
+    "Dark": "ងងឹត",
+    "System": "តាមប្រព័ន្ធ",
+    "ToggleMode": "ប្ដូររចនាបថ"
+  }
+}

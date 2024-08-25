@@ -1,0 +1,11 @@
+{
+  "Home": {
+    "This is a button": "This is a button"
+  },
+  "DarkMode": {
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System",
+    "ToggleMode": "Toggle Mode"
+  }
+}
