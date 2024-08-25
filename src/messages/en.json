@@ -1,11 +1,15 @@
 {
-  "Home": {
-    "This is a button": "This is a button"
-  },
-  "DarkMode": {
-    "Light": "Light",
-    "Dark": "Dark",
-    "System": "System",
-    "ToggleMode": "Toggle Mode"
-  }
+	"Layout": {
+		"Skip to main content": "Skip to main content"
+	},
+	"Home": {
+		"This is a button": "This is a button",
+		"Home": "Home"
+	},
+	"DarkMode": {
+		"Light": "Light",
+		"Dark": "Dark",
+		"System": "System",
+		"ToggleMode": "Toggle Mode"
+	}
 }

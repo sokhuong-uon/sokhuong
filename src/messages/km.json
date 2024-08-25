@@ -1,11 +1,15 @@
 {
-  "Home": {
-    "This is a button": "នេះគឺជាប៊ូតុង"
-  },
-  "DarkMode": {
-    "Light": "ភ្លឺ",
-    "Dark": "ងងឹត",
-    "System": "តាមប្រព័ន្ធ",
-    "ToggleMode": "ប្ដូររចនាបថ"
-  }
+	"Layout": {
+		"Skip to main content": "លោតទៅកាន់មាតិការបឋម"
+	},
+	"Home": {
+		"This is a button": "នេះគឺជាប៊ូតុង",
+		"Home": "ទំព័រដើម"
+	},
+	"DarkMode": {
+		"Light": "ភ្លឺ",
+		"Dark": "ងងឹត",
+		"System": "តាមប្រព័ន្ធ",
+		"ToggleMode": "ប្ដូររចនាបថ"
+	}
 }
