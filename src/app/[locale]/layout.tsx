@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { SkipToMainContent } from "@/components/nav/skip-to-main-content";
+import { Menu } from "@/components/nav/menu";
 
 const notoSans = Noto_Sans_Khmer({ subsets: ["latin"] });
 
@@ -37,6 +38,9 @@ export default async function RootLayout({
 						disableTransitionOnChange
 					>
 						<SkipToMainContent />
+						<header>
+							<Menu />
+						</header>
 						{children}
 					</ThemeProvider>
 				</NextIntlClientProvider>
