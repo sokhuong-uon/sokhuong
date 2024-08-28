@@ -6,15 +6,15 @@ import { Button } from "../ui/button";
 export function Menu() {
 	return (
 		<nav className="w-full container border-b py-4 bg-white dark:bg-black backdrop-blur-sm flex">
-			<div>
-				<Button asChild variant={"link"} size={"lg"}>
-					<Link href="/">
-						<DnaIcon className="scale-125" />
-						<p className="sr-only">Home</p>
-					</Link>
-				</Button>
-			</div>
-			<ul className="ml-auto flex gap-4">
+			<ul aria-label="menu" className="flex gap-4 w-full">
+				<li className="mr-auto">
+					<Button asChild variant={"link"} size={"lg"}>
+						<Link href="/">
+							<DnaIcon className="scale-125" />
+							<span className="sr-only">Home</span>
+						</Link>
+					</Button>
+				</li>
 				<li>
 					<Button
 						asChild
