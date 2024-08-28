@@ -6,6 +6,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { SkipToMainContent } from "@/components/nav/skip-to-main-content";
 import { Menu } from "@/components/nav/menu";
+import { Social } from "@/components/footer/social";
+import FooterMenu from "@/components/footer/footer-menu";
 
 const notoSans = Noto_Sans_Khmer({ subsets: ["latin"] });
 
@@ -42,6 +44,9 @@ export default async function RootLayout({
 							<Menu />
 						</header>
 						{children}
+						<footer className="container">
+							<FooterMenu />
+						</footer>
 					</ThemeProvider>
 				</NextIntlClientProvider>
 			</body>
