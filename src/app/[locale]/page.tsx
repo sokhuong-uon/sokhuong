@@ -9,7 +9,7 @@ export default async function Home() {
 			id="main"
 			className="flex items-center justify-center w-full flex-col"
 		>
-			<div className="max-w-3xl border py-24 h-fit  max-h-[100vw] flex flex-col items-center justify-center gap-8">
+			<div className="max-w-3xl py-24 h-fit  max-h-[100vw] flex flex-col items-center justify-center gap-8">
 				<h1 className="sm:text-6xl text-balance font-bold antialiased text-center text-3xl xs:text-4xl text-neutral-400 [&>em]:text-foreground">
 					build <em>Secure</em> and <em>Accessible</em> software applications
 				</h1>
