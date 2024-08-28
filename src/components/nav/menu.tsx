@@ -7,7 +7,7 @@ export function Menu() {
 	return (
 		<nav className="w-full container border-b py-4 bg-white dark:bg-black backdrop-blur-sm flex">
 			<div>
-				<Button asChild variant={"link"}>
+				<Button asChild variant={"link"} size={"lg"}>
 					<Link href="/">
 						<DnaIcon className="scale-125" />
 						<p className="sr-only">Home</p>
@@ -16,12 +16,22 @@ export function Menu() {
 			</div>
 			<ul className="ml-auto flex gap-4">
 				<li>
-					<Button asChild variant={"link"} className="focus-within:underline">
+					<Button
+						asChild
+						variant={"link"}
+						size={"lg"}
+						className="focus-within:underline"
+					>
 						<Link href="/about">About</Link>
 					</Button>
 				</li>
 				<li>
-					<Button asChild variant={"link"} className="focus-within:underline">
+					<Button
+						asChild
+						variant={"link"}
+						size={"lg"}
+						className="focus-within:underline"
+					>
 						<Link href="/sketch">Sketch</Link>
 					</Button>
 				</li>
