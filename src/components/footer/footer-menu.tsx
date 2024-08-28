@@ -9,9 +9,7 @@ export default function FooterMenu() {
 			<hr />
 			<div className="py-10">
 				<Button asChild variant={"link"} size={"lg"} className="px-2 text-lg">
-					<Link href="https://vercel.com?utm_source=sokhuong&utm_campaign=oss">
-						Powered by Vercel
-					</Link>
+					<Link href="https://vercel.com">Powered by Vercel</Link>
 				</Button>
 			</div>
 		</>
