@@ -6,7 +6,7 @@ const archivoBlack = Archivo_Black({ subsets: ["latin"], weight: ["400"] });
 
 export function HeroSection() {
 	return (
-		<div className="max-w-3xl py-24 h-fit  max-h-[100vw] flex flex-col items-center justify-center gap-10">
+		<div className="max-w-3xl py-24 lg:py-36 h-fit  max-h-[100vw] flex flex-col items-center justify-center gap-10">
 			<h1
 				className={`${archivoBlack.className} sm:text-6xl text-balance font-bold antialiased text-center text-3xl xs:text-4xl text-neutral-400 contrast-more:text-neutral-300 [&>em]:text-foreground`}
 			>

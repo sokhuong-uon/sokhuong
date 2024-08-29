@@ -1,4 +1,6 @@
 import { HeroSection } from "@/components/hero/hero-section";
+import { ValueCard } from "@/components/value/value-card";
+import { ValueSection } from "@/components/value/value-section";
 import { getTranslations } from "next-intl/server";
 
 export default async function Home() {
@@ -9,6 +11,7 @@ export default async function Home() {
 			className="flex items-center justify-center w-full flex-col"
 		>
 			<HeroSection />
+			<ValueSection />
 		</main>
 	);
 }
