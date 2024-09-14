@@ -6,14 +6,14 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { SkipToMainContent } from "@/components/nav/skip-to-main-content";
 import { Menu } from "@/components/nav/menu";
-import { Social } from "@/components/footer/social";
 import FooterMenu from "@/components/footer/footer-menu";
 
 const notoSans = Noto_Sans_Khmer({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Sokhuong",
-	description: "A Software Engineer. I like creative coding and design.",
+	description:
+		"A Software Engineer. I've been working as a web developer since 2020; I mostly build applications using TypeScript, React, Next.js, Vue, Nuxt.js, and Tailwind CSS.",
 };
 
 export default async function RootLayout({

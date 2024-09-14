@@ -10,8 +10,7 @@ export function HeroSection() {
 			<h1
 				className={`${archivoBlack.className} sm:text-6xl text-balance font-bold antialiased text-center text-3xl xs:text-4xl text-neutral-400 contrast-more:text-neutral-300 [&>em]:text-foreground`}
 			>
-				Build software applications we could{" "}
-				<span className="text-primary">rely on</span>
+				Build <span className="text-primary">reliable</span> applications
 			</h1>
 			<p className="text-lg sm:text-xl lg:text-2xl max-w-2xl text-neutral-400 contrast-more:text-neutral-300 text-center text-balance">
 				Hi! I am Sokhuong. A software engineer, technical writer, and the one
@@ -19,7 +18,7 @@ export function HeroSection() {
 			</p>
 			<div className="flex gap-4">
 				<Button size={"lg"} asChild className="focus:underline">
-					<Link href="/sketch">See my sketches</Link>
+					<Link href="/sketch">My sketches</Link>
 				</Button>
 				<Button
 					size={"lg"}
