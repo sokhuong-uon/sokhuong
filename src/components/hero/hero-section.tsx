@@ -13,7 +13,8 @@ export function HeroSection() {
 				Build <span className="text-primary">reliable</span> web applications
 			</h1>
 			<p className="text-lg sm:text-xl lg:text-2xl max-w-2xl text-neutral-400 contrast-more:text-neutral-300 text-center text-balance">
-				Hi! I am Sokhuong; A software engineer and a technical writer wannabe 😄
+				Hi! I&apos;m Sokhuong; a software engineer and a technical writer
+				wannabe 😄
 			</p>
 			<div className="flex gap-4">
 				<Button size={"lg"} asChild className="focus:underline">
