@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/hero/hero-section";
-import { ValueCard } from "@/components/value/value-card";
 import { ValueSection } from "@/components/value/value-section";
 import { getTranslations } from "next-intl/server";
 
