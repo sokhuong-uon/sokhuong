@@ -1,7 +1,6 @@
-import { DnaIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export function Menu() {
 	return (
@@ -24,7 +23,7 @@ export function Menu() {
 						size={"lg"}
 						className="px-2 sm:px-4 focus-within:underline"
 					>
-						<Link href="/about">About</Link>
+						<Link href="/sketch">Sketch</Link>
 					</Button>
 				</li>
 				<li>
@@ -34,7 +33,7 @@ export function Menu() {
 						size={"lg"}
 						className="px-2 sm:px-4 focus-within:underline"
 					>
-						<Link href="/sketch">Sketch</Link>
+						<Link href="/about">About</Link>
 					</Button>
 				</li>
 			</ul>
