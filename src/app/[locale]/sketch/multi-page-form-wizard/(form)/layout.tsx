@@ -18,7 +18,7 @@ export default function SignUpLayout({ children }: PropsWithChildren) {
 	return (
 		<SignUpStepProvider initialStep={getSignUpStepBasedOnPath(pathname)}>
 			<SignUpFormProvider>
-				<div className="flex h-fit w-full items-center justify-center">
+				<div className="flex h-fit w-full items-center justify-center flex-1">
 					<div className="container relative flex flex-col items-center justify-center gap-12 py-8">
 						<StepIndicator />
 						<div className="mx-auto w-full max-w-lg">

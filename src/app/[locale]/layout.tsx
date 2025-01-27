@@ -31,7 +31,9 @@ export default async function RootLayout({
 			className="relative h-dvh"
 			style={{ backgroundColor: "black" }}
 		>
-			<body className={`${notoSans.className} w-full h-full dark:bg-black`}>
+			<body
+				className={`${notoSans.className} w-full h-full dark:bg-black flex flex-col`}
+			>
 				<NextIntlClientProvider messages={messages}>
 					<ThemeProvider
 						attribute="class"
@@ -44,7 +46,7 @@ export default async function RootLayout({
 							<Menu />
 						</header>
 						{children}
-						<footer className="container">
+						<footer className="container mt-auto">
 							<FooterMenu />
 						</footer>
 					</ThemeProvider>
