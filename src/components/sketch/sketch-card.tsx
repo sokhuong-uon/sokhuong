@@ -3,19 +3,21 @@ import { Card, CardContent, CardHeader } from "../ui/card";
 
 type SketchCardProps = PropsWithChildren<{
 	title: string;
-	description: string;
+	description?: string;
 }>;
 
 export function SketchCard({ title, description, children }: SketchCardProps) {
 	return (
 		<Card className="w-full h-64 md:h-80">
 			<CardHeader>
-				<h2 id="sketch-title" className="text-xl font-medium">
+				<h2 id="sketch-title" className="text-xl">
 					{title}
 				</h2>
-				<p className="text-neutral-400 contrast-more:text-neutral-300">
-					{description}
-				</p>
+				{description && (
+					<p className="text-neutral-400 contrast-more:text-neutral-300">
+						{description}
+					</p>
+				)}
 			</CardHeader>
 			<CardContent>{children}</CardContent>
 		</Card>
