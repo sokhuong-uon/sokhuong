@@ -16,7 +16,7 @@ export default async function Sketch() {
 	return (
 		<main id="main" className="flex items-center justify-center w-full">
 			<ul
-				className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 border w-full container py-16"
+				className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 w-full container py-16"
 				aria-label="Sketches -- A list of things that I built for learning purpose."
 			>
 				{sketches.map(({ title, description }) => (
