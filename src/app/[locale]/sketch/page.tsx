@@ -1,11 +1,7 @@
-import { ModeToggle } from "@/components/darkmode-switcher";
 import { SketchCard } from "@/components/sketch/sketch-card";
-import { Button } from "@/components/ui/button";
-import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 export default async function Sketch() {
-	const t = await getTranslations("Home");
 	const sketches = [
 		{
 			title: "Multi-page form",
