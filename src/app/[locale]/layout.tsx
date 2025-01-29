@@ -32,7 +32,7 @@ export default async function RootLayout({
 			style={{ backgroundColor: "black" }}
 		>
 			<body
-				className={`${notoSans.className} w-full h-full dark:bg-black flex flex-col`}
+				className={`${notoSans.className} min-h-full dark:bg-black flex flex-col`}
 			>
 				<NextIntlClientProvider messages={messages}>
 					<ThemeProvider
