@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Noto_Sans_Khmer } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { SkipToMainContent } from "@/components/nav/skip-to-main-content";
 import { Menu } from "@/components/nav/menu";
 import FooterMenu from "@/components/footer/footer-menu";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { ThemeWrapper } from "@/features/theme/components/theme-wrapper";
 
 const notoSans = Noto_Sans_Khmer({ subsets: ["latin"] });
 
@@ -35,21 +36,23 @@ export default async function RootLayout({
 				className={`${notoSans.className} min-h-full dark:bg-black flex flex-col`}
 			>
 				<NextIntlClientProvider messages={messages}>
-					<ThemeProvider
+					<NextThemesProvider
 						attribute="class"
 						defaultTheme="system"
 						enableSystem
 						disableTransitionOnChange
 					>
-						<SkipToMainContent />
-						<header>
-							<Menu />
-						</header>
-						{children}
-						<footer className="container mt-auto">
-							<FooterMenu />
-						</footer>
-					</ThemeProvider>
+						<ThemeWrapper>
+							<SkipToMainContent />
+							<header>
+								<Menu />
+							</header>
+							{children}
+							<footer className="container mt-auto">
+								<FooterMenu />
+							</footer>
+						</ThemeWrapper>
+					</NextThemesProvider>
 				</NextIntlClientProvider>
 			</body>
 		</html>
