@@ -33,7 +33,7 @@ export default async function RootLayout({
 			style={{ backgroundColor: "black" }}
 		>
 			<body
-				className={`${notoSans.className} min-h-full dark:bg-black flex flex-col`}
+				className={`${notoSans.className} min-h-full relative flex flex-col`}
 			>
 				<NextIntlClientProvider messages={messages}>
 					<NextThemesProvider
@@ -42,7 +42,7 @@ export default async function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						<ThemeWrapper>
+						<ThemeWrapper className="flex flex-col flex-1">
 							<SkipToMainContent />
 							<header>
 								<Menu />
