@@ -23,7 +23,9 @@ export function Menu() {
 						size={"lg"}
 						className="px-2 sm:px-4 focus-within:underline"
 					>
-						<Link href="/sketch">Sketch</Link>
+						<Link prefetch href="/sketch">
+							Sketch
+						</Link>
 					</Button>
 				</li>
 				<li>
@@ -33,7 +35,9 @@ export function Menu() {
 						size={"lg"}
 						className="px-2 sm:px-4 focus-within:underline"
 					>
-						<Link href="/about">About</Link>
+						<Link prefetch href="/about">
+							About
+						</Link>
 					</Button>
 				</li>
 			</ul>

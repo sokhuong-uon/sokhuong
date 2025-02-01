@@ -18,7 +18,7 @@ export default async function Sketch() {
 			>
 				{sketches.map(({ title, description, href }) => (
 					<li key={title} aria-labelledby="sketch-title">
-						<Link href={href}>
+						<Link prefetch href={href}>
 							<SketchCard title={title} description={description}></SketchCard>
 						</Link>
 					</li>

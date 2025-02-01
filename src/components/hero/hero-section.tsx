@@ -18,10 +18,14 @@ export function HeroSection() {
 			</p>
 			<div className="flex gap-4">
 				<Button size={"lg"} asChild className="">
-					<Link href="/sketch">My sketches</Link>
+					<Link prefetch href="/sketch">
+						My sketches
+					</Link>
 				</Button>
 				<Button size={"lg"} variant={"outline"} asChild>
-					<Link href="/about#contact">Let&apos;s talk</Link>
+					<Link prefetch href="/about#contact">
+						Let&apos;s talk
+					</Link>
 				</Button>
 			</div>
 		</div>

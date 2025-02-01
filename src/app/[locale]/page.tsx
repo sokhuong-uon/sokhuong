@@ -5,7 +5,6 @@ import "./themes.css";
 import { ThemeColorCustomizer } from "@/features/theme/components/theme-color-customizer";
 import { ThemeRadiusCustomizer } from "@/features/theme/components/theme-radius-customizer";
 import { ThemeModeCustomizer } from "@/features/theme/components/theme-mode-customizer";
-import { ThemeWrapper } from "@/features/theme/components/theme-wrapper";
 
 export default function Home() {
 	return (
