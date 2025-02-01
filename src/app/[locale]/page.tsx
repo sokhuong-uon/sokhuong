@@ -3,19 +3,7 @@ import { ValueSection } from "@/components/value/value-section";
 
 import { ThemeRadiusCustomizer } from "@/features/theme/components/theme-radius-customizer";
 import { ThemeModeCustomizer } from "@/features/theme/components/theme-mode-customizer";
-
-import dynamic from "next/dynamic";
-import { ThemeColorCustomizerSkeleton } from "@/features/theme/components/theme-color-customizer-skeleton";
-
-const DynamicThemeColorCustomizer = dynamic(
-	() =>
-		import("@/features/theme/components/theme-color-customizer").then(
-			(mod) => mod.ThemeColorCustomizer
-		),
-	{
-		loading: () => <ThemeColorCustomizerSkeleton />,
-	}
-);
+import { ThemeColorCustomizer } from "@/features/theme/components/theme-color-customizer";
 
 export default function Home() {
 	return (
@@ -27,7 +15,7 @@ export default function Home() {
 			<div className="flex flex-col space-y-6">
 				<ThemeModeCustomizer className="container" />
 				<ThemeRadiusCustomizer className="container" />
-				<DynamicThemeColorCustomizer className="container" />
+				<ThemeColorCustomizer className="container" />
 			</div>
 			<ValueSection />
 		</main>
