@@ -2,13 +2,11 @@
 
 import { useTheme } from "next-themes";
 import { useThemeStore } from "@/features/theme/store/use-theme-store";
-import { themes } from "@/features/theme/utils/themes";
+import { Theme, themes } from "@/features/theme/utils/themes";
 import { CheckIcon } from "@radix-ui/react-icons";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-
-import "@/app/[locale]/themes.css";
 
 export function ThemeColorCustomizer({ className }: { className?: string }) {
 	const currentTheme = useThemeStore((state) => state.theme);
@@ -19,7 +17,10 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 	return (
 		<RadioGroup
 			defaultValue={currentTheme}
-			onValueChange={setTheme}
+			onValueChange={async (theme) => {
+				setTheme(theme as Theme["name"]);
+				await import(`@/assets/css/themes/${theme}.css`);
+			}}
 			className={cn("flex justify-center gap-2", className)}
 		>
 			{themes.map((theme) => {
