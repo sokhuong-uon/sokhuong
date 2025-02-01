@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
+import "@/app/[locale]/themes.css";
+
 export function ThemeColorCustomizer({ className }: { className?: string }) {
 	const currentTheme = useThemeStore((state) => state.theme);
 	const setTheme = useThemeStore((state) => state.setTheme);
