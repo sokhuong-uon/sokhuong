@@ -18,8 +18,8 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 		<RadioGroup
 			defaultValue={currentTheme}
 			onValueChange={async (theme) => {
-				setTheme(theme as Theme["name"]);
 				await import(`@/assets/css/themes/${theme}.css`);
+				setTheme(theme as Theme["name"]);
 			}}
 			className={cn("flex justify-center gap-2", className)}
 		>
