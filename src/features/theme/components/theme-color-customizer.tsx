@@ -18,18 +18,35 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 
 	const { resolvedTheme: mode } = useTheme();
 
+	const onThemeChange = async (theme: Theme["name"]) => {
+		setNewTheme(theme);
+
+		setIsLoadingNewTheme(true);
+		await Promise.all([
+			// @ts-ignore
+			import(`@/assets/css/themes/blue.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/green.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/orange.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/rose.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/violet.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/yellow.css`),
+			// @ts-ignore
+			import(`@/assets/css/themes/zinc.css`),
+		]);
+		setIsLoadingNewTheme(false);
+
+		setTheme(theme);
+	};
+
 	return (
 		<RadioGroup
 			defaultValue={currentTheme}
-			onValueChange={async (theme) => {
-				setNewTheme(theme as Theme["name"]);
-
-				setIsLoadingNewTheme(true);
-				await import(`@/assets/css/themes/${theme}.css`);
-				setIsLoadingNewTheme(false);
-
-				setTheme(theme as Theme["name"]);
-			}}
+			onValueChange={onThemeChange}
 			className={cn("flex justify-center gap-2", className)}
 		>
 			{themes.map((theme) => {
