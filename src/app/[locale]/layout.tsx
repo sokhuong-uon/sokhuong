@@ -4,7 +4,7 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { SkipToMainContent } from "@/components/nav/skip-to-main-content";
-import { Menu } from "@/components/nav/menu";
+import { Navbar } from "@/components/nav/menu";
 import FooterMenu from "@/components/footer/footer-menu";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeWrapper } from "@/features/theme/components/theme-wrapper";
@@ -45,7 +45,7 @@ export default async function RootLayout({
 						<ThemeWrapper className="flex flex-col flex-1">
 							<SkipToMainContent />
 							<header>
-								<Menu />
+								<Navbar />
 							</header>
 							{children}
 							<footer className="container mt-auto">
