@@ -15,6 +15,6 @@ export const useThemeStore = create<ThemeStore>()((set) => ({
 	theme: "zinc",
 	setTheme: (theme) => set({ theme }),
 
-	radius: 0.5,
+	radius: 0,
 	setRadius: (radius) => set({ radius }),
 }));

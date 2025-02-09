@@ -21,7 +21,7 @@ export function ThemeWrapper({
 			className={cn(`theme-${defaultTheme || theme}`, "w-full", className)}
 			style={
 				{
-					"--radius": `${defaultTheme ? 0.5 : radius}rem`,
+					"--radius": `${defaultTheme ? 0 : radius}rem`,
 				} as React.CSSProperties
 			}
 		>
