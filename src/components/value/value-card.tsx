@@ -11,9 +11,7 @@ export function ValueCard({ title, description, children }: ValueCardProps) {
 		<Card className="w-full h-64 md:h-80">
 			<CardHeader>
 				<h2 className="text-xl font-medium">{title}</h2>
-				<p className="text-neutral-400 contrast-more:text-neutral-300">
-					{description}
-				</p>
+				<p className="text-muted-foreground">{description}</p>
 			</CardHeader>
 			<CardContent>{children}</CardContent>
 		</Card>
