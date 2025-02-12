@@ -5,9 +5,9 @@ export function ValueSection() {
 		<section className="container py-24 ">
 			<ul
 				aria-label="values"
-				className="grid gap-8 grid-cols-1 lg:grid-cols-2 items-center justify-center"
+				className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-center justify-center gap-4"
 			>
-				<li>
+				<li className="col-span-1 md:col-span-2">
 					<ValueCard
 						title="Performance"
 						description="Only compute the things that need to be done."
@@ -15,7 +15,7 @@ export function ValueSection() {
 				</li>
 				<li>
 					<ValueCard
-						title="Accessible"
+						title="Accessibility"
 						description="When we try to make it accessible to everyone, it ended up being accessible to most people."
 					></ValueCard>
 				</li>
@@ -27,7 +27,7 @@ export function ValueSection() {
 				</li>
 				<li>
 					<ValueCard
-						title="Secure"
+						title="Security"
 						description="Build trust and enhance digital privacy."
 					></ValueCard>
 				</li>
@@ -39,19 +39,13 @@ export function ValueSection() {
 				</li>
 				<li>
 					<ValueCard
-						title="Engaging"
-						description="Bring more attention to the content."
+						title="Documentation"
+						description="Provide clear guidelines for usage and maintenance"
 					></ValueCard>
 				</li>
 				<li>
 					<ValueCard
-						title="Customize"
-						description="Make it our own."
-					></ValueCard>
-				</li>
-				<li>
-					<ValueCard
-						title="Maintainable"
+						title="Maintainability"
 						description="Keep the number of WTFs/minute as close to 0."
 					></ValueCard>
 				</li>
