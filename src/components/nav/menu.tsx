@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export function Navbar() {
 	return (
-		<nav className="w-full px-4 py-4  backdrop-blur-md flex shadow-sm">
+		<nav className="w-full px-4 py-4  backdrop-blur-md flex shadow-sm dark:bg-black/40 bg-white/40">
 			<ul aria-label="menu" className="flex gap-4 w-full">
 				<li className="mr-auto">
 					<Button
