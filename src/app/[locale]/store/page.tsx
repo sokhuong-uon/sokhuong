@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,6 +22,17 @@ import {
 	PaginationNext,
 	PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Canvas, Color } from "@react-three/fiber";
+import {
+	CameraShake,
+	Environment,
+	OrbitControls,
+	PerspectiveCamera,
+	PivotControls,
+	View,
+} from "@react-three/drei";
+import { Apple, Candy, Duck, Flash, Soda } from "./model";
+import { ColorRepresentation } from "three";
 
 const models = [
 	{
@@ -30,6 +41,21 @@ const models = [
 		category: "Vehicles",
 		price: 29.99,
 		image: "/placeholder.svg?height=200&width=200",
+		scene: (
+			<View className="h-full">
+				<Common color="lightpink" />
+				<PivotControls
+					lineWidth={3}
+					depthTest={false}
+					// @ts-ignore
+					displayValues={false}
+					scale={2}
+				>
+					<Soda scale={6} position={[0, -1.6, 0]} />
+				</PivotControls>
+				<OrbitControls makeDefault />
+			</View>
+		),
 	},
 	{
 		id: 2,
@@ -37,6 +63,13 @@ const models = [
 		category: "Architecture",
 		price: 39.99,
 		image: "/placeholder.svg?height=200&width=200",
+		scene: (
+			<View className="view scale h-full">
+				<Common color="lightblue" />
+				<Apple position={[0, -1, 0]} scale={14} />
+				<OrbitControls makeDefault />
+			</View>
+		),
 	},
 	{
 		id: 3,
@@ -44,6 +77,13 @@ const models = [
 		category: "Props",
 		price: 19.99,
 		image: "/placeholder.svg?height=200&width=200",
+		scene: (
+			<View className="h-full">
+				<Common color="lightgreen" />
+				<Duck scale={2} position={[0, -1.6, 0]} />
+				<CameraShake intensity={2} />
+			</View>
+		),
 	},
 	{
 		id: 4,
@@ -51,6 +91,12 @@ const models = [
 		category: "Characters",
 		price: 49.99,
 		image: "/placeholder.svg?height=200&width=200",
+		scene: (
+			<View className="h-full">
+				<Common color="peachpuff" />
+				<Candy scale={3} />
+			</View>
+		),
 	},
 	{
 		id: 5,
@@ -58,56 +104,62 @@ const models = [
 		category: "Architecture",
 		price: 59.99,
 		image: "/placeholder.svg?height=200&width=200",
+		scene: (
+			<View className="h-full">
+				<Common color="orange" />
+				<Flash scale={3} />
+			</View>
+		),
 	},
-	{
-		id: 6,
-		name: "Alien Plant",
-		category: "Nature",
-		price: 14.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 7,
-		name: "Steampunk Gadget",
-		category: "Props",
-		price: 24.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 8,
-		name: "Underwater Creature",
-		category: "Characters",
-		price: 34.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 9,
-		name: "Futuristic Skyscraper",
-		category: "Architecture",
-		price: 69.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 10,
-		name: "Vintage Airplane",
-		category: "Vehicles",
-		price: 44.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 11,
-		name: "Magical Staff",
-		category: "Props",
-		price: 29.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
-	{
-		id: 12,
-		name: "Alien Landscape",
-		category: "Nature",
-		price: 54.99,
-		image: "/placeholder.svg?height=200&width=200",
-	},
+	// {
+	// 	id: 6,
+	// 	name: "Alien Plant",
+	// 	category: "Nature",
+	// 	price: 14.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 7,
+	// 	name: "Steampunk Gadget",
+	// 	category: "Props",
+	// 	price: 24.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 8,
+	// 	name: "Underwater Creature",
+	// 	category: "Characters",
+	// 	price: 34.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 9,
+	// 	name: "Futuristic Skyscraper",
+	// 	category: "Architecture",
+	// 	price: 69.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 10,
+	// 	name: "Vintage Airplane",
+	// 	category: "Vehicles",
+	// 	price: 44.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 11,
+	// 	name: "Magical Staff",
+	// 	category: "Props",
+	// 	price: 29.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
+	// {
+	// 	id: 12,
+	// 	name: "Alien Landscape",
+	// 	category: "Nature",
+	// 	price: 54.99,
+	// 	image: "/placeholder.svg?height=200&width=200",
+	// },
 ];
 
 const ITEMS_PER_PAGE = 6;
@@ -134,8 +186,13 @@ export default function Store() {
 		window.scrollTo(0, 0);
 	};
 
+	const container = useRef<HTMLElement>(null);
+
 	return (
-		<main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+		<main
+			className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+			ref={container}
+		>
 			<h1 className="text-4xl font-bold mb-12 text-center">3D Model Store</h1>
 
 			<div className="flex flex-col md:flex-row gap-4 mb-12">
@@ -178,11 +235,31 @@ export default function Store() {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+			<div
+				className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12 relative"
+				id="3d-product-list"
+			>
+				<Canvas
+					style={{
+						position: "fixed",
+						top: 0,
+						bottom: 0,
+						left: 0,
+						right: 0,
+						overflow: "hidden",
+					}}
+					// @ts-ignore
+					eventSource={container}
+					className="border"
+				>
+					<View.Port />
+				</Canvas>
 				{paginatedModels.map((model) => (
 					<Card key={model.id} className="flex flex-col">
 						<CardContent className="p-6">
-							<div className="w-full h-48 object-cover rounded-md mb-6"></div>
+							<div className="w-full h-48 object-cover rounded-md mb-6 relative">
+								{model.scene}
+							</div>
 							<CardTitle className="text-lg mb-3">{model.name}</CardTitle>
 							<Badge>{model.category}</Badge>
 						</CardContent>
@@ -237,5 +314,28 @@ export default function Store() {
 				</Pagination>
 			)}
 		</main>
+	);
+}
+
+function Sphere() {
+	return (
+		<mesh>
+			<sphereGeometry args={[1, 32, 32]} />
+			<meshStandardMaterial color="hotpink" />
+		</mesh>
+	);
+}
+
+// @ts-ignore
+function Common({ color }) {
+	return (
+		<>
+			{color && <color attach="background" args={[color]} />}
+			<ambientLight intensity={0.5} />
+			<pointLight position={[20, 30, 10]} intensity={1} />
+			<pointLight position={[-10, -10, -10]} color="blue" />
+			<Environment preset="dawn" />
+			<PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+		</>
 	);
 }
