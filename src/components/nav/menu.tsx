@@ -23,6 +23,18 @@ export function Navbar() {
 						size={"lg"}
 						className="px-2 sm:px-4 focus-within:underline"
 					>
+						<Link prefetch href="/store">
+							Store
+						</Link>
+					</Button>
+				</li>
+				<li>
+					<Button
+						asChild
+						variant={"link"}
+						size={"lg"}
+						className="px-2 sm:px-4 focus-within:underline"
+					>
 						<Link prefetch href="/sketch">
 							Sketch
 						</Link>
