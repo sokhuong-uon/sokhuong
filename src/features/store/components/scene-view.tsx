@@ -4,6 +4,7 @@ import {
 	EnvironmentProps,
 	ViewProps,
 	PerspectiveCamera,
+	OrbitControls,
 } from "@react-three/drei";
 import { PropsWithChildren } from "react";
 
@@ -42,6 +43,8 @@ export function SceneView({
 			<pointLight position={[-10, -10, -10]} color="blue" />
 
 			<PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+
+			<OrbitControls makeDefault />
 
 			{children}
 		</View>

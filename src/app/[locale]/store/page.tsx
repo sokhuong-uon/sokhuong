@@ -27,66 +27,40 @@ const models = [
 		name: "Futuristic Car",
 		category: "Vehicles",
 		price: 29.99,
-		scene: (
-			<SceneView backgroundColor="hotpink" environment>
-				<PivotControls
-					lineWidth={3}
-					depthTest={false}
-					// @ts-ignore
-					displayValues={false}
-					scale={2}
-				>
-					<Soda scale={6} position={[0, -1.6, 0]} />
-				</PivotControls>
-				<OrbitControls makeDefault />
-			</SceneView>
-		),
+		scene: {
+			backgroundColor: "hotpink",
+			environment: true,
+			models: [
+				{
+					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/soda-bottle/model.gltf",
+					scale: 6,
+					position: [0, 0, 0] as [number, number, number],
+				},
+				{
+					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/duck/model.gltf",
+					scale: 1,
+					position: [0, 0, 0.5] as [number, number, number],
+				},
+			],
+		},
 	},
 	{
 		id: 2,
 		name: "Ancient Temple",
 		category: "Architecture",
 		price: 39.99,
-		scene: (
-			<SceneView backgroundColor="lightblue" environment>
-				<Apple position={[0, -1, 0]} scale={14} />
-				<OrbitControls makeDefault />
-			</SceneView>
-		),
-	},
-	{
-		id: 3,
-		name: "Sci-Fi Weapon",
-		category: "Props",
-		price: 19.99,
-		scene: (
-			<SceneView backgroundColor="lightgreen" environment>
-				<Duck scale={2} position={[0, -1.6, 0]} />
-				<CameraShake intensity={2} />
-			</SceneView>
-		),
-	},
-	{
-		id: 4,
-		name: "Fantasy Character",
-		category: "Characters",
-		price: 49.99,
-		scene: (
-			<SceneView backgroundColor="peachpuff" environment>
-				<Candy scale={3} />
-			</SceneView>
-		),
-	},
-	{
-		id: 5,
-		name: "Modern City Block",
-		category: "Architecture",
-		price: 59.99,
-		scene: (
-			<SceneView backgroundColor="orange" environment>
-				<Flash scale={3} />
-			</SceneView>
-		),
+
+		scene: {
+			backgroundColor: "lightblue",
+			environment: true,
+			models: [
+				{
+					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/apple-half/model.gltf",
+					scale: 14,
+					position: [0, -1, 0] as [number, number, number],
+				},
+			],
+		},
 	},
 ];
 

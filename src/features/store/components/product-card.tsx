@@ -1,7 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
-import { ReactNode } from "react";
+import * as THREE from "three";
+import { SceneView } from "./scene-view";
+import { Gltf } from "@react-three/drei";
 
 type ProductCardProps = {
 	model: {
@@ -9,7 +11,16 @@ type ProductCardProps = {
 		name: string;
 		category: string;
 		price: number;
-		scene: ReactNode;
+
+		scene: {
+			backgroundColor: THREE.ColorRepresentation;
+			environment: boolean;
+			models: {
+				url: string;
+				scale: number;
+				position: [number, number, number];
+			}[];
+		};
 	};
 };
 
@@ -18,7 +29,19 @@ export function ProductCard({ model }: ProductCardProps) {
 		<Card key={model.id} className="flex flex-col">
 			<CardContent className="p-6">
 				<div className="w-full h-48 object-cover rounded-md mb-6 relative">
-					{model.scene}
+					<SceneView
+						backgroundColor={model.scene.backgroundColor}
+						environment={model.scene.environment}
+					>
+						{model.scene.models.map((sceneModel) => (
+							<Gltf
+								key={sceneModel.url}
+								src={sceneModel.url}
+								position={sceneModel.position}
+								scale={sceneModel.scale}
+							></Gltf>
+						))}
+					</SceneView>
 				</div>
 				<CardTitle className="text-lg mb-3">{model.name}</CardTitle>
 				<Badge>{model.category}</Badge>
