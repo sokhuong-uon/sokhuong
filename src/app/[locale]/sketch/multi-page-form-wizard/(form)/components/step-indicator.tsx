@@ -1,7 +1,7 @@
-"use client";
+'use client'
 
-import { usePathname } from "next/navigation";
-import { PropsWithChildren } from "react";
+import { usePathname } from 'next/navigation'
+import { PropsWithChildren } from 'react'
 
 export function StepIndicator() {
 	return (
@@ -16,24 +16,24 @@ export function StepIndicator() {
 				3
 			</StepIndicatorItem>
 		</ul>
-	);
+	)
 }
 
 function StepIndicatorItem({
 	href,
 	children,
 }: PropsWithChildren<{ href: string }>) {
-	const pathname = usePathname();
+	const pathname = usePathname()
 
 	return (
 		<li
 			className={` ${
 				pathname === href
-					? "bg-blue-500 font-bold text-white"
-					: "text-neutral-500"
+					? 'bg-blue-500 font-bold text-white'
+					: 'text-neutral-500'
 			} pointer-events-none flex h-10 w-10 items-center justify-center rounded-full ring-1`}
 		>
 			{children}
 		</li>
-	);
+	)
 }

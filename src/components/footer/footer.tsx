@@ -1,25 +1,27 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ComponentProps } from "react";
-import { cn } from "@/lib/utils";
-import { ComponentIcon, DraftingCompassIcon } from "lucide-react";
+import Link from 'next/link'
+import { ComponentProps } from 'react'
 
-export function Footer({ className, ...props }: ComponentProps<"footer">) {
+import { ComponentIcon, DraftingCompassIcon } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+export function Footer({ className, ...props }: ComponentProps<'footer'>) {
 	return (
 		<footer {...props} className={cn(className)}>
 			<div className="relative col-span-3 h-full py-20">
-				<div className="w-full h-full p-16 pt-10 md:px-10">
-					<div className="flex flex-col items-center justify-center w-full h-full gap-3">
+				<div className="h-full w-full p-16 pt-10 md:px-10">
+					<div className="flex h-full w-full flex-col items-center justify-center gap-3">
 						<div className="flex items-center gap-2">
-							<ComponentIcon className="w-4 h-4" />
+							<ComponentIcon className="h-4 w-4" />
 							<p className="text-gray-600 dark:text-gray-400">
 								Pick the right tech
 							</p>
 						</div>
-						<p className="mt-4 text-xl max-w-md sm:text-4xl font-normal tracking-tighter text-center">
+						<p className="mt-4 max-w-md text-center text-xl font-normal tracking-tighter sm:text-4xl">
 							<strong>Maintainable code with brilliant tools</strong>
 						</p>
-						<div className="flex mt-[10px] z-20 justify-center items-start">
+						<div className="z-20 mt-[10px] flex items-start justify-center">
 							Next.js, Framer motion, etc.
 						</div>
 						<Button
@@ -36,5 +38,5 @@ export function Footer({ className, ...props }: ComponentProps<"footer">) {
 				</div>
 			</div>
 		</footer>
-	);
+	)
 }

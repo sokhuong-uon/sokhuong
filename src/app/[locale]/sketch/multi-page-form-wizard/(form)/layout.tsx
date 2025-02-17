@@ -1,24 +1,24 @@
-"use client";
+'use client'
 
-import { usePathname } from "next/navigation";
-import { PropsWithChildren } from "react";
+import { usePathname } from 'next/navigation'
+import { PropsWithChildren } from 'react'
 
-import { Card } from "@/components/ui/card";
+import { Card } from '@/components/ui/card'
 
-import { SignUpFormProvider } from "./components/sign-up-form-context";
+import { SignUpFormProvider } from './components/sign-up-form-context'
 import {
 	SignUpStepProvider,
 	getSignUpStepBasedOnPath,
-} from "./components/sign-up-step-context";
-import { StepIndicator } from "./components/step-indicator";
+} from './components/sign-up-step-context'
+import { StepIndicator } from './components/step-indicator'
 
 export default function SignUpLayout({ children }: PropsWithChildren) {
-	const pathname = usePathname();
+	const pathname = usePathname()
 
 	return (
 		<SignUpStepProvider initialStep={getSignUpStepBasedOnPath(pathname)}>
 			<SignUpFormProvider>
-				<div className="flex h-fit w-full items-center justify-center flex-1">
+				<div className="flex h-fit w-full flex-1 items-center justify-center">
 					<div className="container relative flex flex-col items-center justify-center gap-12 py-8">
 						<StepIndicator />
 						<div className="mx-auto w-full max-w-lg">
@@ -28,5 +28,5 @@ export default function SignUpLayout({ children }: PropsWithChildren) {
 				</div>
 			</SignUpFormProvider>
 		</SignUpStepProvider>
-	);
+	)
 }

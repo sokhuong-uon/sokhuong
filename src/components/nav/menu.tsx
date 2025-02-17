@@ -1,17 +1,17 @@
-import Link from "next/link";
-import React from "react";
-import { Button } from "@/components/ui/button";
+import Link from 'next/link'
+
+import { Button } from '@/components/ui/button'
 
 export function Navbar() {
 	return (
-		<nav className="w-full px-4 py-4  backdrop-blur-md flex shadow-sm dark:bg-black/40 bg-white/40">
-			<ul aria-label="menu" className="flex gap-4 w-full">
+		<nav className="flex w-full bg-white/40 px-4 py-4 shadow-sm backdrop-blur-md dark:bg-black/40">
+			<ul aria-label="menu" className="flex w-full gap-4">
 				<li className="mr-auto">
 					<Button
 						asChild
-						variant={"link"}
-						size={"lg"}
-						className="px-2 sm:px-4 focus-within:underline"
+						variant={'link'}
+						size={'lg'}
+						className="px-2 focus-within:underline sm:px-4"
 					>
 						<Link href="/">Home</Link>
 					</Button>
@@ -19,9 +19,9 @@ export function Navbar() {
 				<li>
 					<Button
 						asChild
-						variant={"link"}
-						size={"lg"}
-						className="px-2 sm:px-4 focus-within:underline"
+						variant={'link'}
+						size={'lg'}
+						className="px-2 focus-within:underline sm:px-4"
 					>
 						<Link prefetch href="/store">
 							Store
@@ -31,9 +31,9 @@ export function Navbar() {
 				<li>
 					<Button
 						asChild
-						variant={"link"}
-						size={"lg"}
-						className="px-2 sm:px-4 focus-within:underline"
+						variant={'link'}
+						size={'lg'}
+						className="px-2 focus-within:underline sm:px-4"
 					>
 						<Link prefetch href="/sketch">
 							Sketch
@@ -43,9 +43,9 @@ export function Navbar() {
 				<li>
 					<Button
 						asChild
-						variant={"link"}
-						size={"lg"}
-						className="px-2 sm:px-4 focus-within:underline"
+						variant={'link'}
+						size={'lg'}
+						className="px-2 focus-within:underline sm:px-4"
 					>
 						<Link prefetch href="/about">
 							About
@@ -54,5 +54,5 @@ export function Navbar() {
 				</li>
 			</ul>
 		</nav>
-	);
+	)
 }

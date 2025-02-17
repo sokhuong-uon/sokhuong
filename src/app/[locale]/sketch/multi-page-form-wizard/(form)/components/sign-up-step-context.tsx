@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
 	Dispatch,
@@ -9,30 +9,30 @@ import {
 	useContext,
 	useRef,
 	useState,
-} from "react";
+} from 'react'
 
 type SignUpStep = {
-	step: number;
-	setStep: Dispatch<SetStateAction<number>>;
-	previousStep: MutableRefObject<number>;
-};
+	step: number
+	setStep: Dispatch<SetStateAction<number>>
+	previousStep: MutableRefObject<number>
+}
 
 export const getSignUpStepBasedOnPath = (pathname: string) => {
-	return pathname.startsWith("/sketch/multi-page-form-wizard/preferences")
+	return pathname.startsWith('/sketch/multi-page-form-wizard/preferences')
 		? 3
-		: pathname.startsWith("/sketch/multi-page-form-wizard/account")
-		? 2
-		: 1;
-};
+		: pathname.startsWith('/sketch/multi-page-form-wizard/account')
+			? 2
+			: 1
+}
 
-export const SignUpContext = createContext<SignUpStep | undefined>(undefined);
+export const SignUpContext = createContext<SignUpStep | undefined>(undefined)
 
 export function SignUpStepProvider({
 	children,
 	initialStep,
 }: PropsWithChildren<{ initialStep: number }>) {
-	const previousStep = useRef<number>(-1);
-	const [step, setStep] = useState(initialStep);
+	const previousStep = useRef<number>(-1)
+	const [step, setStep] = useState(initialStep)
 
 	return (
 		<SignUpContext.Provider
@@ -44,13 +44,13 @@ export function SignUpStepProvider({
 		>
 			{children}
 		</SignUpContext.Provider>
-	);
+	)
 }
 
 export function useSignUpStep() {
-	const context = useContext(SignUpContext);
+	const context = useContext(SignUpContext)
 	if (context === undefined) {
-		throw new Error("useSignUpStep must be used within a SignUpStepProvider");
+		throw new Error('useSignUpStep must be used within a SignUpStepProvider')
 	}
-	return context;
+	return context
 }

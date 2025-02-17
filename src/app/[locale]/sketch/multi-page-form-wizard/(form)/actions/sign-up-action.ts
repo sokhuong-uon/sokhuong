@@ -1,27 +1,27 @@
-"use server";
+'use server'
 
-import { signUpFormSchema } from "@/app/[locale]/sketch/multi-page-form-wizard/(form)/schemas/sign-up-schema";
+import { signUpFormSchema } from '@/app/[locale]/sketch/multi-page-form-wizard/(form)/schemas/sign-up-schema'
 
 interface FormState {
-	error: string | null;
-	success: boolean;
-	fields?: Record<string, string>;
+	error: string | null
+	success: boolean
+	fields?: Record<string, string>
 }
 
 export const registerUser = async (
 	prevState: FormState,
 	formData: FormData
 ) => {
-	const rawFormData = Object.fromEntries(formData);
-	console.log("rawFormData", rawFormData);
+	const rawFormData = Object.fromEntries(formData)
+	console.log('rawFormData', rawFormData)
 
-	const parsedFormData = signUpFormSchema.safeParse(rawFormData);
+	const parsedFormData = signUpFormSchema.safeParse(rawFormData)
 	if (parsedFormData.error) {
 		return {
-			error: "Invalid form data",
+			error: 'Invalid form data',
 			success: false,
 			fields: parsedFormData.data,
-		};
+		}
 	}
 
 	if (parsedFormData.data.phone || parsedFormData.data.address) {
@@ -30,14 +30,14 @@ export const registerUser = async (
 		return {
 			error: null,
 			success: true,
-		};
+		}
 	}
 
 	// do something
-	console.log("User registered successfully", parsedFormData.data);
+	console.log('User registered successfully', parsedFormData.data)
 
 	return {
 		error: null,
 		success: true,
-	};
-};
+	}
+}

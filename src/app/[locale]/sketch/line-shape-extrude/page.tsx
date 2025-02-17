@@ -1,6 +1,6 @@
-import Editor from "./editor";
-import { EditorScene } from "./editor-scene";
-import { ToggleViewMode } from "./toggle-view-mode";
+import Editor from './editor'
+import { EditorScene } from './editor-scene'
+import { ToggleViewMode } from './toggle-view-mode'
 
 export default function ShapeEditor() {
 	return (
@@ -10,5 +10,5 @@ export default function ShapeEditor() {
 				<EditorScene />
 			</Editor>
 		</div>
-	);
+	)
 }

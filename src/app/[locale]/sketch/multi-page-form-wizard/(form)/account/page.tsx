@@ -1,18 +1,18 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { FormEvent } from 'react'
 
-import { useFormContext } from "react-hook-form";
+import { useFormContext } from 'react-hook-form'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card'
 import {
 	FormControl,
 	FormDescription,
@@ -20,32 +20,32 @@ import {
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
-import { NextStepButtonLink } from "../components/next-button";
-import { useSignUpStep } from "../components/sign-up-step-context";
+import { NextStepButtonLink } from '../components/next-button'
+import { useSignUpStep } from '../components/sign-up-step-context'
 import {
 	SignUpFormSchema,
 	requiredAccountDetailsFields,
-} from "../schemas/sign-up-schema";
+} from '../schemas/sign-up-schema'
 
 export default function AccountDetails() {
-	const router = useRouter();
-	const { trigger, control } = useFormContext<SignUpFormSchema>();
-	const signUpStep = useSignUpStep();
+	const router = useRouter()
+	const { trigger, control } = useFormContext<SignUpFormSchema>()
+	const signUpStep = useSignUpStep()
 
 	const handleSubmit = async (event: FormEvent) => {
-		event.preventDefault();
+		event.preventDefault()
 
-		signUpStep.previousStep.current = 2;
+		signUpStep.previousStep.current = 2
 
 		const isAccountDetailsValid = await trigger(requiredAccountDetailsFields, {
 			shouldFocus: true,
-		});
-		if (!isAccountDetailsValid) return;
-		router.push("/sketch/multi-page-form-wizard/preferences");
-	};
+		})
+		if (!isAccountDetailsValid) return
+		router.push('/sketch/multi-page-form-wizard/preferences')
+	}
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -109,5 +109,5 @@ export default function AccountDetails() {
 				</NextStepButtonLink>
 			</CardFooter>
 		</form>
-	);
+	)
 }

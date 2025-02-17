@@ -1,19 +1,21 @@
-"use client";
+'use client'
 
-import { Suspense, useState, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Stage, Environment, Html } from "@react-three/drei";
-import { Button } from "@/components/ui/button";
+import { Suspense } from 'react'
+
+import { Environment, Html, OrbitControls, Stage } from '@react-three/drei'
+import { Canvas } from '@react-three/fiber'
+import { Download, Expand, ShoppingCart } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/components/ui/select";
-import { Expand, Download, ShoppingCart } from "lucide-react";
-import { ProductCard } from "@/features/store/components/product-card";
-import { models } from "@/utils/models";
+} from '@/components/ui/select'
+import { ProductCard } from '@/features/store/components/product-card'
+import { models } from '@/utils/models'
 
 function Model() {
 	return (
@@ -21,13 +23,13 @@ function Model() {
 			<boxGeometry />
 			<meshStandardMaterial color="orange" />
 		</mesh>
-	);
+	)
 }
 
 export default function ProductDetail({ params }: { params: { id: string } }) {
 	return (
 		<div className="container py-8">
-			<div className="relative w-full aspect-video border">
+			<div className="relative aspect-video w-full border">
 				<Canvas shadows dpr={[1, 2]}>
 					<Suspense
 						fallback={
@@ -52,18 +54,18 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 				</Button>
 			</div>
 
-			<div className="container mx-auto px-4 py-6 space-y-8">
-				<div className="grid md:grid-cols-2 gap-6">
+			<div className="container mx-auto space-y-8 px-4 py-6">
+				<div className="grid gap-6 md:grid-cols-2">
 					<div className="space-y-6">
 						<div>
 							<span className="text-3xl font-bold">id: {params.id}</span>
 							<h1 className="text-3xl font-bold">Futuristic Car</h1>
-							<div className="text-2xl font-bold mt-2">$29.99</div>
+							<div className="mt-2 text-2xl font-bold">$29.99</div>
 						</div>
 
 						<div className="flex gap-2">
 							<Button className="flex-1">
-								<ShoppingCart className="h-4 w-4 mr-2" />
+								<ShoppingCart className="mr-2 h-4 w-4" />
 								Add to Cart
 							</Button>
 							<Button variant="outline" size="icon">
@@ -72,7 +74,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 						</div>
 
 						<div>
-							<label className="block text-sm font-medium mb-2">Format</label>
+							<label className="mb-2 block text-sm font-medium">Format</label>
 							<Select defaultValue="glb">
 								<SelectTrigger>
 									<SelectValue placeholder="Select format" />
@@ -88,7 +90,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 
 					<div className="space-y-6">
 						<div>
-							<h3 className="text-sm font-medium mb-2">Specifications</h3>
+							<h3 className="mb-2 text-sm font-medium">Specifications</h3>
 							<div className="grid grid-cols-2 gap-4 text-sm">
 								<div>
 									<div className="text-muted-foreground">Polygons</div>
@@ -110,7 +112,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 						</div>
 
 						<div>
-							<h3 className="text-sm font-medium mb-2">Description</h3>
+							<h3 className="mb-2 text-sm font-medium">Description</h3>
 							<p className="text-sm text-muted-foreground">
 								High-quality 3D model of a futuristic concept car. Perfect for
 								games, architectural visualization, or VR/AR applications.
@@ -121,11 +123,11 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 				</div>
 
 				<div>
-					<div className="flex items-center justify-between mb-4">
+					<div className="mb-4 flex items-center justify-between">
 						<h2 className="text-xl font-bold">Similar Models</h2>
 					</div>
 
-					<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12 relative">
+					<div className="relative mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
 						{models.map((model) => (
 							<ProductCard model={model} key={model.id} />
 						))}
@@ -133,5 +135,5 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }

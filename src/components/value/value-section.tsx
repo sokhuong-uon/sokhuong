@@ -1,11 +1,11 @@
-import { ValueCard } from "./value-card";
+import { ValueCard } from './value-card'
 
 export function ValueSection() {
 	return (
-		<section className="container py-24 ">
+		<section className="container py-24">
 			<ul
 				aria-label="values"
-				className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-center justify-center gap-4"
+				className="grid grid-cols-1 items-center justify-center gap-4 md:grid-cols-2 xl:grid-cols-4"
 			>
 				<li className="col-span-1 md:col-span-2">
 					<ValueCard
@@ -51,5 +51,5 @@ export function ValueSection() {
 				</li>
 			</ul>
 		</section>
-	);
+	)
 }

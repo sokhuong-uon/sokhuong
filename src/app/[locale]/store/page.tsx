@@ -1,29 +1,31 @@
-"use client";
+'use client'
 
-import { useRef } from "react";
-import { Input } from "@/components/ui/input";
+import { useRef } from 'react'
+
+import { Filter, Search } from 'lucide-react'
+
+import { Input } from '@/components/ui/input'
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/components/ui/select";
-import { Search, Filter } from "lucide-react";
-import { ProductCard } from "@/features/store/components/product-card";
-import { models } from "@/utils/models";
+} from '@/components/ui/select'
+import { ProductCard } from '@/features/store/components/product-card'
+import { models } from '@/utils/models'
 
 export default function Store() {
-	const container = useRef<HTMLElement>(null);
+	const container = useRef<HTMLElement>(null)
 
 	return (
 		<main
-			className="container mx-auto px-4 sm:px-6 lg:px-8 py-12"
+			className="container mx-auto px-4 py-12 sm:px-6 lg:px-8"
 			ref={container}
 		>
-			<h1 className="text-4xl font-bold mb-12 text-center">3D Model Store</h1>
+			<h1 className="mb-12 text-center text-4xl font-bold">3D Model Store</h1>
 
-			<div className="flex flex-col md:flex-row gap-4 mb-12">
+			<div className="mb-12 flex flex-col gap-4 md:flex-row">
 				<div className="flex-grow">
 					<div className="relative">
 						<Search className="absolute left-2 top-3 h-4 w-4 text-muted-foreground" />
@@ -52,11 +54,11 @@ export default function Store() {
 				</div>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12 relative">
+			<div className="relative mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
 				{models.map((model) => (
 					<ProductCard model={model} key={model.id} />
 				))}
 			</div>
 		</main>
-	);
+	)
 }
