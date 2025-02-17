@@ -6,8 +6,8 @@ import { getMessages } from 'next-intl/server'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
 import { Footer } from '@/components/footer/footer'
-import { Navbar } from '@/components/nav/menu'
-import { SkipToMainContent } from '@/components/nav/skip-to-main-content'
+import { Navbar } from '@/features/navigation/components/navbar'
+import { SkipToMainContent } from '@/features/navigation/components/skip-to-main-content'
 import { ThemeWrapper } from '@/features/theme/components/theme-wrapper'
 
 import './globals.css'
