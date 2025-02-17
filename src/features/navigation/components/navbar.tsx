@@ -9,6 +9,9 @@ import {
 	Drawer,
 	DrawerClose,
 	DrawerContent,
+	DrawerDescription,
+	DrawerHeader,
+	DrawerTitle,
 	DrawerTrigger,
 } from '@/components/ui/drawer'
 
@@ -24,7 +27,7 @@ export function Navbar() {
 			label: 'Store',
 			path: '/store',
 			icon: <ShoppingCart />,
-			description: '3D model store',
+			description: 'Visit my 3D model store',
 		},
 		{
 			label: 'Sketch',
@@ -77,6 +80,13 @@ export function Navbar() {
 						</DrawerTrigger>
 
 						<DrawerContent>
+							<DrawerHeader>
+								<DrawerTitle>Navigation Menu</DrawerTitle>
+								<DrawerDescription className="sr-only">
+									Navigation Menu for narrow viewport or mobile phone.
+								</DrawerDescription>
+							</DrawerHeader>
+
 							<ul className="max-h-[32rem] space-y-4 overflow-y-auto p-4">
 								{[homeMenu, ...menu].map((item) => (
 									<li key={item.path} className="flex h-24 gap-2">
