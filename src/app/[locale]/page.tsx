@@ -1,8 +1,8 @@
 import { HeroSection } from '@/components/hero/hero-section'
-import { ValueSection } from '@/components/value/value-section'
 import { ThemeColorCustomizer } from '@/features/theme/components/theme-color-customizer'
 import { ThemeModeCustomizer } from '@/features/theme/components/theme-mode-customizer'
 import { ThemeRadiusCustomizer } from '@/features/theme/components/theme-radius-customizer'
+import { ValueList } from '@/features/value/components/value-list'
 
 export default function Home() {
 	return (
@@ -16,7 +16,9 @@ export default function Home() {
 				<ThemeRadiusCustomizer className="container" />
 				<ThemeColorCustomizer className="container" />
 			</div>
-			<ValueSection />
+			<section className="container py-24">
+				<ValueList />
+			</section>
 		</main>
 	)
 }
