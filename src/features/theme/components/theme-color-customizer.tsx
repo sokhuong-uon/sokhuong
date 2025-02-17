@@ -1,85 +1,94 @@
-"use client";
+'use client'
 
-import { useTheme } from "next-themes";
-import { useThemeStore } from "@/features/theme/store/use-theme-store";
-import { Theme, themes } from "@/features/theme/utils/themes";
-import { CheckIcon } from "@radix-ui/react-icons";
-import { Label } from "@/components/ui/label";
-import { cn } from "@/lib/utils";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { LoaderCircle } from "lucide-react";
-import { useState } from "react";
+import { useState } from 'react'
+
+import { CheckIcon } from '@radix-ui/react-icons'
+import { LoaderCircle } from 'lucide-react'
+import { useTheme } from 'next-themes'
+
+import { Label } from '@/components/ui/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { useThemeStore } from '@/features/theme/store/use-theme-store'
+import { Theme, themes } from '@/features/theme/utils/themes'
+import { cn } from '@/lib/utils'
 
 export function ThemeColorCustomizer({ className }: { className?: string }) {
-	const currentTheme = useThemeStore((state) => state.theme);
-	const setTheme = useThemeStore((state) => state.setTheme);
-	const [isLoadingNewTheme, setIsLoadingNewTheme] = useState(false);
-	const [newTheme, setNewTheme] = useState<Theme["name"]>();
+	const currentTheme = useThemeStore((state) => state.theme)
+	const setTheme = useThemeStore((state) => state.setTheme)
+	const [isLoadingNewTheme, setIsLoadingNewTheme] = useState(false)
+	const [newTheme, setNewTheme] = useState<Theme['name']>()
 
-	const { resolvedTheme: mode } = useTheme();
+	const { resolvedTheme: mode } = useTheme()
 
-	const onThemeChange = async (theme: Theme["name"]) => {
-		setNewTheme(theme);
+	const onThemeChange = async (theme: Theme['name']) => {
+		setNewTheme(theme)
 
-		setIsLoadingNewTheme(true);
+		setIsLoadingNewTheme(true)
 		await Promise.all([
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/blue.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/green.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/orange.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/rose.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/violet.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/yellow.css`),
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			import(`@/assets/css/themes/zinc.css`),
-		]);
-		setIsLoadingNewTheme(false);
+		])
+		setIsLoadingNewTheme(false)
 
-		setTheme(theme);
-	};
+		setTheme(theme)
+	}
 
 	return (
 		<RadioGroup
 			defaultValue={currentTheme}
 			onValueChange={onThemeChange}
-			className={cn("flex justify-center gap-2", className)}
+			className={cn('flex justify-center gap-2', className)}
 		>
 			{themes.map((theme) => {
-				const isActive = currentTheme === theme.name;
+				const isActive = currentTheme === theme.name
 
 				return (
 					<div key={theme.name}>
 						<RadioGroupItem
 							value={theme.name}
 							id={theme.name}
-							className="opacity-0 w-0 h-0 absolute"
+							className="absolute h-0 w-0 opacity-0"
 						/>
 						<Label htmlFor={theme.name} className="cursor-pointer">
 							<div
 								style={
 									{
-										"--theme-primary": `hsl(${
-											theme?.activeColor[mode === "dark" ? "dark" : "light"]
+										'--theme-primary': `hsl(${
+											theme?.activeColor[mode === 'dark' ? 'dark' : 'light']
 										})`,
 									} as React.CSSProperties
 								}
 								className={cn(
-									"h-8 w-8 relative rounded-[--radius] antialiased",
-									isActive && "border-2"
+									'relative h-8 w-8 rounded-[--radius] antialiased',
+									isActive && 'border-2'
 								)}
 							>
 								<div
 									className={cn(
-										"bg-[--theme-primary] rounded-[--radius] w-full h-full flex items-center justify-center"
+										'flex h-full w-full items-center justify-center rounded-[--radius] bg-[--theme-primary]'
 									)}
 								>
 									{isLoadingNewTheme && newTheme === theme.name && (
-										<LoaderCircle className="w-5 h-5 animate-spin [animation-duration:1500ms]" />
+										<LoaderCircle className="h-5 w-5 animate-spin [animation-duration:1500ms]" />
 									)}
 									{!isLoadingNewTheme && isActive && (
 										<CheckIcon className="h-5 w-5 text-white" />
@@ -88,8 +97,8 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 							</div>
 						</Label>
 					</div>
-				);
+				)
 			})}
 		</RadioGroup>
-	);
+	)
 }
