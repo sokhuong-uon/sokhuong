@@ -1,15 +1,14 @@
-import { HeroSection } from "@/components/hero/hero-section";
-import { ValueSection } from "@/components/value/value-section";
-
-import { ThemeRadiusCustomizer } from "@/features/theme/components/theme-radius-customizer";
-import { ThemeModeCustomizer } from "@/features/theme/components/theme-mode-customizer";
-import { ThemeColorCustomizer } from "@/features/theme/components/theme-color-customizer";
+import { HeroSection } from '@/components/hero/hero-section'
+import { ValueSection } from '@/components/value/value-section'
+import { ThemeColorCustomizer } from '@/features/theme/components/theme-color-customizer'
+import { ThemeModeCustomizer } from '@/features/theme/components/theme-mode-customizer'
+import { ThemeRadiusCustomizer } from '@/features/theme/components/theme-radius-customizer'
 
 export default function Home() {
 	return (
 		<main
 			id="main"
-			className="flex items-center justify-center w-full flex-col"
+			className="flex w-full flex-col items-center justify-center"
 		>
 			<HeroSection />
 			<div className="flex flex-col space-y-6">
@@ -19,5 +18,5 @@ export default function Home() {
 			</div>
 			<ValueSection />
 		</main>
-	);
+	)
 }

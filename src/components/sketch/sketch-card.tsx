@@ -1,14 +1,15 @@
-import React, { PropsWithChildren } from "react";
-import { Card, CardContent, CardHeader } from "../ui/card";
+import { PropsWithChildren } from 'react'
+
+import { Card, CardContent, CardHeader } from '../ui/card'
 
 type SketchCardProps = PropsWithChildren<{
-	title: string;
-	description?: string;
-}>;
+	title: string
+	description?: string
+}>
 
 export function SketchCard({ title, description, children }: SketchCardProps) {
 	return (
-		<Card className="w-full h-64 md:h-80">
+		<Card className="h-64 w-full md:h-80">
 			<CardHeader>
 				<h2 id="sketch-title" className="text-xl">
 					{title}
@@ -21,5 +22,5 @@ export function SketchCard({ title, description, children }: SketchCardProps) {
 			</CardHeader>
 			<CardContent>{children}</CardContent>
 		</Card>
-	);
+	)
 }

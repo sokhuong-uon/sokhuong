@@ -1,32 +1,32 @@
-"use client";
+'use client'
 
-import { Radius, useThemeStore } from "@/features/theme/store/use-theme-store";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from '@/components/ui/button'
+import { Radius, useThemeStore } from '@/features/theme/store/use-theme-store'
+import { cn } from '@/lib/utils'
 
 export function ThemeRadiusCustomizer({ className }: { className?: string }) {
-	const radius = useThemeStore((state) => state.radius);
-	const setRadius = useThemeStore((state) => state.setRadius);
+	const radius = useThemeStore((state) => state.radius)
+	const setRadius = useThemeStore((state) => state.setRadius)
 
 	return (
-		<div className={cn("flex justify-center gap-2", className)}>
-			{["0", "0.3", "0.5", "0.75", "1.0"].map((value) => {
+		<div className={cn('flex justify-center gap-2', className)}>
+			{['0', '0.3', '0.5', '0.75', '1.0'].map((value) => {
 				return (
 					<Button
-						variant={"outline"}
+						variant={'outline'}
 						size="sm"
 						key={value}
 						onClick={() => {
-							setRadius(parseFloat(value) as Radius);
+							setRadius(parseFloat(value) as Radius)
 						}}
 						className={cn(
-							radius === parseFloat(value) && "border-2 border-primary"
+							radius === parseFloat(value) && 'border-2 border-primary'
 						)}
 					>
 						{value}
 					</Button>
-				);
+				)
 			})}
 		</div>
-	);
+	)
 }

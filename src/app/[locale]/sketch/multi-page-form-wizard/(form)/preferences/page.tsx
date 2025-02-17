@@ -1,117 +1,115 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FormEvent, useEffect } from "react";
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { FormEvent, useEffect } from 'react'
 
-import { useFormState } from "react-dom";
-import { useFormContext } from "react-hook-form";
+import { useFormState } from 'react-dom'
+import { useFormContext } from 'react-hook-form'
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 import {
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card'
 import {
 	FormControl,
 	FormField,
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "@/components/ui/form";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+} from '@/components/ui/form'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import {
 	Select,
 	SelectContent,
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "@/components/ui/select";
+} from '@/components/ui/select'
 
-import { registerUser } from "../actions/sign-up-action";
-import { HoneypotInput } from "../components/honeypot-input";
-import { useSignUpStep } from "../components/sign-up-step-context";
+import { registerUser } from '../actions/sign-up-action'
+import { HoneypotInput } from '../components/honeypot-input'
+import { useSignUpStep } from '../components/sign-up-step-context'
 import {
 	SignUpFormSchema,
 	accountDetailsSchema,
 	personalInfoSchema,
 	requiredPreferencesFields,
-} from "../schemas/sign-up-schema";
+} from '../schemas/sign-up-schema'
 
 export default function Preferences() {
-	const router = useRouter();
-	const { getValues, control, trigger } = useFormContext<SignUpFormSchema>();
-	const signUpStep = useSignUpStep();
+	const router = useRouter()
+	const { getValues, control, trigger } = useFormContext<SignUpFormSchema>()
+	const signUpStep = useSignUpStep()
 
 	const [formState, formAction] = useFormState(registerUser, {
 		error: null,
 		success: false,
-	});
+	})
 
 	useEffect(() => {
 		if (formState.success) {
-			router.push("/sketch/multi-page-form-wizard/success");
+			router.push('/sketch/multi-page-form-wizard/success')
 		}
 		if (formState.error) {
-			alert(`Error: ${formState.error}`);
+			alert(`Error: ${formState.error}`)
 		}
-	}, [formState, router]);
+	}, [formState, router])
 
 	const handleSubmit = async (event: FormEvent) => {
-		event.preventDefault();
+		event.preventDefault()
 
-		signUpStep.previousStep.current = 3;
+		signUpStep.previousStep.current = 3
 
 		const isReferencesFieldsValid = await trigger(requiredPreferencesFields, {
 			shouldFocus: true,
-		});
+		})
 
-		if (!isReferencesFieldsValid) return;
+		if (!isReferencesFieldsValid) return
 
 		if (isReferencesFieldsValid) {
-			const { success: isPersonalInfoValid } = personalInfoSchema.safeParse(
-				getValues()
-			);
+			const { success: isPersonalInfoValid } =
+				personalInfoSchema.safeParse(getValues())
 
-			const { success: isAccountDetailValid } = accountDetailsSchema.safeParse(
-				getValues()
-			);
+			const { success: isAccountDetailValid } =
+				accountDetailsSchema.safeParse(getValues())
 
 			if (!isPersonalInfoValid) {
 				return router.push(
-					"/sketch/multi-page-form-wizard/personal-information"
-				);
+					'/sketch/multi-page-form-wizard/personal-information'
+				)
 			}
 			if (!isAccountDetailValid) {
-				return router.push("/sketch/multi-page-form-wizard/account");
+				return router.push('/sketch/multi-page-form-wizard/account')
 			}
 		}
 
-		console.log("form fields are valid", getValues());
-		const formData = new FormData();
-		const values = getValues();
+		console.log('form fields are valid', getValues())
+		const formData = new FormData()
+		const values = getValues()
 		Object.entries(values).forEach(([key, value]) => {
-			formData.append(key, value);
-		});
-		formAction(formData);
-	};
+			formData.append(key, value)
+		})
+		formAction(formData)
+	}
 
-	const roles: { value: SignUpFormSchema["role"]; label: string }[] = [
-		{ value: "developer", label: "Developer" },
-		{ value: "designer", label: "Designer" },
-		{ value: "manager", label: "Manager" },
-	];
+	const roles: { value: SignUpFormSchema['role']; label: string }[] = [
+		{ value: 'developer', label: 'Developer' },
+		{ value: 'designer', label: 'Designer' },
+		{ value: 'manager', label: 'Manager' },
+	]
 
 	const experiences: {
-		value: SignUpFormSchema["experience"];
-		label: string;
+		value: SignUpFormSchema['experience']
+		label: string
 	}[] = [
-		{ value: "junior", label: "Junior (0-2 years)" },
-		{ value: "mid", label: "Mid-Level (2-5 years)" },
-		{ value: "senior", label: "Senior (5+ years)" },
-	];
+		{ value: 'junior', label: 'Junior (0-2 years)' },
+		{ value: 'mid', label: 'Mid-Level (2-5 years)' },
+		{ value: 'senior', label: 'Senior (5+ years)' },
+	]
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -191,5 +189,5 @@ export default function Preferences() {
 				<Button onClick={handleSubmit}>Submit</Button>
 			</CardFooter>
 		</form>
-	);
+	)
 }

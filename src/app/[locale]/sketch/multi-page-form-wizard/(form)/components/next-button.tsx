@@ -4,13 +4,13 @@ import { PropsWithChildren } from 'react'
 import { Button } from '@/components/ui/button'
 
 export function NextStepButtonLink({
-  children,
-  isDisabled,
-  ...props
+	children,
+	isDisabled,
+	...props
 }: PropsWithChildren<LinkProps<string> & { isDisabled: boolean }>) {
-  return (
-    <Button asChild disabled={isDisabled}>
-      <Link {...props}>{children}</Link>
-    </Button>
-  )
+	return (
+		<Button asChild disabled={isDisabled}>
+			<Link {...props}>{children}</Link>
+		</Button>
+	)
 }

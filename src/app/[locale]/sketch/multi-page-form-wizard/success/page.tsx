@@ -1,7 +1,7 @@
 export default function SuccessPage() {
 	return (
-		<div className="flex h-fit w-dvw items-center justify-center flex-1">
+		<div className="flex h-fit w-dvw flex-1 items-center justify-center">
 			Success 🎉
 		</div>
-	);
+	)
 }

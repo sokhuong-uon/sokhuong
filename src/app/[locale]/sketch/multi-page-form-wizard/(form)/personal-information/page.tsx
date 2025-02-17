@@ -1,62 +1,62 @@
-"use client";
+'use client'
 
-import { useRouter } from "next/navigation";
-import { FormEvent } from "react";
+import { useRouter } from 'next/navigation'
+import { FormEvent } from 'react'
 
-import { useFormContext } from "react-hook-form";
+import { useFormContext } from 'react-hook-form'
 
 import {
 	CardContent,
 	CardFooter,
 	CardHeader,
 	CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card'
 import {
 	FormControl,
 	FormField,
 	FormItem,
 	FormLabel,
 	FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
 
-import { NextStepButtonLink } from "../components/next-button";
-import { useSignUpStep } from "../components/sign-up-step-context";
+import { NextStepButtonLink } from '../components/next-button'
+import { useSignUpStep } from '../components/sign-up-step-context'
 import {
 	PersonalInformationFields,
 	SignUpFormSchema,
 	requiredPersonalInformationFields,
-} from "../schemas/sign-up-schema";
+} from '../schemas/sign-up-schema'
 
 export default function PersonalInformationPage() {
-	const router = useRouter();
-	const form = useFormContext<SignUpFormSchema>();
-	const signUpStep = useSignUpStep();
+	const router = useRouter()
+	const form = useFormContext<SignUpFormSchema>()
+	const signUpStep = useSignUpStep()
 
 	const handleSubmit = async (formEvent: FormEvent) => {
-		formEvent.preventDefault();
+		formEvent.preventDefault()
 
-		signUpStep.previousStep.current = 1;
+		signUpStep.previousStep.current = 1
 
 		const isPersonalInformationValid = await form.trigger(
 			requiredPersonalInformationFields,
 			{
 				shouldFocus: true,
 			}
-		);
+		)
 
-		if (!isPersonalInformationValid) return;
-		router.push("/sketch/multi-page-form-wizard/account");
-	};
+		if (!isPersonalInformationValid) return
+		router.push('/sketch/multi-page-form-wizard/account')
+	}
 
 	const personalInformation: {
-		value: PersonalInformationFields;
-		label: string;
+		value: PersonalInformationFields
+		label: string
 	}[] = [
-		{ value: "givenName", label: "Given Name" },
-		{ value: "surname", label: "Surname" },
-		{ value: "email", label: "Email" },
-	];
+		{ value: 'givenName', label: 'Given Name' },
+		{ value: 'surname', label: 'Surname' },
+		{ value: 'email', label: 'Email' },
+	]
 
 	return (
 		<form onSubmit={handleSubmit}>
@@ -94,5 +94,5 @@ export default function PersonalInformationPage() {
 				</NextStepButtonLink>
 			</CardFooter>
 		</form>
-	);
+	)
 }
