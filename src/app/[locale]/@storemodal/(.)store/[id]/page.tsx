@@ -60,7 +60,7 @@ export default function ProductDetail() {
 						View detail information of the model and choose what to download.
 					</DrawerDescription>
 				</DrawerHeader>
-				<div className="p-4">
+				<div className="max-h-[calc(100dvh-10rem)] overflow-y-auto p-4">
 					<ModelSceneCard />
 					<ModelDetail />
 				</div>
