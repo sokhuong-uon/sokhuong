@@ -31,7 +31,7 @@ export function Navbar() {
 			path: '/sketch',
 			icon: <DraftingCompass />,
 			description:
-				'Components/interactions that I built to learn new technologies',
+				'Building block that I built to learn or showcase technologies',
 		},
 	]
 
