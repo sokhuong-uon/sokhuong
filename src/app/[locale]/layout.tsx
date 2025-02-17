@@ -19,9 +19,11 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
 	children,
+	storemodal,
 	params: { locale },
 }: Readonly<{
 	children: React.ReactNode;
+	storemodal: React.ReactNode;
 	params: { locale: string };
 }>) {
 	const messages = await getMessages();
@@ -49,6 +51,7 @@ export default async function RootLayout({
 								<Navbar />
 							</header>
 
+							{storemodal}
 							{children}
 
 							<Footer className="container mt-auto" />

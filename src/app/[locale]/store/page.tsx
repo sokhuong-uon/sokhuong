@@ -10,59 +10,8 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { Search, Filter } from "lucide-react";
-import { Canvas } from "@react-three/fiber";
-import {
-	CameraShake,
-	OrbitControls,
-	PivotControls,
-	View,
-} from "@react-three/drei";
-import { Apple, Candy, Duck, Flash, Soda } from "./model";
-import { SceneView } from "@/features/store/components/scene-view";
 import { ProductCard } from "@/features/store/components/product-card";
-
-const models = [
-	{
-		id: 1,
-		name: "Futuristic Car",
-		category: "Vehicles",
-		price: 29.99,
-		scene: {
-			backgroundColor: "hotpink",
-			environment: true,
-			models: [
-				{
-					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/soda-bottle/model.gltf",
-					scale: 6,
-					position: [0, 0, 0] as [number, number, number],
-				},
-				{
-					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/duck/model.gltf",
-					scale: 1,
-					position: [0, 0, 0.5] as [number, number, number],
-				},
-			],
-		},
-	},
-	{
-		id: 2,
-		name: "Ancient Temple",
-		category: "Architecture",
-		price: 39.99,
-
-		scene: {
-			backgroundColor: "lightblue",
-			environment: true,
-			models: [
-				{
-					url: "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/apple-half/model.gltf",
-					scale: 14,
-					position: [0, -1, 0] as [number, number, number],
-				},
-			],
-		},
-	},
-];
+import { models } from "@/utils/models";
 
 export default function Store() {
 	const container = useRef<HTMLElement>(null);
@@ -104,22 +53,6 @@ export default function Store() {
 			</div>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12 relative">
-				<Canvas
-					style={{
-						position: "fixed",
-						top: 0,
-						bottom: 0,
-						left: 0,
-						right: 0,
-						overflow: "hidden",
-					}}
-					//@ts-ignore
-					eventSource={container}
-					className="border"
-				>
-					<View.Port />
-				</Canvas>
-
 				{models.map((model) => (
 					<ProductCard model={model} key={model.id} />
 				))}
