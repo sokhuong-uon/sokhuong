@@ -9,7 +9,7 @@ type ValueCardProps = PropsWithChildren<{
 
 export function ValueCard({ title, description, children }: ValueCardProps) {
 	return (
-		<Card className="h-64 w-full md:h-80">
+		<Card className="h-72 w-full md:h-96">
 			<CardHeader>
 				<h2 className="text-xl font-medium">{title}</h2>
 				<p className="text-muted-foreground">{description}</p>

@@ -4,7 +4,7 @@ export function ValueList() {
 	return (
 		<ul
 			aria-label="values"
-			className="grid grid-cols-1 items-center justify-center gap-4 md:grid-cols-2 xl:grid-cols-4"
+			className="grid grid-cols-1 items-center justify-center gap-4 md:grid-cols-2 xl:grid-cols-3"
 		>
 			<li className="col-span-1 md:col-span-2">
 				<ValueCard
@@ -36,7 +36,7 @@ export function ValueList() {
 					description="Increase leads and digital presence."
 				></ValueCard>
 			</li>
-			<li>
+			{/* <li>
 				<ValueCard
 					title="Documentation"
 					description="Provide clear guidelines for usage and maintenance"
@@ -47,7 +47,7 @@ export function ValueList() {
 					title="Maintainability"
 					description="Keep the number of WTFs/minute as close to 0."
 				></ValueCard>
-			</li>
+			</li> */}
 		</ul>
 	)
 }
