@@ -41,7 +41,7 @@ export function Navbar() {
 	return (
 		<nav className="flex w-full bg-white/40 px-4 py-4 uppercase shadow-sm backdrop-blur-md dark:bg-black/40">
 			<ul aria-label="menu" className="flex w-full items-center gap-4">
-				<li>
+				<li className="mr-auto">
 					<Button
 						asChild
 						variant={'link'}
@@ -51,29 +51,28 @@ export function Navbar() {
 						<Link href={homeMenu.path}>{homeMenu.label}</Link>
 					</Button>
 				</li>
-				<div className="ml-auto hidden items-center md:flex">
-					{menu.map((item) => (
-						<li key={item.path}>
-							<Button
-								asChild
-								variant={'link'}
-								size={'lg'}
-								className="px-2 focus-within:underline sm:px-4"
-							>
-								<Link
-									prefetch
-									href={item.path}
-									className="flex items-center justify-center gap-2"
-								>
-									{item.icon}
-									{item.label}
-								</Link>
-							</Button>
-						</li>
-					))}
-				</div>
 
-				<div className="ml-auto flex md:hidden">
+				{menu.map((item) => (
+					<li key={item.path} className="hidden md:flex">
+						<Button
+							asChild
+							variant={'link'}
+							size={'lg'}
+							className="px-2 focus-within:underline sm:px-4"
+						>
+							<Link
+								prefetch
+								href={item.path}
+								className="flex items-center justify-center gap-2"
+							>
+								{item.icon}
+								{item.label}
+							</Link>
+						</Button>
+					</li>
+				))}
+
+				<li className="ml-auto flex md:hidden">
 					<Drawer>
 						<DrawerTrigger className="p-2">
 							<Menu />
@@ -107,7 +106,10 @@ export function Navbar() {
 								))}
 
 								<li>
-									<ul className="flex items-center justify-center gap-2">
+									<ul
+										aria-label="Social media and other external links"
+										className="flex items-center justify-center gap-2"
+									>
 										<li>
 											<Button
 												size="icon"
@@ -143,7 +145,7 @@ export function Navbar() {
 							</ul>
 						</DrawerContent>
 					</Drawer>
-				</div>
+				</li>
 			</ul>
 		</nav>
 	)
