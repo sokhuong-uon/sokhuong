@@ -50,7 +50,7 @@ export default async function RootLayout({
 						<ThemeWrapper className="flex flex-1 flex-col">
 							<SkipToMainContent />
 
-							<header className="sticky top-0 z-40">
+							<header className="sticky top-0 z-40 bg-white/40 dark:bg-black/40">
 								<Navbar />
 							</header>
 

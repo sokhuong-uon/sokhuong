@@ -39,7 +39,7 @@ export function Navbar() {
 	]
 
 	return (
-		<nav className="flex w-full bg-white/40 px-4 py-4 uppercase shadow-sm backdrop-blur-md dark:bg-black/40">
+		<nav className="flex w-full px-4 py-4 uppercase shadow-sm backdrop-blur-md xl:container">
 			<ul aria-label="menu" className="flex w-full items-center gap-4">
 				<li className="mr-auto">
 					<Button
