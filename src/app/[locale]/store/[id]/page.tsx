@@ -1,10 +1,6 @@
 'use client'
 
-import { Suspense } from 'react'
-
-import { Environment, Html, OrbitControls, Stage } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import { Download, Expand, ShoppingCart } from 'lucide-react'
+import { Download, ShoppingCart } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -14,45 +10,14 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
+import { ModelSceneCard } from '@/features/store/components/model-scene-card'
 import { ProductCard } from '@/features/store/components/product-card'
 import { models } from '@/utils/models'
-
-function Model() {
-	return (
-		<mesh position={[0, -1, -1]}>
-			<boxGeometry />
-			<meshStandardMaterial color="orange" />
-		</mesh>
-	)
-}
 
 export default function ProductDetail({ params }: { params: { id: string } }) {
 	return (
 		<div className="container py-8">
-			<div className="relative aspect-video w-full border">
-				<Canvas shadows dpr={[1, 2]}>
-					<Suspense
-						fallback={
-							<Html center>
-								<div className="text-muted-foreground">Loading 3D model...</div>
-							</Html>
-						}
-					>
-						<Stage environment="studio" intensity={0.5}>
-							<Model />
-						</Stage>
-						<OrbitControls makeDefault />
-						<Environment preset="studio" />
-					</Suspense>
-				</Canvas>
-				<Button
-					variant="outline"
-					size="icon"
-					className="absolute bottom-2 right-2 bg-background/50 backdrop-blur-sm"
-				>
-					<Expand className="h-4 w-4" />
-				</Button>
-			</div>
+			<ModelSceneCard />
 
 			<div className="container mx-auto space-y-8 px-4 py-6">
 				<div className="grid gap-6 md:grid-cols-2">

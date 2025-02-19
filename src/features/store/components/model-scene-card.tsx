@@ -1,37 +1,23 @@
-import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 
-import { Environment, Html, OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
 import { Expand } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
-function Model() {
-	return (
-		<mesh position={[0, -1, -1]}>
-			<boxGeometry />
-			<meshStandardMaterial color="orange" />
-		</mesh>
-	)
-}
+const ModelViewer = dynamic(
+	() =>
+		import('@/features/store/components/model-viewer').then(
+			(mod) => mod.ModelViewer
+		),
+	{
+		ssr: false,
+	}
+)
 
 export function ModelSceneCard() {
 	return (
 		<div className="relative aspect-video border">
-			<Canvas shadows dpr={[1, 2]}>
-				<Suspense
-					fallback={
-						<Html center>
-							<div className="text-muted-foreground">Loading 3D model...</div>
-						</Html>
-					}
-				>
-					<Model />
-
-					<OrbitControls makeDefault />
-					<Environment preset="studio" />
-				</Suspense>
-			</Canvas>
+			<ModelViewer />
 
 			<Button
 				variant="outline"
