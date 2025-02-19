@@ -2,13 +2,7 @@ import Link from 'next/link'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-
-type MenuItem = { label: string; path: string; badge?: string }
-
-type Menu = {
-	label: string
-	items: MenuItem[]
-}
+import { Menu, MenuItem } from '@/features/sketch/types/sketch-menu'
 
 type SidebarProps = {
 	menu: Menu[]
