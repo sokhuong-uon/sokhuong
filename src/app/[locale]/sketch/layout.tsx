@@ -25,7 +25,7 @@ export default function SketchLayout({ children }: PropsWithChildren) {
 				<Sidebar menu={menu} />
 			</div>
 
-			<main id="main" className="flex-1 px-6 pt-8 sm:px-8">
+			<main id="main" className="flex-1 pt-8 md:px-4">
 				{children}
 			</main>
 		</div>
