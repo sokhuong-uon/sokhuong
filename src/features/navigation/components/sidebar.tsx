@@ -1,10 +1,13 @@
 import Link from 'next/link'
 
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+
+type MenuItem = { label: string; path: string; badge?: string }
 
 type Menu = {
 	label: string
-	items: { label: string; path: string; badge?: string }[]
+	items: MenuItem[]
 }
 
 type SidebarProps = {
@@ -19,22 +22,36 @@ export function Sidebar({ menu }: SidebarProps) {
 					<li key={menuItem.label} className="flex flex-col gap-2">
 						<h4 className="pl-4 font-bold">{menuItem.label}</h4>
 
-						<ul className="flex flex-col gap-2">
-							{menuItem.items.map((subItem) => (
-								<li key={subItem.path}>
-									<Button
-										asChild
-										variant={'ghost'}
-										className="w-full justify-start text-muted-foreground"
-									>
-										<Link href={subItem.path}>{subItem.label}</Link>
-									</Button>
-								</li>
+						<ul
+							className="flex flex-col gap-2"
+							aria-describedby={menuItem.label}
+						>
+							{menuItem.items.map((item) => (
+								<SidebarListItem key={item.path} item={item} />
 							))}
 						</ul>
 					</li>
 				))}
 			</ul>
 		</nav>
+	)
+}
+
+function SidebarListItem({ item }: { item: MenuItem }) {
+	return (
+		<li key={item.path}>
+			<Button
+				asChild
+				variant={'ghost'}
+				className="w-full justify-start text-muted-foreground"
+			>
+				<Link href={item.path} className="flex gap-2">
+					<span className="truncate" title={item.label}>
+						{item.label}
+					</span>
+					{item.badge && <Badge>{item.badge}</Badge>}
+				</Link>
+			</Button>
+		</li>
 	)
 }

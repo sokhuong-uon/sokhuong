@@ -9,6 +9,7 @@ const menu = [
 			{
 				label: 'Multi-step',
 				path: '/sketch/form/multi-step',
+				badge: 'New',
 			},
 			{
 				label: 'Multi-page',
