@@ -1,8 +1,7 @@
-import Link from 'next/link'
+'use client'
 
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import { Menu, MenuItem } from '@/features/sketch/types/sketch-menu'
+import { SidebarListItem } from '@/features/navigation/components/sidebar-list-item'
+import { Menu } from '@/features/sketch/types/sketch-menu'
 
 type SidebarProps = {
 	menu: Menu[]
@@ -28,24 +27,5 @@ export function Sidebar({ menu }: SidebarProps) {
 				))}
 			</ul>
 		</nav>
-	)
-}
-
-function SidebarListItem({ item }: { item: MenuItem }) {
-	return (
-		<li key={item.path}>
-			<Button
-				asChild
-				variant={'ghost'}
-				className="w-full justify-start text-muted-foreground"
-			>
-				<Link href={item.path} className="flex gap-2">
-					<span className="truncate" title={item.label}>
-						{item.label}
-					</span>
-					{item.badge && <Badge>{item.badge}</Badge>}
-				</Link>
-			</Button>
-		</li>
 	)
 }
