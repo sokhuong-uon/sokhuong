@@ -43,7 +43,7 @@ export default function AccountDetails() {
 			shouldFocus: true,
 		})
 		if (!isAccountDetailsValid) return
-		router.push('/sketch/form/multi-page/preferences')
+		router.push('/sketch/form/multi-page/skill')
 	}
 
 	return (
@@ -100,7 +100,7 @@ export default function AccountDetails() {
 				</Button>
 				<NextStepButtonLink
 					onClick={handleSubmit}
-					href="/sketch/form/multi-page/preferences"
+					href="/sketch/form/multi-page/skill"
 					prefetch
 					isDisabled={false}
 				>

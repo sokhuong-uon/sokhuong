@@ -10,7 +10,7 @@ export function StepIndicator() {
 			<StepIndicatorItem href="/sketch/form/multi-page/account">
 				2
 			</StepIndicatorItem>
-			<StepIndicatorItem href="/sketch/form/multi-page/preferences">
+			<StepIndicatorItem href="/sketch/form/multi-page/skill">
 				3
 			</StepIndicatorItem>
 		</ul>

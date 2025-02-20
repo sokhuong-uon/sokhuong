@@ -8,7 +8,6 @@ import {
 	SignUpStepProvider,
 	getSignUpStepBasedOnPath,
 } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
-import { StepIndicator } from '@/app/[locale]/sketch/form/multi-page/components/step-indicator'
 import { Card } from '@/components/ui/card'
 
 export default function SignUpLayout({ children }: PropsWithChildren) {
@@ -17,13 +16,8 @@ export default function SignUpLayout({ children }: PropsWithChildren) {
 	return (
 		<SignUpStepProvider initialStep={getSignUpStepBasedOnPath(pathname)}>
 			<SignUpFormProvider>
-				<div className="flex h-fit w-full flex-1 items-center justify-center">
-					<div className="relative flex flex-col items-center justify-center gap-12 py-8">
-						<StepIndicator />
-						<div className="mx-auto w-full max-w-lg">
-							<Card className="overflow-hidden border-none">{children}</Card>
-						</div>
-					</div>
+				<div className="mx-auto mt-0 w-full max-w-md">
+					<Card className="overflow-hidden border-none">{children}</Card>
 				</div>
 			</SignUpFormProvider>
 		</SignUpStepProvider>

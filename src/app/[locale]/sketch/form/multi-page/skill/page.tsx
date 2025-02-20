@@ -14,7 +14,7 @@ import {
 	SignUpFormSchema,
 	accountDetailsSchema,
 	personalInfoSchema,
-	requiredPreferencesFields,
+	requiredSkillFields,
 } from '@/app/[locale]/sketch/form/multi-page/schemas/sign-up-schema'
 import { Button } from '@/components/ui/button'
 import {
@@ -63,7 +63,7 @@ export default function Preferences() {
 
 		signUpStep.previousStep.current = 3
 
-		const isReferencesFieldsValid = await trigger(requiredPreferencesFields, {
+		const isReferencesFieldsValid = await trigger(requiredSkillFields, {
 			shouldFocus: true,
 		})
 
@@ -112,7 +112,7 @@ export default function Preferences() {
 		<form onSubmit={handleSubmit}>
 			<legend>
 				<CardHeader>
-					<CardTitle>Preferences</CardTitle>
+					<CardTitle>Skills</CardTitle>
 				</CardHeader>
 			</legend>
 			<CardContent className="space-y-4">

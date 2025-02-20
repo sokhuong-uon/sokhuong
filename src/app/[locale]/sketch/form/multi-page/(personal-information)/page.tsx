@@ -8,6 +8,11 @@ import { useFormContext } from 'react-hook-form'
 import { NextStepButtonLink } from '@/app/[locale]/sketch/form/multi-page/components/next-button'
 import { useSignUpStep } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
 import {
+	PersonalInformationFields,
+	SignUpFormSchema,
+	requiredPersonalInformationFields,
+} from '@/app/[locale]/sketch/form/multi-page/schemas/sign-up-schema'
+import {
 	CardContent,
 	CardFooter,
 	CardHeader,
@@ -21,12 +26,6 @@ import {
 	FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-
-import {
-	PersonalInformationFields,
-	SignUpFormSchema,
-	requiredPersonalInformationFields,
-} from '../schemas/sign-up-schema'
 
 export default function PersonalInformationPage() {
 	const router = useRouter()

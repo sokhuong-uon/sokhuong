@@ -22,7 +22,7 @@ export const accountDetailsSchema = z.object({
 		.regex(/[0-9]/, 'Password must contain at least one number'),
 })
 
-export const preferencesSchema = z.object({
+export const skillSchema = z.object({
 	role: z.enum(['developer', 'designer', 'manager'], {
 		required_error: 'Please select a role',
 	}),
@@ -39,7 +39,7 @@ export const honeypotSchema = z.object({
 export const signUpFormSchema = z.object({
 	...personalInfoSchema.shape,
 	...accountDetailsSchema.shape,
-	...preferencesSchema.shape,
+	...skillSchema.shape,
 	...honeypotSchema.shape,
 })
 
@@ -58,7 +58,7 @@ export const signUpFormSchemaInitialValues = {
 export type SignUpFormSchema = z.infer<typeof signUpFormSchema>
 export type PersonalInformationSchema = z.infer<typeof personalInfoSchema>
 export type AccountDetailsSchema = z.infer<typeof accountDetailsSchema>
-export type PreferencesSchema = z.infer<typeof preferencesSchema>
+export type PreferencesSchema = z.infer<typeof skillSchema>
 export type HoneypotSchema = z.infer<typeof honeypotSchema>
 
 export type PersonalInformationFields = keyof PersonalInformationSchema
@@ -73,6 +73,6 @@ export const requiredAccountDetailsFields = Object.keys(
 	accountDetailsSchema.shape
 ) as AccountDetailsFields[]
 
-export const requiredPreferencesFields = Object.keys(
-	preferencesSchema.shape
+export const requiredSkillFields = Object.keys(
+	skillSchema.shape
 ) as PreferencesFields[]
