@@ -29,14 +29,18 @@ import { Menu } from '@/features/sketch/types/sketch-menu'
 export function SketchDrawerBreadcrumb({ menu }: { menu: Menu[] }) {
 	const pathname = usePathname()
 
+	const activeMainMenu = menu.filter((mainMenuItem) =>
+		pathname.startsWith(mainMenuItem.path)
+	)[0]
+
 	return (
-		<Breadcrumb>
-			<BreadcrumbList>
+		<Breadcrumb className="">
+			<BreadcrumbList className="max-w-full flex-nowrap">
 				<BreadcrumbItem>
 					<BreadcrumbLink href="/sketch">Sketch</BreadcrumbLink>
 				</BreadcrumbItem>
 
-				<BreadcrumbSeparator />
+				<BreadcrumbSeparator id="sep-1" />
 
 				<BreadcrumbItem>
 					<BreadcrumbDrawer menu={menu} />
@@ -44,27 +48,27 @@ export function SketchDrawerBreadcrumb({ menu }: { menu: Menu[] }) {
 
 				{pathname !== '/sketch' && (
 					<>
-						<BreadcrumbSeparator />
+						<BreadcrumbSeparator id="sep-2" />
 
-						{menu.map((menuItem) => (
+						{activeMainMenu && (
 							<>
-								<BreadcrumbItem>
-									{pathname.startsWith(menuItem.path) ? menuItem.label : ''}
+								<BreadcrumbItem className="whitespace-nowrap">
+									{activeMainMenu.label}
 								</BreadcrumbItem>
 
-								<BreadcrumbSeparator />
+								<BreadcrumbSeparator id="sep-3" />
 
-								<BreadcrumbItem>
-									<BreadcrumbPage>
+								<BreadcrumbItem className="truncate">
+									<BreadcrumbPage className="truncate">
 										{
-											menuItem.items
-												.filter((item) => pathname.startsWith(item.path))
-												.at(0)?.label
+											activeMainMenu.items.filter((item) =>
+												pathname.startsWith(item.path)
+											)[0]?.label
 										}
 									</BreadcrumbPage>
 								</BreadcrumbItem>
 							</>
-						))}
+						)}
 					</>
 				)}
 			</BreadcrumbList>
@@ -88,7 +92,7 @@ function BreadcrumbDrawer({ menu }: { menu: Menu[] }) {
 					</DrawerDescription>
 				</DrawerHeader>
 
-				<nav>
+				<nav className="max-h-[calc(100dvh-20rem)] overflow-y-auto">
 					<ul className="flex flex-col gap-6">
 						{menu.map((menuItem) => (
 							<li key={menuItem.label} className="flex flex-col gap-2">
