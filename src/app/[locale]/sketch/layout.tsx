@@ -20,6 +20,20 @@ const menu = [
 			},
 		],
 	},
+	{
+		label: '3D graphic',
+		path: '/sketch/3d-graphic',
+		items: [
+			{
+				label: 'Panorama to cubemap',
+				path: '/sketch/3d-graphic/panorama-to-cubemap',
+			},
+			{
+				label: 'Shape drawer',
+				path: '/sketch/3d-graphic/shape-drawer',
+			},
+		],
+	},
 ] satisfies Menu[]
 
 export default function SketchLayout({ children }: PropsWithChildren) {
