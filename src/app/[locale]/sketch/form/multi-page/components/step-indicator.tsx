@@ -6,13 +6,11 @@ import { PropsWithChildren } from 'react'
 export function StepIndicator() {
 	return (
 		<ul className="mx-auto flex w-80 max-w-lg justify-evenly">
-			<StepIndicatorItem href="/sketch/multi-page-form-wizard/personal-information">
-				1
-			</StepIndicatorItem>
-			<StepIndicatorItem href="/sketch/multi-page-form-wizard/account">
+			<StepIndicatorItem href="/sketch/form/multi-page">1</StepIndicatorItem>
+			<StepIndicatorItem href="/sketch/form/multi-page/account">
 				2
 			</StepIndicatorItem>
-			<StepIndicatorItem href="/sketch/multi-page-form-wizard/preferences">
+			<StepIndicatorItem href="/sketch/form/multi-page/preferences">
 				3
 			</StepIndicatorItem>
 		</ul>

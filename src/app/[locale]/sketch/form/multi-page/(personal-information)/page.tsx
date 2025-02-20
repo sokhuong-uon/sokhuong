@@ -5,6 +5,8 @@ import { FormEvent } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
+import { NextStepButtonLink } from '@/app/[locale]/sketch/form/multi-page/components/next-button'
+import { useSignUpStep } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
 import {
 	CardContent,
 	CardFooter,
@@ -20,8 +22,6 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
-import { NextStepButtonLink } from '../components/next-button'
-import { useSignUpStep } from '../components/sign-up-step-context'
 import {
 	PersonalInformationFields,
 	SignUpFormSchema,
@@ -46,7 +46,7 @@ export default function PersonalInformationPage() {
 		)
 
 		if (!isPersonalInformationValid) return
-		router.push('/sketch/multi-page-form-wizard/account')
+		router.push('/sketch/form/multi-page/account')
 	}
 
 	const personalInformation: {
@@ -86,7 +86,7 @@ export default function PersonalInformationPage() {
 			<CardFooter className="flex justify-end">
 				<NextStepButtonLink
 					onClick={handleSubmit}
-					href="/sketch/multi-page-form-wizard/account"
+					href="/sketch/form/multi-page/account"
 					isDisabled={false}
 					prefetch
 				>

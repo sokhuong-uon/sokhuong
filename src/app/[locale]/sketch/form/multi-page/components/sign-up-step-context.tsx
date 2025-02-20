@@ -18,9 +18,9 @@ type SignUpStep = {
 }
 
 export const getSignUpStepBasedOnPath = (pathname: string) => {
-	return pathname.startsWith('/sketch/multi-page-form-wizard/preferences')
+	return pathname.startsWith('/sketch/form/multi-page/preferences')
 		? 3
-		: pathname.startsWith('/sketch/multi-page-form-wizard/account')
+		: pathname.startsWith('/sketch/form/multi-page/account')
 			? 2
 			: 1
 }

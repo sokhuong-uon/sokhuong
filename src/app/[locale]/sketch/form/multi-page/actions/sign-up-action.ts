@@ -1,6 +1,6 @@
 'use server'
 
-import { signUpFormSchema } from '@/app/[locale]/sketch/multi-page-form-wizard/(form)/schemas/sign-up-schema'
+import { signUpFormSchema } from '@/app/[locale]/sketch/form/multi-page/schemas/sign-up-schema'
 
 interface FormState {
 	error: string | null

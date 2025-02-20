@@ -6,6 +6,12 @@ import { FormEvent } from 'react'
 
 import { useFormContext } from 'react-hook-form'
 
+import { NextStepButtonLink } from '@/app/[locale]/sketch/form/multi-page/components/next-button'
+import { useSignUpStep } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
+import {
+	SignUpFormSchema,
+	requiredAccountDetailsFields,
+} from '@/app/[locale]/sketch/form/multi-page/schemas/sign-up-schema'
 import { Button } from '@/components/ui/button'
 import {
 	CardContent,
@@ -23,13 +29,6 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 
-import { NextStepButtonLink } from '../components/next-button'
-import { useSignUpStep } from '../components/sign-up-step-context'
-import {
-	SignUpFormSchema,
-	requiredAccountDetailsFields,
-} from '../schemas/sign-up-schema'
-
 export default function AccountDetails() {
 	const router = useRouter()
 	const { trigger, control } = useFormContext<SignUpFormSchema>()
@@ -44,7 +43,7 @@ export default function AccountDetails() {
 			shouldFocus: true,
 		})
 		if (!isAccountDetailsValid) return
-		router.push('/sketch/multi-page-form-wizard/preferences')
+		router.push('/sketch/form/multi-page/preferences')
 	}
 
 	return (
@@ -94,14 +93,14 @@ export default function AccountDetails() {
 				<Button variant="outline" asChild>
 					<Link
 						onClick={() => (signUpStep.previousStep.current = 2)}
-						href="/sketch/multi-page-form-wizard/personal-information"
+						href="/sketch/form/multi-page"
 					>
 						Previous
 					</Link>
 				</Button>
 				<NextStepButtonLink
 					onClick={handleSubmit}
-					href="/sketch/multi-page-form-wizard/preferences"
+					href="/sketch/form/multi-page/preferences"
 					prefetch
 					isDisabled={false}
 				>

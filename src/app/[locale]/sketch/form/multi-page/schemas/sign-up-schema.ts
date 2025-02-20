@@ -26,7 +26,7 @@ export const preferencesSchema = z.object({
 	role: z.enum(['developer', 'designer', 'manager'], {
 		required_error: 'Please select a role',
 	}),
-	experience: z.enum(['junior', 'mid', 'senior'], {
+	experience: z.enum(['wizard', 'wizard-pro-max', 'wizard-ultra'], {
 		required_error: 'Please select an experience level',
 	}),
 })

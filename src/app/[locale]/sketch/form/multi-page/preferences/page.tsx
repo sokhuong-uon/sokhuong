@@ -7,6 +7,15 @@ import { FormEvent, useEffect } from 'react'
 import { useFormState } from 'react-dom'
 import { useFormContext } from 'react-hook-form'
 
+import { registerUser } from '@/app/[locale]/sketch/form/multi-page/actions/sign-up-action'
+import { HoneypotInput } from '@/app/[locale]/sketch/form/multi-page/components/honeypot-input'
+import { useSignUpStep } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
+import {
+	SignUpFormSchema,
+	accountDetailsSchema,
+	personalInfoSchema,
+	requiredPreferencesFields,
+} from '@/app/[locale]/sketch/form/multi-page/schemas/sign-up-schema'
 import { Button } from '@/components/ui/button'
 import {
 	CardContent,
@@ -30,16 +39,6 @@ import {
 	SelectValue,
 } from '@/components/ui/select'
 
-import { registerUser } from '../actions/sign-up-action'
-import { HoneypotInput } from '../components/honeypot-input'
-import { useSignUpStep } from '../components/sign-up-step-context'
-import {
-	SignUpFormSchema,
-	accountDetailsSchema,
-	personalInfoSchema,
-	requiredPreferencesFields,
-} from '../schemas/sign-up-schema'
-
 export default function Preferences() {
 	const router = useRouter()
 	const { getValues, control, trigger } = useFormContext<SignUpFormSchema>()
@@ -52,7 +51,7 @@ export default function Preferences() {
 
 	useEffect(() => {
 		if (formState.success) {
-			router.push('/sketch/multi-page-form-wizard/success')
+			router.push('/sketch/form/multi-page/success')
 		}
 		if (formState.error) {
 			alert(`Error: ${formState.error}`)
@@ -78,12 +77,10 @@ export default function Preferences() {
 				accountDetailsSchema.safeParse(getValues())
 
 			if (!isPersonalInfoValid) {
-				return router.push(
-					'/sketch/multi-page-form-wizard/personal-information'
-				)
+				return router.push('/sketch/form/multi-page')
 			}
 			if (!isAccountDetailValid) {
-				return router.push('/sketch/multi-page-form-wizard/account')
+				return router.push('/sketch/form/multi-page/account')
 			}
 		}
 
@@ -106,9 +103,9 @@ export default function Preferences() {
 		value: SignUpFormSchema['experience']
 		label: string
 	}[] = [
-		{ value: 'junior', label: 'Junior (0-2 years)' },
-		{ value: 'mid', label: 'Mid-Level (2-5 years)' },
-		{ value: 'senior', label: 'Senior (5+ years)' },
+		{ value: 'wizard', label: 'Wizard' },
+		{ value: 'wizard-pro-max', label: 'Wizard Pro Max' },
+		{ value: 'wizard-ultra', label: 'Wizard Ultra' },
 	]
 
 	return (
@@ -181,7 +178,7 @@ export default function Preferences() {
 				<Button variant="outline" asChild>
 					<Link
 						onClick={() => (signUpStep.previousStep.current = 3)}
-						href="/sketch/multi-page-form-wizard/account"
+						href="/sketch/form/multi-page/account"
 					>
 						Previous
 					</Link>

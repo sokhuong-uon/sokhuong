@@ -3,14 +3,13 @@
 import { usePathname } from 'next/navigation'
 import { PropsWithChildren } from 'react'
 
-import { Card } from '@/components/ui/card'
-
-import { SignUpFormProvider } from './components/sign-up-form-context'
+import { SignUpFormProvider } from '@/app/[locale]/sketch/form/multi-page/components/sign-up-form-context'
 import {
 	SignUpStepProvider,
 	getSignUpStepBasedOnPath,
-} from './components/sign-up-step-context'
-import { StepIndicator } from './components/step-indicator'
+} from '@/app/[locale]/sketch/form/multi-page/components/sign-up-step-context'
+import { StepIndicator } from '@/app/[locale]/sketch/form/multi-page/components/step-indicator'
+import { Card } from '@/components/ui/card'
 
 export default function SignUpLayout({ children }: PropsWithChildren) {
 	const pathname = usePathname()
@@ -19,10 +18,10 @@ export default function SignUpLayout({ children }: PropsWithChildren) {
 		<SignUpStepProvider initialStep={getSignUpStepBasedOnPath(pathname)}>
 			<SignUpFormProvider>
 				<div className="flex h-fit w-full flex-1 items-center justify-center">
-					<div className="container relative flex flex-col items-center justify-center gap-12 py-8">
+					<div className="relative flex flex-col items-center justify-center gap-12 py-8">
 						<StepIndicator />
 						<div className="mx-auto w-full max-w-lg">
-							<Card className="overflow-hidden">{children}</Card>
+							<Card className="overflow-hidden border-none">{children}</Card>
 						</div>
 					</div>
 				</div>
