@@ -16,7 +16,7 @@ export function SidebarListItem({ item }: { item: MenuItem }) {
 				variant={'ghost'}
 				className={'w-full justify-start text-muted-foreground'}
 			>
-				<Link href={item.path} className="flex gap-2">
+				<Link prefetch href={item.path} className="flex gap-2">
 					<span
 						className={cn(
 							'truncate',
