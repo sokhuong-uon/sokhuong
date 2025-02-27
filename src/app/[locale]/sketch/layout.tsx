@@ -2,39 +2,8 @@ import { PropsWithChildren } from 'react'
 
 import { Sidebar } from '@/features/navigation/components/sidebar'
 import { SketchDrawerBreadcrumb } from '@/features/sketch/components/sketch-drawer-breadcrumb'
-import { Menu } from '@/features/sketch/types/sketch-menu'
 
-const menu = [
-	{
-		label: 'Form',
-		path: '/sketch/form',
-		items: [
-			{
-				label: 'Multi-step',
-				path: '/sketch/form/multi-step',
-				badge: 'New',
-			},
-			{
-				label: 'Multi-page',
-				path: '/sketch/form/multi-page',
-			},
-		],
-	},
-	{
-		label: '3D graphic',
-		path: '/sketch/3d-graphic',
-		items: [
-			{
-				label: 'Panorama to cubemap',
-				path: '/sketch/3d-graphic/panorama-to-cubemap',
-			},
-			{
-				label: 'Shape drawer',
-				path: '/sketch/3d-graphic/shape-drawer',
-			},
-		],
-	},
-] satisfies Menu[]
+import { menu } from './sketch-menu'
 
 export default function SketchLayout({ children }: PropsWithChildren) {
 	return (
