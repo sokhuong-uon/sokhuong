@@ -71,3 +71,7 @@
 .rdp-vhidden {
 	@apply hidden;
 }
+
+.tiptap {
+	@apply h-full w-full border p-1 focus:outline-none;
+}
