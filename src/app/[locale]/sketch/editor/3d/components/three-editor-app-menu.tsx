@@ -134,7 +134,9 @@ export function ThreeEditorAppMenu() {
 		<div className="flex gap-1">
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="ghost">File</Button>
+					<Button size="sm" variant="ghost">
+						File
+					</Button>
 				</DropdownMenuTrigger>
 
 				<DropdownMenuContent>
@@ -179,7 +181,9 @@ export function ThreeEditorAppMenu() {
 
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="ghost">Edit</Button>
+					<Button size="sm" variant="ghost">
+						Edit
+					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent>
 					<DropdownMenuItem>
@@ -203,7 +207,9 @@ export function ThreeEditorAppMenu() {
 
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="ghost">Add</Button>
+					<Button size="sm" variant="ghost">
+						Add
+					</Button>
 				</DropdownMenuTrigger>
 
 				<DropdownMenuContent>
@@ -257,8 +263,12 @@ export function ThreeEditorAppMenu() {
 				</DropdownMenuContent>
 			</DropdownMenu>
 
-			<Button variant="ghost">View</Button>
-			<Button variant="ghost">Help</Button>
+			<Button variant="ghost" size="sm">
+				View
+			</Button>
+			<Button variant="ghost" size="sm">
+				Help
+			</Button>
 		</div>
 	)
 }

@@ -9,12 +9,12 @@ import {
 	ResizablePanelGroup,
 } from '@/components/ui/resizable'
 
-import { ThreeEditorAppMenu } from './components/three-editor-app-menu'
+import { ThreeEditorNavbar } from './components/three-editor-navbar'
 
 export default function ThreeJSEditor() {
 	return (
-		<div className="relative flex h-96 flex-col border">
-			<ThreeEditorAppMenu />
+		<div className="relative flex h-96 flex-col border border-muted">
+			<ThreeEditorNavbar />
 
 			<ResizablePanelGroup direction="horizontal" className="flex flex-1">
 				<ResizablePanel className="flex-1">
