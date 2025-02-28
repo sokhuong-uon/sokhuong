@@ -28,6 +28,10 @@ export const menu = [
 				label: 'Lexical',
 				path: '/sketch/editor/lexical',
 			},
+			{
+				label: '3D',
+				path: '/sketch/editor/3d',
+			},
 		],
 	},
 	{
