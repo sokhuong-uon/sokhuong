@@ -25,7 +25,7 @@ export default function ThreeEditor() {
 			<ThreeEditorNavbar />
 
 			<ResizablePanelGroup direction="horizontal" className="flex flex-1">
-				<ResizablePanel className="flex-1" defaultSize={100}>
+				<ResizablePanel className="flex-1">
 					<Canvas
 						frameloop="demand"
 						scene={scene}
@@ -47,7 +47,12 @@ export default function ThreeEditor() {
 
 				<ResizableHandle />
 
-				<ResizablePanel minSize={20} maxSize={30} className="w-5">
+				<ResizablePanel
+					defaultSize={20}
+					minSize={20}
+					maxSize={30}
+					className="w-5"
+				>
 					Properties
 				</ResizablePanel>
 			</ResizablePanelGroup>
