@@ -21,11 +21,11 @@ export default function ThreeEditor() {
 	const selectedObject = useThreeEditorStore((state) => state.selectedObject)
 
 	return (
-		<div className="relative flex h-[calc(100vh-10rem)] flex-col border border-muted">
+		<div className="relative flex h-[calc(100vh-10rem)] w-full flex-col border border-muted">
 			<ThreeEditorNavbar />
 
-			<ResizablePanelGroup direction="horizontal" className="flex flex-1">
-				<ResizablePanel className="flex-1">
+			<ResizablePanelGroup direction="horizontal" className="h-full w-full">
+				<ResizablePanel className="flex-1" defaultSize={85}>
 					<Canvas
 						frameloop="demand"
 						scene={scene}
@@ -48,10 +48,10 @@ export default function ThreeEditor() {
 				<ResizableHandle />
 
 				<ResizablePanel
-					defaultSize={20}
-					minSize={20}
-					maxSize={30}
-					className="w-5"
+					defaultSize={15}
+					minSize={10}
+					maxSize={20}
+					className="w-[1rem]"
 				>
 					Properties
 				</ResizablePanel>
