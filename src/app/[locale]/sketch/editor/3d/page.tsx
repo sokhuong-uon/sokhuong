@@ -8,8 +8,7 @@ import {
 	ResizablePanel,
 	ResizablePanelGroup,
 } from '@/components/ui/resizable'
-
-import { ThreeEditorNavbar } from './components/three-editor-navbar'
+import { ThreeEditorNavbar } from '@/features/three-editor/components/three-editor-navbar'
 
 export default function ThreeJSEditor() {
 	return (
