@@ -41,7 +41,7 @@ export function SearchEditorCommand({
 							addObject(mesh.createMesh())
 						}}
 					>
-						<div className="flex px-1">
+						<div className="flex gap-1 px-1">
 							<p className="flex text-muted-foreground">
 								<span>Add (Shift A)</span>
 								<ChevronRight className="scale-50" />
