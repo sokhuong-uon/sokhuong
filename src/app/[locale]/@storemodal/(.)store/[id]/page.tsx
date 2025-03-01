@@ -31,19 +31,22 @@ export default function ProductDetail() {
 	if (isDesktop) {
 		return (
 			<Dialog open={true} onOpenChange={() => router.back()}>
-				<DialogContent className="max-h-[calc(100dvh-5rem)] min-w-[calc(100dvw-10rem)] overflow-y-auto">
+				<DialogContent className="h-full max-h-[calc(100dvh-5rem)] min-w-[calc(100dvw-5rem)]">
 					<DialogHeader className="sr-only">
 						<DialogTitle>Model detail</DialogTitle>
 						<DialogDescription>
 							View detail information of the model and choose what to download.
 						</DialogDescription>
 					</DialogHeader>
-					<div className="flex flex-col p-4 2xl:flex-row">
-						<div className="flex-1">
-							<ModelSceneCard />
-						</div>
-						<div className="2xl:w-96">
-							<ModelDetail />
+
+					<div className="relative flex h-full w-full items-center overflow-y-auto">
+						<div className="flex w-full flex-col p-4 2xl:flex-row">
+							<div className="flex-1 overflow-x-hidden">
+								<ModelSceneCard />
+							</div>
+							<div className="flex-shrink-0 2xl:w-96">
+								<ModelDetail />
+							</div>
 						</div>
 					</div>
 				</DialogContent>
@@ -60,10 +63,12 @@ export default function ProductDetail() {
 						View detail information of the model and choose what to download.
 					</DrawerDescription>
 				</DrawerHeader>
-				<div className="max-h-[calc(100dvh-10rem)] overflow-y-auto p-4">
+
+				<div className="relative max-h-[calc(100dvh-10rem)] overflow-y-auto p-4">
 					<ModelSceneCard />
 					<ModelDetail />
 				</div>
+
 				<DrawerFooter className="pt-2">
 					<DrawerClose asChild>
 						<Button variant="outline">Close</Button>

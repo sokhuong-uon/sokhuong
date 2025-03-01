@@ -16,7 +16,7 @@ const ModelViewer = dynamic(
 
 export function ModelSceneCard() {
 	return (
-		<div className="relative aspect-video border">
+		<div className="relative aspect-video w-full border">
 			<ModelViewer />
 
 			<Button
