@@ -2,7 +2,7 @@
 
 import { Dispatch, SetStateAction } from 'react'
 
-import { Box, ChevronRight, Circle, Cone, Cylinder, Torus } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 import {
 	CommandDialog,
@@ -12,6 +12,8 @@ import {
 	CommandList,
 } from '@/components/ui/command'
 import { DialogTitle } from '@/components/ui/dialog'
+import { basicMeshes } from '@/features/three-editor/components/basic-meshes'
+import { useThreeEditorStore } from '@/features/three-editor/store/three-editor-store'
 
 export function SearchEditorCommand({
 	isOpen,
@@ -20,6 +22,8 @@ export function SearchEditorCommand({
 	isOpen: boolean
 	setIsOpen: Dispatch<SetStateAction<boolean>>
 }) {
+	const addObject = useThreeEditorStore((state) => state.addObject)
+
 	return (
 		<CommandDialog open={isOpen} onOpenChange={setIsOpen}>
 			<DialogTitle className="sr-only">Editor commands</DialogTitle>
@@ -29,61 +33,27 @@ export function SearchEditorCommand({
 			<CommandList>
 				<CommandEmpty>No results found.</CommandEmpty>
 
-				<CommandItem>
-					<p className="flex text-muted-foreground">
-						<span>Add (Shift A)</span>
-						<ChevronRight className="scale-50" />
-						<span>Mesh</span>
-						<ChevronRight className="scale-50" />
-					</p>
+				{basicMeshes.map((mesh) => (
+					<CommandItem
+						key={mesh.name}
+						onSelect={() => {
+							setIsOpen(false)
+							addObject(mesh.createMesh())
+						}}
+					>
+						<div className="flex px-1">
+							<p className="flex text-muted-foreground">
+								<span>Add (Shift A)</span>
+								<ChevronRight className="scale-50" />
+								<span>Mesh</span>
+								<ChevronRight className="scale-50" />
+							</p>
 
-					<Box />
-					<span>Cube</span>
-				</CommandItem>
-				<CommandItem>
-					<p className="flex text-muted-foreground">
-						<span>Add (Shift A)</span>
-						<ChevronRight className="scale-50" />
-						<span>Mesh</span>
-						<ChevronRight className="scale-50" />
-					</p>
-
-					<Cone />
-					<span>Cone</span>
-				</CommandItem>
-				<CommandItem>
-					<p className="flex text-muted-foreground">
-						<span>Add (Shift A)</span>
-						<ChevronRight className="scale-50" />
-						<span>Mesh</span>
-						<ChevronRight className="scale-50" />
-					</p>
-
-					<Cylinder />
-					<span>Cylinder</span>
-				</CommandItem>
-				<CommandItem>
-					<p className="flex text-muted-foreground">
-						<span>Add (Shift A)</span>
-						<ChevronRight className="scale-50" />
-						<span>Mesh</span>
-						<ChevronRight className="scale-50" />
-					</p>
-
-					<Torus />
-					<span>Torus</span>
-				</CommandItem>
-				<CommandItem>
-					<p className="flex text-muted-foreground">
-						<span>Add (Shift A)</span>
-						<ChevronRight className="scale-50" />
-						<span>Mesh</span>
-						<ChevronRight className="scale-50" />
-					</p>
-
-					<Circle />
-					<span>Circle</span>
-				</CommandItem>
+							{mesh.icon}
+							<span>{mesh.name}</span>
+						</div>
+					</CommandItem>
+				))}
 			</CommandList>
 		</CommandDialog>
 	)
