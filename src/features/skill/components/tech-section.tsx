@@ -2,11 +2,10 @@ import { ComponentProps } from 'react'
 
 import { ComponentIcon } from 'lucide-react'
 
+import { SkillsRadar } from '@/features/skill/components/skills-radar'
 import { cn } from '@/lib/utils'
 
-import { SkillsRadar } from './skills-radar'
-
-export function TechSection({ className, ...props }: ComponentProps<'div'>) {
+export function SkillSection({ className, ...props }: ComponentProps<'div'>) {
 	return (
 		<div
 			{...props}

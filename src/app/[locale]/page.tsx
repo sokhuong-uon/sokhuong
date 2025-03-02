@@ -1,5 +1,5 @@
 import { HeroSection } from '@/components/hero/hero-section'
-import { TechSection } from '@/components/tech/tech-section'
+import { SkillSection } from '@/features/skill/components/tech-section'
 import { ThemeColorCustomizer } from '@/features/theme/components/theme-color-customizer'
 import { ThemeModeCustomizer } from '@/features/theme/components/theme-mode-customizer'
 import { ThemeRadiusCustomizer } from '@/features/theme/components/theme-radius-customizer'
@@ -22,7 +22,7 @@ export default function Home() {
 				<ValueList />
 			</section>
 
-			<TechSection />
+			<SkillSection />
 		</main>
 	)
 }

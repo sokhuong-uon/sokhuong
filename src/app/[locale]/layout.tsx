@@ -23,10 +23,12 @@ export const metadata: Metadata = {
 export default async function RootLayout({
 	children,
 	storemodal,
+	skillmodal,
 	params: { locale },
 }: Readonly<{
 	children: React.ReactNode
 	storemodal: React.ReactNode
+	skillmodal: React.ReactNode
 	params: { locale: string }
 }>) {
 	const messages = await getMessages()
@@ -55,6 +57,7 @@ export default async function RootLayout({
 							</header>
 
 							{storemodal}
+							{skillmodal}
 							{children}
 
 							<Footer className="mt-auto lg:container" />

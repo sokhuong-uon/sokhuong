@@ -15,11 +15,11 @@ import {
 } from '@/components/ui/chart'
 
 const chartData = [
-	{ month: 'Front-end', experience: 195 },
-	{ month: 'Back-end', experience: 125 },
-	{ month: 'CI/CD', experience: 150 },
-	{ month: 'Security', experience: 90 },
-	{ month: 'Design', experience: 100 },
+	{ skill: 'Front-end', experience: 195 },
+	{ skill: 'Back-end', experience: 125 },
+	{ skill: 'CI/CD', experience: 150 },
+	{ skill: 'Security', experience: 90 },
+	{ skill: 'Design', experience: 75 },
 ]
 
 const chartConfig = {
@@ -68,12 +68,15 @@ export function SkillsRadar() {
 						cursor={false}
 						content={<ChartTooltipContent indicator="line" />}
 					/>
-					<PolarAngleAxis dataKey="month" />
+					<PolarAngleAxis
+						dataKey="skill"
+						className="text-xs sm:text-sm md:text-base"
+					/>
 					<PolarGrid />
 					<Radar
 						dataKey="experience"
 						fill="hsl(var(--primary))"
-						fillOpacity={0.1}
+						fillOpacity={0.25}
 						stroke="hsl(var(--primary-foreground))"
 						strokeOpacity={0.5}
 						animationDuration={300}
@@ -167,19 +170,21 @@ function SkillExpandButtonGroup({
 
 					return (
 						<Button
-							key={item.month}
+							key={item.skill}
 							size="sm"
 							variant="outline"
-							className={`pointer-events-auto absolute flex h-8 w-8 origin-center -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-background p-0 opacity-60 shadow-sm transition-all hover:opacity-100 sm:opacity-90 ${isResizing ? 'opacity-0' : ''} `}
+							className={`pointer-events-auto absolute flex h-8 w-8 origin-center -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full bg-background p-0 opacity-60 shadow-sm transition-all hover:opacity-100 ${isResizing ? 'opacity-0' : ''} `}
 							style={{
 								left: `${x}px`,
 								top: `${y}px`,
 								transitionProperty: 'opacity, transform, left, top',
 								transitionDuration: '300ms',
 							}}
-							onClick={() => handleButtonClick(item.month)}
+							asChild
 						>
-							<Plus />
+							<Link href={'/skill'}>
+								<Plus />
+							</Link>
 						</Button>
 					)
 				})}
