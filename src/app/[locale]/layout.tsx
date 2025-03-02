@@ -57,7 +57,7 @@ export default async function RootLayout({
 							{storemodal}
 							{children}
 
-							<Footer className="container mt-auto" />
+							<Footer className="mt-auto lg:container" />
 						</ThemeWrapper>
 					</NextThemesProvider>
 				</NextIntlClientProvider>
