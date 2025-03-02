@@ -42,6 +42,8 @@ import {
 	SiHonoHex,
 	SiHtml5,
 	SiHtml5Hex,
+	SiInsomnia,
+	SiInsomniaHex,
 	SiJavascript,
 	SiJavascriptHex,
 	SiLinux,
@@ -73,6 +75,8 @@ import {
 	SiPortainerHex,
 	SiPostgresql,
 	SiPostgresqlHex,
+	SiPostman,
+	SiPostmanHex,
 	SiPrettier,
 	SiPrettierHex,
 	SiPython,
@@ -233,6 +237,8 @@ const skills = [
 		technologies: [
 			<SiRust size={36} />,
 			<SiPython size={36} color={SiPythonHex} />,
+			<SiPostman size={36} color={SiPostmanHex} />,
+			<SiInsomnia size={36} color={SiInsomniaHex} />,
 		],
 	},
 ]
