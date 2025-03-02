@@ -40,6 +40,8 @@ import {
 	SiGraphqlHex,
 	SiHono,
 	SiHonoHex,
+	SiHostinger,
+	SiHostingerHex,
 	SiHtml5,
 	SiHtml5Hex,
 	SiInsomnia,
@@ -208,6 +210,7 @@ const skills = [
 			<SiVercel size={36} />,
 			<SiGodaddy size={36} color={SiGodaddyHex} />,
 			<SiCpanel size={36} color={SiCpanelHex} />,
+			<SiHostinger size={36} color={SiHostingerHex} />,
 		],
 	},
 	{
