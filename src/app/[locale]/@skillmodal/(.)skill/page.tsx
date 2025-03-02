@@ -2,6 +2,117 @@
 
 import { useRouter } from 'next/navigation'
 
+import {
+	SiAntdesign,
+	SiAntdesignHex,
+	SiApache,
+	SiApacheHex,
+	SiAxios,
+	SiAxiosHex,
+	SiBlender,
+	SiBlenderHex,
+	SiBurpsuite,
+	SiBurpsuiteHex,
+	SiCloudflare,
+	SiCloudflareHex,
+	SiCss3,
+	SiCss3Hex,
+	SiDaisyui,
+	SiDaisyuiHex,
+	SiDeno,
+	SiDenoHex,
+	SiDocker,
+	SiDockerHex,
+	SiEslint,
+	SiEslintHex,
+	SiExpress,
+	SiExpressHex,
+	SiFigma,
+	SiFigmaHex,
+	SiGit,
+	SiGitHex,
+	SiGithub,
+	SiGithubHex,
+	SiGithubactions,
+	SiGithubactionsHex,
+	SiGodaddy,
+	SiGodaddyHex,
+	SiGraphql,
+	SiGraphqlHex,
+	SiHono,
+	SiHonoHex,
+	SiHtml5,
+	SiHtml5Hex,
+	SiJavascript,
+	SiJavascriptHex,
+	SiLinux,
+	SiLinuxHex,
+	SiLua,
+	SiLuaHex,
+	SiMeilisearch,
+	SiMeilisearchHex,
+	SiMetasploit,
+	SiMetasploitHex,
+	SiMongodb,
+	SiMongodbHex,
+	SiMysql,
+	SiMysqlHex,
+	SiNextdotjs,
+	SiNextdotjsHex,
+	SiNginx,
+	SiNginxHex,
+	SiNodedotjs,
+	SiNodedotjsHex,
+	SiNuxt,
+	SiNuxtHex,
+	SiPhp,
+	SiPhpHex,
+	SiPhpmyadmin,
+	SiPhpmyadminHex,
+	SiPortainer,
+	SiPortainerHex,
+	SiPostgresql,
+	SiPostgresqlHex,
+	SiPrettier,
+	SiPrettierHex,
+	SiPython,
+	SiPythonHex,
+	SiReact,
+	SiReactHex,
+	SiReacthookform,
+	SiReacthookformHex,
+	SiReactquery,
+	SiReactqueryHex,
+	SiResend,
+	SiResendHex,
+	SiRust,
+	SiRustHex,
+	SiShadcnui,
+	SiShadcnuiHex,
+	SiStrapi,
+	SiStrapiHex,
+	SiSupabase,
+	SiSupabaseHex,
+	SiTailwindcss,
+	SiTailwindcssHex,
+	SiThreedotjs,
+	SiThreedotjsHex,
+	SiTraefikproxy,
+	SiTraefikproxyHex,
+	SiTypescript,
+	SiTypescriptHex,
+	SiVercel,
+	SiVercelHex,
+	SiVitest,
+	SiVitestHex,
+	SiVuedotjs,
+	SiVuedotjsHex,
+	SiWebgl,
+	SiWebglHex,
+	SiZod,
+	SiZodHex,
+} from '@icons-pack/react-simple-icons'
+
 import { Button } from '@/components/ui/button'
 import {
 	Dialog,
@@ -26,32 +137,97 @@ const skills = [
 	{
 		title: 'Front-end development',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at voluptates voluptate sint atque fugit, consequuntur nobis consequatur obcaecati, eaque velit soluta doloremque voluptatibus ab! Laboriosam iste magnam eos eligendi!',
-		technologies: [],
+			'I started front-end development in early 2020. I have experience with several front-end technologies:',
+		technologies: [
+			<SiJavascript size={36} color={SiJavascriptHex} />,
+			<SiTypescript size={36} color={SiTypescriptHex} />,
+			<SiReact size={36} color={SiReactHex} />,
+			<SiReactquery size={36} color={SiReactqueryHex} />,
+			<SiAxios size={36} color={SiAxiosHex} />,
+			<SiGraphql size={36} color={SiGraphqlHex} />,
+			<SiNextdotjs size={36} color={SiNextdotjsHex} />,
+			<SiVitest size={36} color={SiVitestHex} />,
+			<SiVuedotjs size={36} color={SiVuedotjsHex} />,
+			<SiNuxt size={36} color={SiNuxtHex} />,
+			<SiTailwindcss size={36} color={SiTailwindcssHex} />,
+			<SiReacthookform size={36} color={SiReacthookformHex} />,
+			<SiZod size={36} color={SiZodHex} />,
+			<SiAntdesign size={36} color={SiAntdesignHex} />,
+			<SiDaisyui size={36} color={SiDaisyuiHex} />,
+			<SiShadcnui size={36} color={SiShadcnuiHex} />,
+			<SiThreedotjs size={36} color={SiThreedotjsHex} />,
+			<SiWebgl size={36} color={SiWebglHex} />,
+			<SiCss3 size={36} color={SiCss3Hex} />,
+			<SiHtml5 size={36} color={SiHtml5Hex} />,
+		],
 	},
 	{
 		title: 'Back-end development',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at voluptates voluptate sint atque fugit, consequuntur nobis consequatur obcaecati, eaque velit soluta doloremque voluptatibus ab! Laboriosam iste magnam eos eligendi!',
-		technologies: [],
+			'I rarely work on back-end application. I mostly use some back-end tools at work to research and make proof-of-cocept of a new application. In addition to that, I learn some back-end tools to use in my side-project or just purely learning to get to know the tool.',
+		technologies: [
+			<SiSupabase size={36} color={SiSupabaseHex} />,
+			<SiMysql size={36} color={SiMysqlHex} />,
+			<SiPostgresql size={36} color={SiPostgresqlHex} />,
+			<SiNodedotjs size={36} color={SiNodedotjsHex} />,
+			<SiExpress size={36} color={SiExpressHex} />,
+			<SiMongodb size={36} color={SiMongodbHex} />,
+			<SiHono size={36} color={SiHonoHex} />,
+			<SiDeno size={36} color={SiDenoHex} />,
+			<SiStrapi size={36} color={SiStrapiHex} />,
+			<SiResend size={36} color={SiResendHex} />,
+			<SiMeilisearch size={36} color={SiMeilisearchHex} />,
+			<SiPhp size={36} color={SiPhpHex} />,
+		],
 	},
 	{
-		title: 'Coninuous Integration Continuous Delivery (CI/CD)',
+		title: 'Coninuous Integration, Continuous Delivery (CI/CD), and SysAdmin',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at voluptates voluptate sint atque fugit, consequuntur nobis consequatur obcaecati, eaque velit soluta doloremque voluptatibus ab! Laboriosam iste magnam eos eligendi!',
-		technologies: [],
+			'Setup web app project for easy collaboration. I setup deployment server and configure DNS.',
+		technologies: [
+			<SiTraefikproxy size={36} color={SiTraefikproxyHex} />,
+			<SiGit size={36} color={SiGitHex} />,
+			<SiGithub size={36} color={SiGithubHex} />,
+			<SiGithubactions size={36} color={SiGithubactionsHex} />,
+			<SiEslint size={36} color={SiEslintHex} />,
+			<SiPrettier size={36} color={SiPrettierHex} />,
+			<SiPortainer size={36} color={SiPortainerHex} />,
+			<SiNginx size={36} color={SiNginxHex} />,
+			<SiApache size={36} color={SiApacheHex} />,
+			<SiDocker size={36} color={SiDockerHex} />,
+			<SiLinux size={36} color={SiLinuxHex} />,
+			<SiLua size={36} color={SiLuaHex} />,
+			<SiPhpmyadmin size={36} color={SiPhpmyadminHex} />,
+			<SiCloudflare size={36} color={SiCloudflareHex} />,
+			<SiVercel size={36} color={SiVercelHex} />,
+			<SiGodaddy size={36} color={SiGodaddyHex} />,
+		],
 	},
 	{
 		title: 'Security',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at voluptates voluptate sint atque fugit, consequuntur nobis consequatur obcaecati, eaque velit soluta doloremque voluptatibus ab! Laboriosam iste magnam eos eligendi!',
-		technologies: [],
+		description: '',
+		technologies: [
+			<SiBurpsuite size={36} color={SiBurpsuiteHex} />,
+			<SiMetasploit size={36} color={SiMetasploitHex} />,
+		],
 	},
 	{
 		title: 'Art & Design',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at voluptates voluptate sint atque fugit, consequuntur nobis consequatur obcaecati, eaque velit soluta doloremque voluptatibus ab! Laboriosam iste magnam eos eligendi!',
-		technologies: [],
+		description: '',
+		technologies: [
+			<SiFigma size={36} color={SiFigmaHex} />,
+			<SiBlender size={36} color={SiBlenderHex} />,
+			<SiThreedotjs size={36} color={SiThreedotjsHex} />,
+			<SiWebgl size={36} color={SiWebglHex} />,
+		],
+	},
+	{
+		title: 'Miscellaneous',
+		description: '',
+		technologies: [
+			<SiRust size={36} color={SiRustHex} />,
+			<SiPython size={36} color={SiPythonHex} />,
+		],
 	},
 ]
 
@@ -71,10 +247,15 @@ export default function SkillDetail() {
 						</DialogDescription>
 					</DialogHeader>
 
-					<div className="space-y-8 overflow-y-auto px-4">
+					<div className="container space-y-10 overflow-y-auto px-4">
 						{skills.map((skill) => (
 							<SkillSetSection header={skill.title}>
-								{skill.description}
+								<p>{skill.description}</p>
+								<ul className="flex gap-2">
+									{skill.technologies.map((tech) => (
+										<li key={tech.key}>{tech}</li>
+									))}
+								</ul>
 							</SkillSetSection>
 						))}
 					</div>
@@ -93,10 +274,15 @@ export default function SkillDetail() {
 					</DrawerDescription>
 				</DrawerHeader>
 
-				<div className="max-h-[calc(100dvh-15rem)] space-y-8 overflow-y-auto px-4">
+				<div className="max-h-[calc(100dvh-15rem)] space-y-10 overflow-y-auto px-4">
 					{skills.map((skill) => (
 						<SkillSetSection header={skill.title}>
-							{skill.description}
+							<p>{skill.description}</p>
+							<ul className="flex flex-wrap gap-2">
+								{skill.technologies.map((tech, index) => (
+									<li key={index}>{tech}</li>
+								))}
+							</ul>
 						</SkillSetSection>
 					))}
 				</div>
