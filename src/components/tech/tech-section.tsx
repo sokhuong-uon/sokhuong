@@ -1,10 +1,10 @@
-import Link from 'next/link'
 import { ComponentProps } from 'react'
 
-import { ComponentIcon, DraftingCompassIcon } from 'lucide-react'
+import { ComponentIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+
+import { SkillsRadar } from './skills-radar'
 
 export function TechSection({ className, ...props }: ComponentProps<'div'>) {
 	return (
@@ -21,21 +21,10 @@ export function TechSection({ className, ...props }: ComponentProps<'div'>) {
 						</p>
 					</div>
 					<p className="mt-4 max-w-md text-center text-xl font-normal tracking-tighter sm:text-4xl">
-						<strong>Maintainable code with brilliant tools</strong>
+						<strong>Diverse skill set with brilliant tools</strong>
 					</p>
-					<div className="z-20 mt-[10px] flex items-start justify-center">
-						Next.js, Framer motion, etc.
-					</div>
-					<Button
-						asChild
-						variant="outline"
-						className="mt-5 flex gap-3 uppercase"
-					>
-						<Link href="/sketch">
-							<DraftingCompassIcon />
-							<p>See my sketch</p>
-						</Link>
-					</Button>
+
+					<SkillsRadar />
 				</div>
 			</div>
 		</div>
