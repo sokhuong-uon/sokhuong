@@ -36,6 +36,10 @@ import {
 	SiGnubash,
 	SiGodaddy,
 	SiGodaddyHex,
+	SiGoogleanalytics,
+	SiGoogleanalyticsHex,
+	SiGooglesearchconsole,
+	SiGooglesearchconsoleHex,
 	SiGraphql,
 	SiGraphqlHex,
 	SiHono,
@@ -55,6 +59,8 @@ import {
 	SiMeilisearchHex,
 	SiMetasploit,
 	SiMetasploitHex,
+	SiMixpanel,
+	SiMixpanelHex,
 	SiMongodb,
 	SiMongodbHex,
 	SiMysql,
@@ -134,6 +140,7 @@ import {
 	DrawerHeader,
 	DrawerTitle,
 } from '@/components/ui/drawer'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { SkillSetSection } from '@/features/skill/components/skill-set-section'
 import { useMediaQuery } from '@/hooks/use-media-query'
 
@@ -163,6 +170,9 @@ const skills = [
 			<SiWebgl size={36} />,
 			<SiCss3 size={36} color={SiCss3Hex} />,
 			<SiHtml5 size={36} color={SiHtml5Hex} />,
+			<SiGoogleanalytics size={36} color={SiGoogleanalyticsHex} />,
+			<SiGooglesearchconsole size={36} color={SiGooglesearchconsoleHex} />,
+			<SiMixpanel size={36} color={SiMixpanelHex} />,
 		],
 	},
 	{
@@ -254,26 +264,30 @@ export default function SkillDetail() {
 	if (isDesktop) {
 		return (
 			<Dialog open={true} onOpenChange={() => router.back()}>
-				<DialogContent className="h-full max-h-[calc(100dvh-5rem)] min-w-[calc(100dvw-5rem)]">
-					<DialogHeader className="sr-only">
-						<DialogTitle>Skill detail</DialogTitle>
-						<DialogDescription>
+				<DialogContent className="h-full max-h-[calc(100dvh-5rem)] max-w-[80ch]">
+					<DialogHeader className="container px-4">
+						<DialogTitle className="mx-auto text-3xl text-muted-foreground">
+							Skill set
+						</DialogTitle>
+						<DialogDescription className="sr-only">
 							Detail information about my skill set
 						</DialogDescription>
 					</DialogHeader>
 
-					<div className="container space-y-10 overflow-y-auto px-4">
-						{skills.map((skill) => (
-							<SkillSetSection header={skill.title}>
-								<p>{skill.description}</p>
-								<ul className="flex gap-3">
-									{skill.technologies.map((tech) => (
-										<li key={tech.key}>{tech}</li>
-									))}
-								</ul>
-							</SkillSetSection>
-						))}
-					</div>
+					<ScrollArea className="mx-auto flex h-full max-w-[65ch]">
+						<div className="space-y-10">
+							{skills.map((skill) => (
+								<SkillSetSection header={skill.title}>
+									<p>{skill.description}</p>
+									<ul className="flex flex-wrap gap-3">
+										{skill.technologies.map((tech) => (
+											<li key={tech.key}>{tech}</li>
+										))}
+									</ul>
+								</SkillSetSection>
+							))}
+						</div>
+					</ScrollArea>
 				</DialogContent>
 			</Dialog>
 		)
