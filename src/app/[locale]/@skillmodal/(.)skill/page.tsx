@@ -64,6 +64,7 @@ import {
 	SiNodedotjsHex,
 	SiNuxt,
 	SiNuxtHex,
+	SiOwasp,
 	SiPhp,
 	SiPhpHex,
 	SiPhpmyadmin,
@@ -213,6 +214,7 @@ const skills = [
 			<SiBurpsuite size={36} color={SiBurpsuiteHex} />,
 			<SiMetasploit size={36} color={SiMetasploitHex} />,
 			<SiLinux size={36} color={SiLinuxHex} />,
+			<SiOwasp size={36} />,
 		],
 	},
 	{
