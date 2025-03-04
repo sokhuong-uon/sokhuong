@@ -7,7 +7,6 @@ type ProductCardProps = {
 	model: {
 		id: number | string
 		name: string
-		category: string
 		price: number
 	}
 }
