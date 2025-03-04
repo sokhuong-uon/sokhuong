@@ -1,5 +1,4 @@
-'use client'
-
+import { eq } from 'drizzle-orm'
 import { Download, ShoppingCart } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -10,11 +9,17 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select'
+import { db } from '@/db'
+import { model } from '@/db/schema'
 import { ModelSceneCard } from '@/features/store/components/model-scene-card'
-import { ProductCard } from '@/features/store/components/product-card'
-import { models } from '@/utils/models'
 
-export default function ProductDetail({ params }: { params: { id: string } }) {
+export default async function ProductDetail({
+	params,
+}: {
+	params: { id: string }
+}) {
+	const models = await db.select().from(model).where(eq(model.id, params.id))
+
 	return (
 		<div className="container py-8">
 			<ModelSceneCard />
@@ -23,9 +28,8 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 				<div className="grid gap-6 md:grid-cols-2">
 					<div className="space-y-6">
 						<div>
-							<span className="text-3xl font-bold">id: {params.id}</span>
-							<h1 className="text-3xl font-bold">Futuristic Car</h1>
-							<div className="mt-2 text-2xl font-bold">$29.99</div>
+							<h1 className="text-3xl font-bold">{models[0].name}</h1>
+							<div className="mt-2 text-2xl font-bold">${models[0].price}</div>
 						</div>
 
 						<div className="flex gap-2">
@@ -84,18 +88,6 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
 								Includes detailed textures, rigging, and basic animations.
 							</p>
 						</div>
-					</div>
-				</div>
-
-				<div>
-					<div className="mb-4 flex items-center justify-between">
-						<h2 className="text-xl font-bold">Similar Models</h2>
-					</div>
-
-					<div className="relative mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-						{models.map((model) => (
-							<ProductCard model={model} key={model.id} />
-						))}
 					</div>
 				</div>
 			</div>
