@@ -23,6 +23,8 @@ import {
 	SiDeno,
 	SiDocker,
 	SiDockerHex,
+	SiDrizzle,
+	SiDrizzleHex,
 	SiEslint,
 	SiEslintHex,
 	SiExpress,
@@ -193,6 +195,7 @@ const skills = [
 			'I rarely work on back-end application. I mostly use some back-end tools at work to research and make proof-of-cocept of a new application. In addition to that, I learn some back-end tools to use in my side-project or just purely learning to get to know the tool.',
 		technologies: [
 			<SiSupabase key="Supabase" size={36} color={SiSupabaseHex} />,
+			<SiDrizzle key="Supabase" size={36} color={SiDrizzleHex} />,
 			<SiMysql key="MySQL" size={36} color={SiMysqlHex} />,
 			<SiPostgresql key="PostgreSQL" size={36} color={SiPostgresqlHex} />,
 			<SiNodedotjs key="NodeJS" size={36} color={SiNodedotjsHex} />,
