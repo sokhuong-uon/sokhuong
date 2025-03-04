@@ -147,10 +147,6 @@ function SkillExpandButtonGroup({
 		}
 	}, [containerRef])
 
-	const handleButtonClick = (skill: string) => {
-		console.log(`Clicked on ${skill}`)
-	}
-
 	const maxExperience = Math.max(...chartData.map((d) => d.experience))
 
 	return (
