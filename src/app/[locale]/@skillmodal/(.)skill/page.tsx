@@ -150,29 +150,41 @@ const skills = [
 		description:
 			'I started front-end development in early 2020. I have experience with several front-end technologies:',
 		technologies: [
-			<SiJavascript size={36} color={SiJavascriptHex} />,
-			<SiTypescript size={36} color={SiTypescriptHex} />,
-			<SiReact size={36} color={SiReactHex} />,
-			<SiReactquery size={36} color={SiReactqueryHex} />,
-			<SiAxios size={36} color={SiAxiosHex} />,
-			<SiGraphql size={36} color={SiGraphqlHex} />,
-			<SiNextdotjs size={36} />,
-			<SiVitest size={36} color={SiVitestHex} />,
-			<SiVuedotjs size={36} color={SiVuedotjsHex} />,
-			<SiNuxt size={36} color={SiNuxtHex} />,
-			<SiTailwindcss size={36} color={SiTailwindcssHex} />,
-			<SiReacthookform size={36} color={SiReacthookformHex} />,
-			<SiZod size={36} color={SiZodHex} />,
-			<SiAntdesign size={36} color={SiAntdesignHex} />,
-			<SiDaisyui size={36} color={SiDaisyuiHex} />,
-			<SiShadcnui size={36} />,
-			<SiThreedotjs size={36} />,
-			<SiWebgl size={36} />,
-			<SiCss3 size={36} color={SiCss3Hex} />,
-			<SiHtml5 size={36} color={SiHtml5Hex} />,
-			<SiGoogleanalytics size={36} color={SiGoogleanalyticsHex} />,
-			<SiGooglesearchconsole size={36} color={SiGooglesearchconsoleHex} />,
-			<SiMixpanel size={36} color={SiMixpanelHex} />,
+			<SiJavascript key="JavaScript" size={36} color={SiJavascriptHex} />,
+			<SiTypescript key="TypeScript" size={36} color={SiTypescriptHex} />,
+			<SiReact key="React" size={36} color={SiReactHex} />,
+			<SiReactquery key="ReactQuery" size={36} color={SiReactqueryHex} />,
+			<SiAxios key="Axios" size={36} color={SiAxiosHex} />,
+			<SiGraphql key="GraphQL" size={36} color={SiGraphqlHex} />,
+			<SiNextdotjs key="NextJS" size={36} />,
+			<SiVitest key="Vitest" size={36} color={SiVitestHex} />,
+			<SiVuedotjs key="VueJS" size={36} color={SiVuedotjsHex} />,
+			<SiNuxt key="Nuxt" size={36} color={SiNuxtHex} />,
+			<SiTailwindcss key="TailwindCSS" size={36} color={SiTailwindcssHex} />,
+			<SiReacthookform
+				key="ReactHookForm"
+				size={36}
+				color={SiReacthookformHex}
+			/>,
+			<SiZod key="Zod" size={36} color={SiZodHex} />,
+			<SiAntdesign key="AntDesign" size={36} color={SiAntdesignHex} />,
+			<SiDaisyui key="DaisyUI" size={36} color={SiDaisyuiHex} />,
+			<SiShadcnui key="ShadcnUI" size={36} />,
+			<SiThreedotjs key="ThreeJS" size={36} />,
+			<SiWebgl key="WebGL" size={36} />,
+			<SiCss3 key="CSS3" size={36} color={SiCss3Hex} />,
+			<SiHtml5 key="HTML5" size={36} color={SiHtml5Hex} />,
+			<SiGoogleanalytics
+				key="GoogleAnalytics"
+				size={36}
+				color={SiGoogleanalyticsHex}
+			/>,
+			<SiGooglesearchconsole
+				key="GoogleSearchConsole"
+				size={36}
+				color={SiGooglesearchconsoleHex}
+			/>,
+			<SiMixpanel key="Mixpanel" size={36} color={SiMixpanelHex} />,
 		],
 	},
 	{
@@ -180,18 +192,18 @@ const skills = [
 		description:
 			'I rarely work on back-end application. I mostly use some back-end tools at work to research and make proof-of-cocept of a new application. In addition to that, I learn some back-end tools to use in my side-project or just purely learning to get to know the tool.',
 		technologies: [
-			<SiSupabase size={36} color={SiSupabaseHex} />,
-			<SiMysql size={36} color={SiMysqlHex} />,
-			<SiPostgresql size={36} color={SiPostgresqlHex} />,
-			<SiNodedotjs size={36} color={SiNodedotjsHex} />,
-			<SiExpress size={36} />,
-			<SiMongodb size={36} color={SiMongodbHex} />,
-			<SiHono size={36} color={SiHonoHex} />,
-			<SiDeno size={36} />,
-			<SiStrapi size={36} color={SiStrapiHex} />,
-			<SiResend size={36} />,
-			<SiMeilisearch size={36} color={SiMeilisearchHex} />,
-			<SiPhp size={36} color={SiPhpHex} />,
+			<SiSupabase key="Supabase" size={36} color={SiSupabaseHex} />,
+			<SiMysql key="MySQL" size={36} color={SiMysqlHex} />,
+			<SiPostgresql key="PostgreSQL" size={36} color={SiPostgresqlHex} />,
+			<SiNodedotjs key="NodeJS" size={36} color={SiNodedotjsHex} />,
+			<SiExpress key="Express" size={36} />,
+			<SiMongodb key="MongoDB" size={36} color={SiMongodbHex} />,
+			<SiHono key="Hono" size={36} color={SiHonoHex} />,
+			<SiDeno key="Deno" size={36} />,
+			<SiStrapi key="Strapi" size={36} color={SiStrapiHex} />,
+			<SiResend key="Resend" size={36} />,
+			<SiMeilisearch key="Meilisearch" size={36} color={SiMeilisearchHex} />,
+			<SiPhp key="PHP" size={36} color={SiPhpHex} />,
 		],
 	},
 	{
@@ -199,28 +211,32 @@ const skills = [
 		description:
 			'Setup web app project for easy collaboration. I setup deployment server and configure DNS. I back up, clean up, and load database from/to database.',
 		technologies: [
-			<SiTraefikproxy size={36} color={SiTraefikproxyHex} />,
-			<SiGit size={36} color={SiGitHex} />,
-			<SiGithub size={36} />,
-			<SiGithubactions size={36} color={SiGithubactionsHex} />,
-			<SiEslint size={36} color={SiEslintHex} />,
-			<SiPrettier size={36} color={SiPrettierHex} />,
-			<SiPortainer size={36} color={SiPortainerHex} />,
-			<SiTurborepo size={36} color={SiTurborepoHex} />,
-			<SiNginx size={36} color={SiNginxHex} />,
-			<SiApache size={36} />,
-			<SiDocker size={36} color={SiDockerHex} />,
-			<SiLinux size={36} color={SiLinuxHex} />,
-			<SiGnubash size={36} />,
-			<SiVim size={36} color={SiVimHex} />,
-			<SiNeovim size={36} color={SiNeovimHex} />,
-			<SiLua size={36} />,
-			<SiPhpmyadmin size={36} color={SiPhpmyadminHex} />,
-			<SiCloudflare size={36} color={SiCloudflareHex} />,
-			<SiVercel size={36} />,
-			<SiGodaddy size={36} color={SiGodaddyHex} />,
-			<SiCpanel size={36} color={SiCpanelHex} />,
-			<SiHostinger size={36} color={SiHostingerHex} />,
+			<SiTraefikproxy key="TraefikProxy" size={36} color={SiTraefikproxyHex} />,
+			<SiGit key="Git" size={36} color={SiGitHex} />,
+			<SiGithub key="GitHub" size={36} />,
+			<SiGithubactions
+				key="GitHubActions"
+				size={36}
+				color={SiGithubactionsHex}
+			/>,
+			<SiEslint key="ESLint" size={36} color={SiEslintHex} />,
+			<SiPrettier key="Prettier" size={36} color={SiPrettierHex} />,
+			<SiPortainer key="Portainer" size={36} color={SiPortainerHex} />,
+			<SiTurborepo key="Turborepo" size={36} color={SiTurborepoHex} />,
+			<SiNginx key="Nginx" size={36} color={SiNginxHex} />,
+			<SiApache key="Apache" size={36} />,
+			<SiDocker key="Docker" size={36} color={SiDockerHex} />,
+			<SiLinux key="Linux" size={36} color={SiLinuxHex} />,
+			<SiGnubash key="GnuBash" size={36} />,
+			<SiVim key="Vim" size={36} color={SiVimHex} />,
+			<SiNeovim key="Neovim" size={36} color={SiNeovimHex} />,
+			<SiLua key="Lua" size={36} />,
+			<SiPhpmyadmin key="PHPMyAdmin" size={36} color={SiPhpmyadminHex} />,
+			<SiCloudflare key="Cloudflare" size={36} color={SiCloudflareHex} />,
+			<SiVercel key="Vercel" size={36} />,
+			<SiGodaddy key="GoDaddy" size={36} color={SiGodaddyHex} />,
+			<SiCpanel key="CPanel" size={36} color={SiCpanelHex} />,
+			<SiHostinger key="Hostinger" size={36} color={SiHostingerHex} />,
 		],
 	},
 	{
@@ -228,30 +244,30 @@ const skills = [
 		description:
 			'I learn cyber security on tryhackme.com and overthewire.org. I also have more practial experience protecting my own server.',
 		technologies: [
-			<SiBurpsuite size={36} color={SiBurpsuiteHex} />,
-			<SiMetasploit size={36} color={SiMetasploitHex} />,
-			<SiLinux size={36} color={SiLinuxHex} />,
-			<SiOwasp size={36} />,
+			<SiBurpsuite key="BurpSuite" size={36} color={SiBurpsuiteHex} />,
+			<SiMetasploit key="Metasploit" size={36} color={SiMetasploitHex} />,
+			<SiLinux key="LinuxSecurity" size={36} color={SiLinuxHex} />,
+			<SiOwasp key="OWASP" size={36} />,
 		],
 	},
 	{
 		title: 'Art & Design',
 		description: '',
 		technologies: [
-			<SiFigma size={36} color={SiFigmaHex} />,
-			<SiBlender size={36} color={SiBlenderHex} />,
-			<SiThreedotjs size={36} />,
-			<SiWebgl size={36} />,
+			<SiFigma key="Figma" size={36} color={SiFigmaHex} />,
+			<SiBlender key="Blender" size={36} color={SiBlenderHex} />,
+			<SiThreedotjs key="ThreeJSDesign" size={36} />,
+			<SiWebgl key="WebGLDesign" size={36} />,
 		],
 	},
 	{
 		title: 'Miscellaneous',
 		description: '',
 		technologies: [
-			<SiRust size={36} />,
-			<SiPython size={36} color={SiPythonHex} />,
-			<SiPostman size={36} color={SiPostmanHex} />,
-			<SiInsomnia size={36} color={SiInsomniaHex} />,
+			<SiRust key="Rust" size={36} />,
+			<SiPython key="Python" size={36} color={SiPythonHex} />,
+			<SiPostman key="Postman" size={36} color={SiPostmanHex} />,
+			<SiInsomnia key="Insomnia" size={36} color={SiInsomniaHex} />,
 		],
 	},
 ]
@@ -277,7 +293,7 @@ export default function SkillDetail() {
 					<ScrollArea className="mx-auto flex h-full max-w-[65ch]">
 						<div className="space-y-10">
 							{skills.map((skill) => (
-								<SkillSetSection header={skill.title}>
+								<SkillSetSection header={skill.title} key={skill.title}>
 									<p>{skill.description}</p>
 									<ul className="flex flex-wrap gap-3">
 										{skill.technologies.map((tech) => (
@@ -305,11 +321,11 @@ export default function SkillDetail() {
 
 				<div className="max-h-[calc(100dvh-15rem)] space-y-10 overflow-y-auto px-4">
 					{skills.map((skill) => (
-						<SkillSetSection header={skill.title}>
+						<SkillSetSection header={skill.title} key={skill.title}>
 							<p>{skill.description}</p>
 							<ul className="flex flex-wrap gap-3">
-								{skill.technologies.map((tech, index) => (
-									<li key={index}>{tech}</li>
+								{skill.technologies.map((tech) => (
+									<li key={tech.key}>{tech}</li>
 								))}
 							</ul>
 						</SkillSetSection>
