@@ -50,6 +50,8 @@ import {
 	SiInsomniaHex,
 	SiJavascript,
 	SiJavascriptHex,
+	SiLeaflet,
+	SiLeafletHex,
 	SiLinux,
 	SiLinuxHex,
 	SiLua,
@@ -149,6 +151,7 @@ export const skills = [
 			<SiShadcnui key="ShadcnUI" size={36} />,
 			<SiThreedotjs key="ThreeJS" size={36} />,
 			<SiWebgl key="WebGL" size={36} />,
+			<SiLeaflet key="WebGL" size={36} color={SiLeafletHex} />,
 			<SiCss3 key="CSS3" size={36} color={SiCss3Hex} />,
 			<SiHtml5 key="HTML5" size={36} color={SiHtml5Hex} />,
 			<SiGoogleanalytics
