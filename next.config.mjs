@@ -16,6 +16,15 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'vdievlpzbfjzycxrjffq.supabase.co',
+				pathname: '/storage/v1/object/public/model-store/**',
+			},
+		],
+	},
 }
 
 export default withNextIntl(withMDX(nextConfig))

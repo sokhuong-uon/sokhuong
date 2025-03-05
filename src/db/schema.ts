@@ -6,6 +6,8 @@ import {
 	timestamp,
 	uuid,
 } from 'drizzle-orm/pg-core'
+import { createSelectSchema } from 'drizzle-zod'
+import { z } from 'zod'
 
 export const model = pgTable('model', {
 	id: uuid('id').defaultRandom().primaryKey(),
@@ -20,3 +22,6 @@ export const model = pgTable('model', {
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
 	updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 })
+
+export const modelSelectSchema = createSelectSchema(model)
+export type ModelSchema = z.infer<typeof modelSelectSchema>

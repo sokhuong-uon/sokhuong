@@ -33,7 +33,7 @@ export default async function Store() {
 			<ul className="relative mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
 				{models.map((model) => (
 					<li key={model.id}>
-						<ProductCard model={{ ...model, price: Number(model.price) }} />
+						<ProductCard model={model} />
 					</li>
 				))}
 			</ul>
