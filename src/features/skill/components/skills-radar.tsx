@@ -178,7 +178,7 @@ function SkillExpandButtonGroup({
 							}}
 							asChild
 						>
-							<Link href={'/skill'}>
+							<Link href={'/skill'} prefetch>
 								<Plus />
 							</Link>
 						</Button>
