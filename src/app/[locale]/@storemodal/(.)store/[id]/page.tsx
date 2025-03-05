@@ -39,9 +39,9 @@ export default function ProductDetail() {
 						</DialogDescription>
 					</DialogHeader>
 
-					<div className="relative flex h-full w-full items-center overflow-y-auto">
-						<div className="flex w-full flex-col p-4 2xl:flex-row">
-							<div className="flex-1 overflow-x-hidden">
+					<div className="flex h-full w-full overflow-y-auto">
+						<div className="flex w-full flex-col items-center p-4 2xl:flex-row">
+							<div className="w-full flex-1 px-4 2xl:w-0">
 								<ModelSceneCard />
 							</div>
 							<div className="flex-shrink-0 2xl:w-96">
