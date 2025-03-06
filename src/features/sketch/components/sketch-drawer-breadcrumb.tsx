@@ -3,12 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import { ChevronDown, Slash } from 'lucide-react'
+
 import { Badge } from '@/components/ui/badge'
 import {
 	Breadcrumb,
-	BreadcrumbEllipsis,
 	BreadcrumbItem,
-	BreadcrumbLink,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
@@ -36,27 +36,31 @@ export function SketchDrawerBreadcrumb({ menu }: { menu: Menu[] }) {
 	return (
 		<Breadcrumb className="">
 			<BreadcrumbList className="max-w-full flex-nowrap">
-				<BreadcrumbItem>
-					<BreadcrumbLink href="/sketch">Sketch</BreadcrumbLink>
-				</BreadcrumbItem>
-
-				<BreadcrumbSeparator id="sep-1" />
-
-				<BreadcrumbItem>
-					<BreadcrumbDrawer menu={menu} />
-				</BreadcrumbItem>
+				{pathname === '/sketch' && (
+					<>
+						<BreadcrumbItem className="whitespace-nowrap">
+							<BreadcrumbDrawer label={'Sketch'} menu={menu} />
+						</BreadcrumbItem>
+					</>
+				)}
 
 				{pathname !== '/sketch' && (
 					<>
-						<BreadcrumbSeparator id="sep-2" />
+						<BreadcrumbItem>Sketch</BreadcrumbItem>
+
+						<BreadcrumbSeparator>
+							<Slash />
+						</BreadcrumbSeparator>
 
 						{activeMainMenu && (
 							<>
 								<BreadcrumbItem className="whitespace-nowrap">
-									{activeMainMenu.label}
+									<BreadcrumbDrawer label={activeMainMenu.label} menu={menu} />
 								</BreadcrumbItem>
 
-								<BreadcrumbSeparator id="sep-3" />
+								<BreadcrumbSeparator>
+									<Slash />
+								</BreadcrumbSeparator>
 
 								<BreadcrumbItem className="truncate">
 									<BreadcrumbPage className="truncate">
@@ -76,11 +80,12 @@ export function SketchDrawerBreadcrumb({ menu }: { menu: Menu[] }) {
 	)
 }
 
-function BreadcrumbDrawer({ menu }: { menu: Menu[] }) {
+function BreadcrumbDrawer({ label, menu }: { label: string; menu: Menu[] }) {
 	return (
 		<Drawer>
-			<DrawerTrigger>
-				<BreadcrumbEllipsis className="h-4 w-4" />
+			<DrawerTrigger className="flex items-center gap-2">
+				{label}
+				<ChevronDown className="h-4 w-4" />
 				<span className="sr-only">Toggle menu</span>
 			</DrawerTrigger>
 
