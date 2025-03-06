@@ -18,6 +18,7 @@ export function Footer({ className, ...props }: ComponentProps<'footer'>) {
 						<a
 							href="https://github.com/sokhuong-uon"
 							className="flex h-full w-full"
+							target="_blank"
 						>
 							<SiGithub className="m-auto" />
 						</a>
@@ -26,6 +27,7 @@ export function Footer({ className, ...props }: ComponentProps<'footer'>) {
 						<a
 							href="https://www.youtube.com/@alotofcode"
 							className="flex h-full w-full"
+							target="_blank"
 						>
 							<SiYoutube className="m-auto" />
 						</a>
@@ -34,6 +36,7 @@ export function Footer({ className, ...props }: ComponentProps<'footer'>) {
 						<a
 							href="https://tryhackme.com/p/sokhuong"
 							className="flex h-full w-full"
+							target="_blank"
 						>
 							<SiTryhackme className="m-auto" />
 						</a>
