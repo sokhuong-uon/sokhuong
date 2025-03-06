@@ -24,6 +24,8 @@ import { skills } from '@/features/skill/components/skill-list'
 import { SkillSetSection } from '@/features/skill/components/skill-set-section'
 import { useMediaQuery } from '@/hooks/use-media-query'
 
+import { TechnologyList } from './components/technology-list'
+
 export default function SkillDetail() {
 	const router = useRouter()
 
@@ -47,16 +49,10 @@ export default function SkillDetail() {
 							{skills.map((skill) => (
 								<SkillSetSection header={skill.title} key={skill.title}>
 									<p>{skill.description}</p>
-									<ul className="grid grid-cols-3 gap-3">
-										{skill.technologies.map((tech) => (
-											<li
-												key={tech.key}
-												className="flex aspect-video w-full items-center justify-center bg-muted/20"
-											>
-												{tech}
-											</li>
-										))}
-									</ul>
+									<TechnologyList
+										technologies={skill.technologies}
+										className="grid-cols-3"
+									/>
 								</SkillSetSection>
 							))}
 						</div>
@@ -80,16 +76,7 @@ export default function SkillDetail() {
 					{skills.map((skill) => (
 						<SkillSetSection header={skill.title} key={skill.title}>
 							<p>{skill.description}</p>
-							<ul className="grid grid-cols-2 gap-3">
-								{skill.technologies.map((tech) => (
-									<li
-										key={tech.key}
-										className="flex aspect-video w-full items-center justify-center bg-muted/20"
-									>
-										{tech}
-									</li>
-								))}
-							</ul>
+							<TechnologyList technologies={skill.technologies} />
 						</SkillSetSection>
 					))}
 				</div>
