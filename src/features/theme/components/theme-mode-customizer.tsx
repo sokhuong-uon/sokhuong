@@ -20,12 +20,7 @@ export function ThemeModeCustomizer({ className }: { className?: string }) {
 				<SunIcon className="mr-1 -translate-x-1" />
 				Light
 			</Button>
-			<Button
-				variant={'outline'}
-				size="sm"
-				onClick={() => setMode('dark')}
-				className="border-muted dark:border-2 dark:border-primary"
-			>
+			<Button variant={'outline'} size="sm" onClick={() => setMode('dark')}>
 				<MoonIcon className="mr-1 -translate-x-1" />
 				Dark
 			</Button>

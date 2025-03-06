@@ -20,7 +20,7 @@ export function ThemeRadiusCustomizer({ className }: { className?: string }) {
 							setRadius(parseFloat(value) as Radius)
 						}}
 						className={cn(
-							radius === parseFloat(value) && 'border-2 border-primary'
+							radius === parseFloat(value) && 'border border-primary'
 						)}
 					>
 						{value}
