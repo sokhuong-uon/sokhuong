@@ -1,18 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
-import { ChevronDown, Slash } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
-import {
-	Breadcrumb,
-	BreadcrumbItem,
-	BreadcrumbList,
-	BreadcrumbPage,
-	BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 import {
 	Drawer,
@@ -26,61 +18,13 @@ import {
 } from '@/components/ui/drawer'
 import { Menu } from '@/features/sketch/types/sketch-menu'
 
-export function SketchDrawerBreadcrumb({ menu }: { menu: Menu[] }) {
-	const pathname = usePathname()
-
-	const activeMainMenu = menu.filter((mainMenuItem) =>
-		pathname.startsWith(mainMenuItem.path)
-	)[0]
-
-	return (
-		<Breadcrumb className="">
-			<BreadcrumbList className="max-w-full flex-nowrap">
-				{pathname === '/sketch' && (
-					<>
-						<BreadcrumbItem className="whitespace-nowrap">
-							<BreadcrumbDrawer label={'Sketch'} menu={menu} />
-						</BreadcrumbItem>
-					</>
-				)}
-
-				{pathname !== '/sketch' && (
-					<>
-						<BreadcrumbItem>Sketch</BreadcrumbItem>
-
-						<BreadcrumbSeparator>
-							<Slash />
-						</BreadcrumbSeparator>
-
-						{activeMainMenu && (
-							<>
-								<BreadcrumbItem className="whitespace-nowrap">
-									<BreadcrumbDrawer label={activeMainMenu.label} menu={menu} />
-								</BreadcrumbItem>
-
-								<BreadcrumbSeparator>
-									<Slash />
-								</BreadcrumbSeparator>
-
-								<BreadcrumbItem className="truncate">
-									<BreadcrumbPage className="truncate">
-										{
-											activeMainMenu.items.filter((item) =>
-												pathname.startsWith(item.path)
-											)[0]?.label
-										}
-									</BreadcrumbPage>
-								</BreadcrumbItem>
-							</>
-						)}
-					</>
-				)}
-			</BreadcrumbList>
-		</Breadcrumb>
-	)
-}
-
-function BreadcrumbDrawer({ label, menu }: { label: string; menu: Menu[] }) {
+export function BreadcrumbDrawer({
+	label,
+	menu,
+}: {
+	label: string
+	menu: Menu[]
+}) {
 	return (
 		<Drawer>
 			<DrawerTrigger className="flex items-center gap-2">

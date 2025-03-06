@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 
 import { Sidebar } from '@/features/navigation/components/sidebar'
-import { SketchDrawerBreadcrumb } from '@/features/sketch/components/sketch-drawer-breadcrumb'
+import { SketchBreadcrumb } from '@/features/sketch/components/sketch-breadcrumb'
 
 import { menu } from './sketch-menu'
 
@@ -9,7 +9,7 @@ export default function SketchLayout({ children }: PropsWithChildren) {
 	return (
 		<div className="px-6 xl:container">
 			<div className="pt-4 md:hidden">
-				<SketchDrawerBreadcrumb menu={menu} />
+				<SketchBreadcrumb menu={menu} />
 			</div>
 
 			<div className="flex items-start">
