@@ -7,7 +7,14 @@ import { ModelListFilter } from '@/features/store/components/model-list-filter'
 import { ProductCard } from '@/features/store/components/product-card'
 
 export default async function Store() {
-	const models = await db.select().from(model)
+	const models = await db
+		.select({
+			id: model.id,
+			name: model.name,
+			price: model.price,
+			coverImagePath: model.coverImagePath,
+		})
+		.from(model)
 
 	return (
 		<main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">

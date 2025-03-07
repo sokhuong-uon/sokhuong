@@ -6,7 +6,14 @@ import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card'
 import { ModelSchema } from '@/db/schema'
 
 type ProductCardProps = {
-	model: Omit<ModelSchema, 'specification'>
+	model: Omit<
+		ModelSchema,
+		| 'specification'
+		| 'description'
+		| 'modelFilePath'
+		| 'createdAt'
+		| 'updatedAt'
+	>
 }
 
 export function ProductCard({ model }: ProductCardProps) {
