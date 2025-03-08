@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { DraftingCompass, Menu, ShoppingCart } from 'lucide-react'
+import { Menu } from 'lucide-react'
 
 import { Github } from '@/components/icon/github'
 import { YouTube } from '@/components/icon/youtube'
@@ -24,17 +24,23 @@ export function Navbar() {
 
 	const menu = [
 		{
-			label: 'Store',
-			path: '/store',
-			icon: <ShoppingCart />,
+			label: 'Work',
+			path: '/work',
+			// icon: <ShoppingCart />,
 			description: 'Visit my 3D model store',
 		},
 		{
 			label: 'Sketch',
 			path: '/sketch',
-			icon: <DraftingCompass />,
+			// icon: <DraftingCompass />,
 			description:
 				'Building block that I built to learn or showcase technologies',
+		},
+		{
+			label: 'Store',
+			path: '/store',
+			// icon: <ShoppingCart />,
+			description: 'Visit my 3D model store',
 		},
 	]
 
@@ -65,7 +71,6 @@ export function Navbar() {
 								href={item.path}
 								className="flex items-center justify-center gap-2"
 							>
-								{item.icon}
 								{item.label}
 							</Link>
 						</Button>
