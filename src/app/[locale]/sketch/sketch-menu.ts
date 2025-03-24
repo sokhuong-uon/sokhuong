@@ -48,4 +48,14 @@ export const menu = [
 			},
 		],
 	},
+	{
+		label: 'Basic Frontend',
+		path: '/sketch/basic',
+		items: [
+			{
+				label: 'Counter Button',
+				path: '/sketch/basic/counter',
+			},
+		],
+	},
 ] satisfies Menu[]
