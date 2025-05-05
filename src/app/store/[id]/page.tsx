@@ -13,6 +13,8 @@ import { db } from '@/db'
 import { model } from '@/db/schema'
 import { ModelSceneCard } from '@/features/store/components/model-scene-card'
 
+export const runtime = 'edge'
+
 export default async function ProductDetail({
 	params,
 }: {
