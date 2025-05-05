@@ -1,9 +1,6 @@
-import { getTranslations } from 'next-intl/server'
-
 import { Button } from '@/components/ui/button'
 
 export async function SkipToMainContent() {
-	const t = await getTranslations('Layout')
 	return (
 		<Button
 			asChild
@@ -13,7 +10,7 @@ export async function SkipToMainContent() {
 				href="#main"
 				className="overflow-hidden p-0 underline focus-within:h-fit focus-within:p-4 focus:outline-none"
 			>
-				{t('Skip to main content')}
+				Skip to main content
 			</a>
 		</Button>
 	)

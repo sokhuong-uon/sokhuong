@@ -32,8 +32,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/[locale]/sketch/page.mdx",
-    "src/app/[locale]/sketch/basic/counter/page.mdx"
+    "src/app/sketch/page.mdx",
+    "src/app/sketch/basic/counter/page.mdx"
   ],
   "exclude": [
     "node_modules"
