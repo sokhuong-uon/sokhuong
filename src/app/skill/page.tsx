@@ -1,7 +1,5 @@
 import { skills } from '@/features/skill/components/skill-list'
 
-export const runtime = 'edge'
-
 export default function Skill() {
 	return (
 		<div className="mx-auto max-w-3xl space-y-10 px-6 py-10">
