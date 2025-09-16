@@ -36,12 +36,12 @@ export function Navbar() {
 			description:
 				'Building block that I built to learn or showcase technologies',
 		},
-		{
-			label: 'Store',
-			path: '/store',
-			// icon: <ShoppingCart />,
-			description: 'Visit my 3D model store',
-		},
+		// {
+		// 	label: 'Store',
+		// 	path: '/store',
+		// 	// icon: <ShoppingCart />,
+		// 	description: 'Visit my 3D model store',
+		// },
 	]
 
 	return (
