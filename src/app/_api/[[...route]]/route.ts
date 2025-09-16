@@ -5,8 +5,6 @@ import { handle } from 'hono/vercel'
 import { db } from '@/db'
 import { model } from '@/db/schema'
 
-export const runtime = 'edge'
-
 const app = new Hono().basePath('/api')
 
 app
