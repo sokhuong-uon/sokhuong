@@ -1,4 +1,5 @@
 import createMdx from '@next/mdx'
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
 
 const withMDX = createMdx({
 	options: {
@@ -25,3 +26,5 @@ const nextConfig = {
 }
 
 export default withMDX(nextConfig)
+
+initOpenNextCloudflareForDev()
