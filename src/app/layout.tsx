@@ -22,16 +22,14 @@ export default async function RootLayout({
 	children,
 	storemodal,
 	skillmodal,
-	params: { locale },
 }: Readonly<{
 	children: React.ReactNode
 	storemodal: React.ReactNode
 	skillmodal: React.ReactNode
-	params: { locale: string }
 }>) {
 	return (
 		<html
-			lang={locale}
+			lang="en"
 			suppressHydrationWarning
 			className="relative h-dvh"
 			style={{ backgroundColor: 'black' }}
