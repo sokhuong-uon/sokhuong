@@ -80,7 +80,7 @@ export function Navbar() {
 				<li className="ml-auto flex md:hidden">
 					<Drawer>
 						<DrawerTrigger className="p-2">
-							<Menu />
+							<Menu aria-label="Toggle menu" />
 						</DrawerTrigger>
 
 						<DrawerContent>

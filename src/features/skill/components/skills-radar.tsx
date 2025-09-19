@@ -178,7 +178,7 @@ function SkillExpandButtonGroup({
 							}}
 							asChild
 						>
-							<Link href={'/skill'} prefetch>
+							<Link href={'/skill'} prefetch aria-label="Skill list">
 								<Plus />
 							</Link>
 						</Button>
