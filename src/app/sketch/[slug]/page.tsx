@@ -1,9 +1,10 @@
-export default async function SketchDetail({
-	params,
-}: {
-	params: { slug: string }
-}) {
-	return (
+export default async function SketchDetail(
+    props: {
+        params: Promise<{ slug: string }>
+    }
+) {
+    const params = await props.params;
+    return (
 		<main
 			id="main"
 			className="flex min-h-[calc(100dvh-10rem)] w-full items-center justify-center"

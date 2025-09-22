@@ -2,9 +2,8 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { FormEvent, useEffect } from 'react'
+import { FormEvent, useEffect, useActionState } from 'react';
 
-import { useFormState } from 'react-dom'
 import { useFormContext } from 'react-hook-form'
 
 import { registerUser } from '@/app/sketch/form/multi-page/actions/sign-up-action'
@@ -44,7 +43,7 @@ export default function Preferences() {
 	const { getValues, control, trigger } = useFormContext<SignUpFormSchema>()
 	const signUpStep = useSignUpStep()
 
-	const [formState, formAction] = useFormState(registerUser, {
+	const [formState, formAction] = useActionState(registerUser, {
 		error: null,
 		success: false,
 	})

@@ -1,7 +1,7 @@
 import { useGLTF } from '@react-three/drei'
-import { PrimitiveProps, useFrame } from '@react-three/fiber'
+import { ThreeElements, useFrame } from '@react-three/fiber'
 
-type PrimitivePropsWithoutScene = Omit<PrimitiveProps, 'scene'>
+type PrimitivePropsWithoutScene = Omit<ThreeElements['primitive'], 'object'>
 
 export function Duck(props: PrimitivePropsWithoutScene) {
 	const { scene } = useGLTF(
@@ -26,7 +26,7 @@ export function Flash(props: PrimitivePropsWithoutScene) {
 	return <primitive object={scene} {...props} />
 }
 
-export function Apple(props: Omit<PrimitiveProps, 'scene'>) {
+export function Apple(props: Omit<ThreeElements['primitive'], 'object'>) {
 	const { scene } = useGLTF(
 		'https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/apple-half/model.gltf'
 	)
