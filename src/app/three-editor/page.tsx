@@ -1,5 +1,7 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
+
 import {
 	GizmoHelper,
 	GizmoViewport,
@@ -19,10 +21,46 @@ import { useThreeEditorStore } from '@/features/three-editor/store/three-editor-
 export default function ThreeEditor() {
 	const scene = useThreeEditorStore((state) => state.scene)
 	const selectedObject = useThreeEditorStore((state) => state.selectedObject)
+	const editorRef = useRef<HTMLDivElement>(null)
+	const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
+		null
+	)
+
+	useEffect(() => {
+		// Create a portal container div
+		const container = document.createElement('div')
+		container.id = 'editor-portal-container'
+		container.style.position = 'absolute'
+		container.style.top = '0'
+		container.style.left = '0'
+		container.style.width = '100%'
+		container.style.height = '100%'
+		container.style.pointerEvents = 'none'
+		container.style.zIndex = '9999'
+
+		// Add it to the editor container
+		if (editorRef.current) {
+			editorRef.current.appendChild(container)
+			setPortalContainer(container)
+		}
+
+		return () => {
+			// Cleanup
+			if (container && container.parentNode) {
+				container.parentNode.removeChild(container)
+			}
+		}
+	}, [])
 
 	return (
-		<div className="relative flex h-[calc(100vh-10rem)] w-full flex-col border border-muted">
-			<ThreeEditorNavbar />
+		<div
+			ref={editorRef}
+			className="relative flex h-[calc(100vh-10rem)] w-full flex-col border border-muted"
+		>
+			<ThreeEditorNavbar
+				editorRef={editorRef}
+				portalContainer={portalContainer}
+			/>
 
 			<ResizablePanelGroup direction="horizontal" className="h-full w-full">
 				<ResizablePanel className="flex-1" defaultSize={85}>

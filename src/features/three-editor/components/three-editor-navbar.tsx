@@ -8,7 +8,7 @@ import { SearchEditorCommand } from './search-editor-command'
 import { ThreeEditorAppMenu } from './three-editor-app-menu'
 
 interface ThreeEditorNavbarProps {
-	editorRef: RefObject<HTMLDivElement>
+	editorRef: RefObject<HTMLDivElement | null>
 	portalContainer: HTMLElement | null
 }
 
@@ -21,8 +21,10 @@ export function ThreeEditorNavbar({
 
 	const toggleFullscreen = useCallback(() => {
 		if (!document.fullscreenElement) {
-			editorRef.current?.requestFullscreen()
-			setIsFullscreen(true)
+			if (editorRef.current) {
+				editorRef.current.requestFullscreen()
+				setIsFullscreen(true)
+			}
 		} else {
 			document.exitFullscreen()
 			setIsFullscreen(false)
