@@ -1,6 +1,7 @@
 'use client'
 
 import {
+	Environment,
 	GizmoHelper,
 	GizmoViewport,
 	OrbitControls,
@@ -30,6 +31,24 @@ export default function ThreeJSEditor() {
 						scene={scene}
 						camera={{ position: [0, 3, 5] }}
 					>
+						<hemisphereLight
+							args={['#87CEEB', '#FFE4B5', 0.6]} // Sky blue to warm sun color
+							intensity={0.4}
+						/>
+						<directionalLight
+							position={[10, 10, 5]}
+							intensity={1}
+							castShadow
+							shadow-mapSize={[2048, 2048]}
+							shadow-camera-far={50}
+							shadow-camera-left={-10}
+							shadow-camera-right={10}
+							shadow-camera-top={10}
+							shadow-camera-bottom={-10}
+						/>
+
+						<Environment preset="sunset" />
+
 						<gridHelper />
 						{selectedObject && (
 							<TransformControls object={selectedObject} mode="translate" />
