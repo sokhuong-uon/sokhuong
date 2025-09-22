@@ -2,9 +2,12 @@
 
 import { useEffect } from 'react'
 
-import { BubbleMenu, type Editor } from '@tiptap/react'
+import { type Editor } from '@tiptap/core'
+import { BubbleMenu } from '@tiptap/react/menus'
 
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { Separator } from '@/components/ui/separator'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { AlignmentTooolbar } from '@/features/tiptap/components/toolbars/alignment'
 import { BlockquoteToolbar } from '@/features/tiptap/components/toolbars/blockquote'
 import { BoldToolbar } from '@/features/tiptap/components/toolbars/bold'
@@ -17,9 +20,7 @@ import { LinkToolbar } from '@/features/tiptap/components/toolbars/link'
 import { OrderedListToolbar } from '@/features/tiptap/components/toolbars/ordered-list'
 import { ToolbarProvider } from '@/features/tiptap/components/toolbars/toolbar-provider'
 import { UnderlineToolbar } from '@/features/tiptap/components/toolbars/underline'
-import { Separator } from '@/features/tiptap/components/ui/separator'
-import { TooltipProvider } from '@/features/tiptap/components/ui/tooltip'
-import { useMediaQuery } from '@/features/tiptap/hooks/use-media-querry'
+import { useMediaQuery } from '@/hooks/use-media-query'
 
 export function FloatingToolbar({ editor }: { editor: Editor | null }) {
 	const isMobile = useMediaQuery('(max-width: 640px)')
@@ -44,13 +45,15 @@ export function FloatingToolbar({ editor }: { editor: Editor | null }) {
 		return (
 			<TooltipProvider>
 				<BubbleMenu
-					tippyOptions={{
-						duration: 100,
+					options={{
+						strategy: 'fixed',
 						placement: 'bottom',
-						offset: [0, 10],
+						offset: {
+							mainAxis: 0,
+							crossAxis: 10,
+						},
 					}}
 					shouldShow={() => {
-						// Show toolbar when editor is focused and has selection
 						return editor.isEditable && editor.isFocused
 					}}
 					editor={editor}
@@ -60,25 +63,21 @@ export function FloatingToolbar({ editor }: { editor: Editor | null }) {
 						<ScrollArea className="h-fit w-full py-0.5">
 							<div className="flex items-center gap-0.5 px-2">
 								<div className="flex items-center gap-0.5 p-1">
-									{/* Primary formatting */}
 									<BoldToolbar />
 									<ItalicToolbar />
 									<UnderlineToolbar />
 									<Separator orientation="vertical" className="mx-1 h-6" />
 
-									{/* Structure controls */}
 									<HeadingsToolbar />
 									<BulletListToolbar />
 									<OrderedListToolbar />
 									<Separator orientation="vertical" className="mx-1 h-6" />
 
-									{/* Rich formatting */}
 									<ColorHighlightToolbar />
 									<LinkToolbar />
 									<ImagePlaceholderToolbar />
 									<Separator orientation="vertical" className="mx-1 h-6" />
 
-									{/* Additional controls */}
 									<AlignmentTooolbar />
 									<BlockquoteToolbar />
 								</div>

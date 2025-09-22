@@ -19,7 +19,7 @@ import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from '@/features/tiptap/components/ui/tooltip'
+} from '@/components/ui/tooltip'
 import { getUrlFromString } from '@/features/tiptap/lib/tiptap-utils'
 import { cn } from '@/lib/utils'
 

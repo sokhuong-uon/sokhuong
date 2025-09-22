@@ -21,8 +21,8 @@ import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from '@/features/tiptap/components/ui/tooltip'
-import { useMediaQuery } from '@/features/tiptap/hooks/use-media-querry'
+} from '@/components/ui/tooltip'
+import { useMediaQuery } from '@/hooks/use-media-query'
 
 import { MobileToolbarGroup, MobileToolbarItem } from './mobile-toolbar-group'
 import { useToolbar } from './toolbar-provider'

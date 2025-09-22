@@ -14,13 +14,13 @@ import {
 	PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { Separator } from '@/features/tiptap/components/ui/separator'
+import { Separator } from '@/components/ui/separator'
 import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from '@/features/tiptap/components/ui/tooltip'
-import { useMediaQuery } from '@/features/tiptap/hooks/use-media-querry'
+} from '@/components/ui/tooltip'
+import { useMediaQuery } from '@/hooks/use-media-query'
 import { cn } from '@/lib/utils'
 
 import { MobileToolbarGroup, MobileToolbarItem } from './mobile-toolbar-group'

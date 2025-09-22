@@ -17,9 +17,7 @@ import { TipTapFloatingMenu } from '@/features/tiptap/components/extensions/floa
 import { FloatingToolbar } from '@/features/tiptap/components/extensions/floating-toolbar'
 import { ImageExtension } from '@/features/tiptap/components/extensions/image'
 import { ImagePlaceholder } from '@/features/tiptap/components/extensions/image-placeholder'
-import { SearchAndReplace } from '@/features/tiptap/components/extensions/search-and-replace'
 import { EditorToolbar } from '@/features/tiptap/components/toolbars/editor-toolbar'
-import '@/features/tiptap/css/tiptap.css'
 import { content } from '@/features/tiptap/lib/content'
 import { cn } from '@/lib/utils'
 
@@ -48,7 +46,6 @@ const extensions = [
 				case 'detailsSummary':
 					return 'Section title'
 				case 'codeBlock':
-					// never show the placeholder when editing code
 					return ''
 				default:
 					return "Write, type '/' for commands"
@@ -70,20 +67,21 @@ const extensions = [
 	}),
 	ImageExtension,
 	ImagePlaceholder,
-	SearchAndReplace,
 	Typography,
 ]
 
-export function RichTextEditorDemo({ className }: { className?: string }) {
+export function Tiptap({ className }: { className?: string }) {
 	const editor = useEditor({
-		immediatelyRender: false,
 		extensions: extensions as Extension[],
 		content,
+		shouldRerenderOnTransaction: true, // ✅ Required for active state highlighting
+		immediatelyRender: false, // ✅ Prevents hydration mismatches in Next.js
 		editorProps: {
 			attributes: {
 				class: 'max-w-full focus:outline-none',
 			},
 		},
+		injectCSS: true,
 		onUpdate: () => {
 			// Do something with the editor content
 		},
@@ -94,7 +92,7 @@ export function RichTextEditorDemo({ className }: { className?: string }) {
 	return (
 		<div
 			className={cn(
-				'relative max-h-[calc(100dvh-6rem)] w-full overflow-hidden overflow-y-scroll border bg-card pb-[60px] sm:pb-0',
+				'relative h-fit w-full overflow-hidden border bg-card sm:pb-0',
 				className
 			)}
 		>
@@ -103,7 +101,7 @@ export function RichTextEditorDemo({ className }: { className?: string }) {
 			<TipTapFloatingMenu editor={editor} />
 			<EditorContent
 				editor={editor}
-				className="min-h-[600px] w-full min-w-full cursor-text sm:p-6"
+				className="min-h-[600px] w-full cursor-text sm:p-4"
 			/>
 		</div>
 	)

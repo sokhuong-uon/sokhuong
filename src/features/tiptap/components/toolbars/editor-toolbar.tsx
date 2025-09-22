@@ -1,8 +1,8 @@
 import { Editor } from '@tiptap/core'
 
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
-import { Separator } from '@/features/tiptap/components/ui/separator'
-import { TooltipProvider } from '@/features/tiptap/components/ui/tooltip'
+import { Separator } from '@/components/ui/separator'
+import { TooltipProvider } from '@/components/ui/tooltip'
 
 import { AlignmentTooolbar } from './alignment'
 import { BlockquoteToolbar } from './blockquote'
@@ -18,7 +18,6 @@ import { ItalicToolbar } from './italic'
 import { LinkToolbar } from './link'
 import { OrderedListToolbar } from './ordered-list'
 import { RedoToolbar } from './redo'
-import { SearchAndReplaceToolbar } from './search-and-replace-toolbar'
 import { StrikeThroughToolbar } from './strikethrough'
 import { ToolbarProvider } from './toolbar-provider'
 import { UnderlineToolbar } from './underline'
@@ -32,19 +31,16 @@ export const EditorToolbar = ({ editor }: { editor: Editor }) => {
 					<ScrollArea className="h-fit py-0.5">
 						<div>
 							<div className="flex items-center gap-1 px-2">
-								{/* History Group */}
 								<UndoToolbar />
 								<RedoToolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
-								{/* Text Structure Group */}
 								<HeadingsToolbar />
 								<BlockquoteToolbar />
 								<CodeToolbar />
 								<CodeBlockToolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
-								{/* Basic Formatting Group */}
 								<BoldToolbar />
 								<ItalicToolbar />
 								<UnderlineToolbar />
@@ -52,25 +48,19 @@ export const EditorToolbar = ({ editor }: { editor: Editor }) => {
 								<LinkToolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
-								{/* Lists & Structure Group */}
 								<BulletListToolbar />
 								<OrderedListToolbar />
 								<HorizontalRuleToolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
-								{/* Alignment Group */}
 								<AlignmentTooolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
-								{/* Media & Styling Group */}
 								<ImagePlaceholderToolbar />
 								<ColorHighlightToolbar />
 								<Separator orientation="vertical" className="mx-1 h-7" />
 
 								<div className="flex-1" />
-
-								{/* Utility Group */}
-								<SearchAndReplaceToolbar />
 							</div>
 						</div>
 						<ScrollBar className="hidden" orientation="horizontal" />

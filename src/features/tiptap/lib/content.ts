@@ -1,39 +1,32 @@
 export const content = `
-  <h1>Explore the Tiptap rich text editor with Shadcn UI components 📝</h1>
-  <p>This is a powerful editor that supports many features:</p>
-  <ul class="list-disc">
-      <li>
-          <p>
-              Rich text formatting with <strong>bold</strong>, <em>italic</em>, and
-              <u>underline</u>
-          </p>
-      </li>
-      <li>
-          <p>Different heading levels</p>
-      </li>
-      <li>
-          <p>Lists (ordered and unordered)</p>
-      </li>
-      <li>
-          <p>Text alignment options</p>
-      </li>
-      <li>
-          <p>Image uploads and management</p>
-      </li>
-  </ul>
-  <h2>Try It Out!</h2>
-  <p>
-      Type '/' to see available commands or use the toolbar above to format your
-      content.
-  </p>
-  <img src="https://res.cloudinary.com/sham007/image/upload/v1737910103/ProfileImages/724shots_so.jpg" alt="Example image"
-      width="100%" align="center" caption="SAAS landing page template" aspectratio="1.640340218712029" />
-  <p>
-      You can also add links like
-      <a target="_blank" rel="noopener noreferrer nofollow" href="https://ehtisham.vercel.app">this one</a>
-      and use text alignment options.
-  </p>
-  <pre><code class="language-javascript">// Example code block
-const greeting = "Hello, World!";
-console.log(greeting);</code></pre>
-`;
+<h1>Getting started</h1>
+
+Welcome to the Simple Editor template! This template integrates open source UI components and Tiptap extensions licensed under MIT.
+
+Integrate it by following the Tiptap UI Components docs or using our CLI tool.
+<pre>
+<code class="language-bash">npx @tiptap/cli init</code>
+</pre>
+
+<h2>Features</h2>
+
+
+<p>A fully responsive rich text editor with built-in support for common formatting and layout tools. Type markdown ** or use keyboard shortcuts ⌘+B for most all common markdown marks. 🪄</p>
+
+<p>Add images, customize alignment, and apply advanced formatting to make your writing more engaging and professional.</p>
+<img width="300" src="https://template.tiptap.dev/images/tiptap-ui-placeholder-image.jpg" alt="Placeholder Image" />
+
+<p>Superscript (x<sup>2</sup>) and Subscript (H<sub>2</sub>O) for precision.</p>
+
+<p>Typographic conversion: automatically convert to -> an arrow →.</p>
+
+<a href="https://tiptap.dev">Learn more</a>
+
+
+<h2>Make it your own</h2>
+
+Switch between light and dark modes, and tailor the editor's appearance with customizable CSS to match your style.
+Test template
+
+Integrate the free template
+`

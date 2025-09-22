@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import type { Editor } from '@tiptap/core'
-import { FloatingMenu } from '@tiptap/react'
+import { type Editor } from '@tiptap/core'
+import { FloatingMenu } from '@tiptap/react/menus'
 import {
 	AlignCenter,
 	AlignLeft,
@@ -334,10 +334,13 @@ export function TipTapFloatingMenu({ editor }: { editor: Editor }) {
 				if (!isOpen) setIsOpen(true)
 				return true
 			}}
-			tippyOptions={{
+			options={{
 				placement: 'bottom-start',
-				interactive: true,
-				appendTo: () => document.body,
+				strategy: 'fixed',
+				offset: {
+					mainAxis: 0,
+					crossAxis: 10,
+				},
 				onHide: () => {
 					setIsOpen(false)
 					setSelectedIndex(-1)

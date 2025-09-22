@@ -35,7 +35,7 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
-import { Separator } from '@/features/tiptap/components/ui/separator'
+import { Separator } from '@/components/ui/separator'
 import { useImageUpload } from '@/features/tiptap/hooks/use-image-upload'
 import { cn } from '@/lib/utils'
 

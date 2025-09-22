@@ -16,12 +16,7 @@ import { Image, Link, Loader2, Upload, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
-} from '@/features/tiptap/components/ui/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useImageUpload } from '@/features/tiptap/hooks/use-image-upload'
 import {
 	NODE_HANDLES_SELECTED_STYLE_CLASSNAME,
