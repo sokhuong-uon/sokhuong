@@ -71,7 +71,11 @@ export function ThreeEditorAppMenu({
 		<div className="flex gap-1">
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button size="sm" variant="ghost">
+					<Button
+						size="sm"
+						variant="ghost"
+						className="text-foreground hover:bg-accent hover:text-accent-foreground"
+					>
 						File
 					</Button>
 				</DropdownMenuTrigger>
@@ -134,10 +138,20 @@ export function ThreeEditorAppMenu({
 			<EditDropdownMenu portalContainer={portalContainer} />
 			<AddBasicMeshDropdownMenu portalContainer={portalContainer} />
 
-			<Button variant="ghost" size="sm" disabled>
+			<Button
+				variant="ghost"
+				size="sm"
+				disabled
+				className="text-foreground hover:bg-accent hover:text-accent-foreground"
+			>
 				View
 			</Button>
-			<Button variant="ghost" size="sm" disabled>
+			<Button
+				variant="ghost"
+				size="sm"
+				disabled
+				className="text-foreground hover:bg-accent hover:text-accent-foreground"
+			>
 				Help
 			</Button>
 		</div>

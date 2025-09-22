@@ -23,7 +23,11 @@ export function EditDropdownMenu({
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button size="sm" variant="ghost">
+				<Button
+					size="sm"
+					variant="ghost"
+					className="text-foreground hover:bg-accent hover:text-accent-foreground"
+				>
 					Edit
 				</Button>
 			</DropdownMenuTrigger>

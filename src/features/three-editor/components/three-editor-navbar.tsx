@@ -65,13 +65,13 @@ export function ThreeEditorNavbar({
 				portalContainer={portalContainer}
 			/>
 
-			<div className="flex items-center justify-between border px-4 py-2">
+			<div className="flex items-center justify-between border border-border bg-background px-4 py-2 text-foreground">
 				<div className="flex items-center gap-4">
 					<ThreeEditorAppMenu portalContainer={portalContainer} />
 
 					<Button
 						variant="ghost"
-						className="hidden h-7 w-80 items-center gap-2 bg-muted px-2 lg:flex"
+						className="hidden h-7 w-80 items-center gap-2 bg-muted px-2 text-foreground hover:bg-accent hover:text-accent-foreground lg:flex"
 						onClick={() => {
 							setIsCommandOpen(true)
 						}}
@@ -90,7 +90,7 @@ export function ThreeEditorNavbar({
 					variant="ghost"
 					size="icon"
 					onClick={toggleFullscreen}
-					className="h-8 w-8"
+					className="h-8 w-8 text-foreground hover:bg-accent hover:text-accent-foreground"
 					title={
 						isFullscreen ? 'Exit Fullscreen (F11)' : 'Enter Fullscreen (F11)'
 					}
