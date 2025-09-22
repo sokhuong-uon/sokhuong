@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 
 import {
 	Environment,
@@ -23,6 +23,36 @@ export default function ThreeJSEditor() {
 	const scene = useThreeEditorStore((state) => state.scene)
 	const selectedObject = useThreeEditorStore((state) => state.selectedObject)
 	const [error, setError] = useState<string | null>(null)
+	const editorRef = useRef<HTMLDivElement>(null)
+	const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
+		null
+	)
+
+	useEffect(() => {
+		// Create a portal container div
+		const container = document.createElement('div')
+		container.id = 'editor-portal-container'
+		container.style.position = 'absolute'
+		container.style.top = '0'
+		container.style.left = '0'
+		container.style.width = '100%'
+		container.style.height = '100%'
+		container.style.pointerEvents = 'none'
+		container.style.zIndex = '9999'
+
+		// Add it to the editor container
+		if (editorRef.current) {
+			editorRef.current.appendChild(container)
+			setPortalContainer(container)
+		}
+
+		return () => {
+			// Cleanup
+			if (container && container.parentNode) {
+				container.parentNode.removeChild(container)
+			}
+		}
+	}, [])
 
 	const handleCanvasError = (error: Error) => {
 		console.error('Canvas error:', error)
@@ -31,8 +61,14 @@ export default function ThreeJSEditor() {
 
 	if (error) {
 		return (
-			<div className="relative flex h-96 flex-col border border-muted sm:h-[40rem]">
-				<ThreeEditorNavbar />
+			<div
+				ref={editorRef}
+				className="relative flex h-96 flex-col border border-muted sm:h-[40rem]"
+			>
+				<ThreeEditorNavbar
+					editorRef={editorRef}
+					portalContainer={portalContainer}
+				/>
 				<div className="flex flex-1 items-center justify-center">
 					<div className="text-center">
 						<div className="mb-2 text-red-500">WebGL Error</div>
@@ -50,8 +86,14 @@ export default function ThreeJSEditor() {
 	}
 
 	return (
-		<div className="relative flex h-96 flex-col border border-muted sm:h-[40rem]">
-			<ThreeEditorNavbar />
+		<div
+			ref={editorRef}
+			className="relative flex h-96 flex-col border border-muted sm:h-[40rem]"
+		>
+			<ThreeEditorNavbar
+				editorRef={editorRef}
+				portalContainer={portalContainer}
+			/>
 
 			<ResizablePanelGroup direction="horizontal" className="h-full w-full">
 				<ResizablePanel className="flex-1" defaultSize={85}>

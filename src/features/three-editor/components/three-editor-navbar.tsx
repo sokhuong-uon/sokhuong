@@ -1,14 +1,33 @@
-import { useEffect, useState } from 'react'
+import { RefObject, useCallback, useEffect, useState } from 'react'
 
-import { Search } from 'lucide-react'
+import { Maximize, Minimize, Search } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 
 import { SearchEditorCommand } from './search-editor-command'
 import { ThreeEditorAppMenu } from './three-editor-app-menu'
 
-export function ThreeEditorNavbar() {
+interface ThreeEditorNavbarProps {
+	editorRef: RefObject<HTMLDivElement>
+	portalContainer: HTMLElement | null
+}
+
+export function ThreeEditorNavbar({
+	editorRef,
+	portalContainer,
+}: ThreeEditorNavbarProps) {
 	const [isCommandOpen, setIsCommandOpen] = useState(false)
+	const [isFullscreen, setIsFullscreen] = useState(false)
+
+	const toggleFullscreen = useCallback(() => {
+		if (!document.fullscreenElement) {
+			editorRef.current?.requestFullscreen()
+			setIsFullscreen(true)
+		} else {
+			document.exitFullscreen()
+			setIsFullscreen(false)
+		}
+	}, [editorRef])
 
 	useEffect(() => {
 		const down = (event: KeyboardEvent) => {
@@ -16,10 +35,24 @@ export function ThreeEditorNavbar() {
 				event.preventDefault()
 				setIsCommandOpen((isOpen) => !isOpen)
 			}
+			if (event.key === 'F11') {
+				event.preventDefault()
+				toggleFullscreen()
+			}
 		}
 
 		document.addEventListener('keydown', down)
 		return () => document.removeEventListener('keydown', down)
+	}, [toggleFullscreen])
+
+	useEffect(() => {
+		const handleFullscreenChange = () => {
+			setIsFullscreen(!!document.fullscreenElement)
+		}
+
+		document.addEventListener('fullscreenchange', handleFullscreenChange)
+		return () =>
+			document.removeEventListener('fullscreenchange', handleFullscreenChange)
 	}, [])
 
 	return (
@@ -27,24 +60,44 @@ export function ThreeEditorNavbar() {
 			<SearchEditorCommand
 				isOpen={isCommandOpen}
 				setIsOpen={setIsCommandOpen}
+				portalContainer={portalContainer}
 			/>
 
-			<div className="flex items-center gap-4 border">
-				<ThreeEditorAppMenu />
+			<div className="flex items-center justify-between border px-4 py-2">
+				<div className="flex items-center gap-4">
+					<ThreeEditorAppMenu portalContainer={portalContainer} />
 
+					<Button
+						variant="ghost"
+						className="hidden h-7 w-80 items-center gap-2 bg-muted px-2 lg:flex"
+						onClick={() => {
+							setIsCommandOpen(true)
+						}}
+					>
+						<Search className="text-muted-foreground" size="20" />
+						<p className="text-muted-foreground">Commands</p>
+
+						<span className="ml-auto text-xs tracking-widest text-muted-foreground">
+							⌘K
+						</span>
+					</Button>
+				</div>
+
+				{/* Fullscreen Button */}
 				<Button
 					variant="ghost"
-					className="hidden h-7 w-80 items-center gap-2 bg-muted px-2 lg:flex"
-					onClick={() => {
-						setIsCommandOpen(true)
-					}}
+					size="icon"
+					onClick={toggleFullscreen}
+					className="h-8 w-8"
+					title={
+						isFullscreen ? 'Exit Fullscreen (F11)' : 'Enter Fullscreen (F11)'
+					}
 				>
-					<Search className="text-muted-foreground" size="20" />
-					<p className="text-muted-foreground">Commands</p>
-
-					<span className="ml-auto text-xs tracking-widest text-muted-foreground">
-						⌘K
-					</span>
+					{isFullscreen ? (
+						<Minimize className="h-4 w-4" />
+					) : (
+						<Maximize className="h-4 w-4" />
+					)}
 				</Button>
 			</div>
 		</div>
