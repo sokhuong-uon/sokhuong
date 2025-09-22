@@ -107,7 +107,7 @@ function SkillExpandButtonGroup({
 	containerRef,
 	isResizing,
 }: {
-	containerRef: RefObject<HTMLDivElement>
+	containerRef: RefObject<HTMLDivElement | null>
 	isResizing: boolean
 }) {
 	const [dimensions, setDimensions] = useState({ width: 0, height: 0 })

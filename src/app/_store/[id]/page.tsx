@@ -13,14 +13,15 @@ import { db } from '@/db'
 import { model } from '@/db/schema'
 import { ModelSceneCard } from '@/features/store/components/model-scene-card'
 
-export default async function ProductDetail({
-	params,
-}: {
-	params: { id: string }
-}) {
-	const models = await db.select().from(model).where(eq(model.id, params.id))
+export default async function ProductDetail(
+    props: {
+        params: Promise<{ id: string }>
+    }
+) {
+    const params = await props.params;
+    const models = await db.select().from(model).where(eq(model.id, params.id))
 
-	return (
+    return (
 		<div className="container py-8">
 			<ModelSceneCard />
 
