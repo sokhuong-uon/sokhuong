@@ -59,6 +59,7 @@
 		"tailwindcss-animate": "^1.0.7",
 		"three": "^0.174.0",
 		"three-gpu-pathtracer": "^0.0.23",
+		"three-stdlib": "^2.36.0",
 		"tweakpane": "^4.0.4",
 		"vaul": "^1.1.2",
 		"zod": "^3.23.8",
