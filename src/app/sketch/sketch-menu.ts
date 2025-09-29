@@ -39,6 +39,10 @@ export const menu = [
 		path: '/sketch/3d-graphic',
 		items: [
 			{
+				label: 'Laptop model',
+				path: '/sketch/3d-graphic/laptop-model',
+			},
+			{
 				label: 'Panorama to cubemap',
 				path: '/sketch/3d-graphic/panorama-to-cubemap',
 			},
