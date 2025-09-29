@@ -107,7 +107,7 @@ function SkillExpandButtonGroup({
 	containerRef,
 	isResizing,
 }: {
-	containerRef: RefObject<HTMLDivElement>
+	containerRef: RefObject<HTMLDivElement | null>
 	isResizing: boolean
 }) {
 	const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
@@ -178,7 +178,7 @@ function SkillExpandButtonGroup({
 							}}
 							asChild
 						>
-							<Link href={'/skill'} prefetch>
+							<Link href={'/skill'} prefetch aria-label="Skill list">
 								<Plus />
 							</Link>
 						</Button>

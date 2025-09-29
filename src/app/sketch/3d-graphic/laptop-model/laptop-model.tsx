@@ -28,14 +28,37 @@ type GLTFResult = {
 	}
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+export function Model(props: React.JSX.IntrinsicElements['group']) {
 	const { nodes } = useGLTF(
 		'/tuf-laptop-optimized.glb'
 	) as unknown as GLTFResult
 
 	const keyboardBackLightBloomMaterial = useMemo(() => {
-		return new THREE.MeshBasicMaterial({
-			color: 'white',
+		return new THREE.MeshStandardMaterial({
+			color: new THREE.Color(0.2, 0.4, 1),
+			emissive: new THREE.Color(0, 0.5, 2),
+			emissiveIntensity: 3,
+			toneMapped: false,
+			transparent: true,
+			opacity: 0.8,
+		})
+	}, [])
+
+	const screenMaterial = useMemo(() => {
+		return new THREE.MeshStandardMaterial({
+			color: new THREE.Color('pink'),
+			emissive: new THREE.Color(0.1, 0.2, 0.8),
+			emissiveIntensity: 1.2,
+			toneMapped: false,
+		})
+	}, [])
+
+	const indicatorMaterial = useMemo(() => {
+		return new THREE.MeshStandardMaterial({
+			color: new THREE.Color(1, 1, 1),
+			emissive: new THREE.Color(0, 1, 2),
+			emissiveIntensity: 1.8,
+			toneMapped: false,
 		})
 	}, [])
 
@@ -48,12 +71,21 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 		})
 	}, [])
 
+	const backLidMaterial = useMemo(() => {
+		return new THREE.MeshStandardMaterial({
+			color: '#808080',
+			roughness: 1,
+			metalness: 0.05,
+			side: THREE.DoubleSide,
+		})
+	}, [])
+
 	return (
 		<group {...props} dispose={null}>
-			<group position={[-0.177, -0.006, -0.073]}>
+			<group position={[-0.177, -0.006, -0.073]} rotation={[-0.1, 0, 0]}>
 				<mesh
 					geometry={nodes.backSideOfTheLid.geometry}
-					material={nodes.backSideOfTheLid.material}
+					material={backLidMaterial}
 					position={[0.164, 0.117, -0.009]}
 				/>
 				<mesh
@@ -63,15 +95,17 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 				/>
 				<mesh
 					geometry={nodes.laptopScreen001.geometry}
-					material={keyboardBackLightBloomMaterial}
+					material={screenMaterial}
 					position={[0.164, 0.117, -0.009]}
 				/>
 			</group>
+
 			<mesh
 				geometry={nodes.backlight.geometry}
 				material={keyboardBackLightBloomMaterial}
 				position={[-0.118, -0.002, 0.025]}
 			/>
+
 			<mesh
 				geometry={nodes.powerButton001.geometry}
 				material={nodes.powerButton001.material}
@@ -93,9 +127,10 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 					position={[-0.037, 0.006, -0.121]}
 				/>
 			</mesh>
+
 			<mesh
 				geometry={nodes.operationIndicator.geometry}
-				material={keyboardBackLightBloomMaterial}
+				material={indicatorMaterial}
 				position={[-0.056, -0.0, -0.075]}
 			/>
 			<mesh
@@ -118,6 +153,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 				material={nodes.powerButtonLight001.material}
 				position={[0.142, -0.002, -0.049]}
 			/>
+
 			<mesh
 				geometry={nodes.bottomPartOfTheCase.geometry}
 				material={plasticMaterial}

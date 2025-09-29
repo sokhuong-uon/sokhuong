@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useFormContext } from 'react-hook-form'
 
 import { useFormWizardStep } from '@/app/sketch/form/multi-step/components/form-wizard-step-context'

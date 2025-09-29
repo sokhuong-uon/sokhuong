@@ -67,6 +67,7 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 							value={theme.name}
 							id={theme.name}
 							className="absolute h-0 w-0 opacity-0"
+							aria-label={`Select ${theme.label} theme`}
 						/>
 						<Label htmlFor={theme.name} className="cursor-pointer">
 							<div
@@ -81,6 +82,7 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 									'relative h-8 w-8 rounded-[--radius] antialiased',
 									isActive && 'border-2'
 								)}
+								aria-hidden="true"
 							>
 								<div
 									className={cn(
@@ -95,6 +97,12 @@ export function ThemeColorCustomizer({ className }: { className?: string }) {
 									)}
 								</div>
 							</div>
+							<span className="sr-only">
+								{theme.label} theme{isActive ? ' (currently selected)' : ''}
+								{isLoadingNewTheme && newTheme === theme.name
+									? ' (loading...)'
+									: ''}
+							</span>
 						</Label>
 					</div>
 				)
