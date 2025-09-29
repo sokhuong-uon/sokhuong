@@ -28,38 +28,46 @@ type GLTFResult = {
 	}
 }
 
-export function Model(props: React.JSX.IntrinsicElements['group']) {
+type ModelProps = React.JSX.IntrinsicElements['group'] & {
+	isOpen: boolean
+	lidGroupRef: React.RefObject<THREE.Group>
+}
+
+export function Model({ isOpen, lidGroupRef, ...props }: ModelProps) {
 	const { nodes } = useGLTF(
 		'/tuf-laptop-optimized.glb'
 	) as unknown as GLTFResult
 
 	const keyboardBackLightBloomMaterial = useMemo(() => {
-		return new THREE.MeshStandardMaterial({
+		const material = new THREE.MeshStandardMaterial({
 			color: new THREE.Color(0.2, 0.4, 1),
 			emissive: new THREE.Color(0, 0.5, 2),
-			emissiveIntensity: 3,
+			emissiveIntensity: 1,
 			toneMapped: false,
 			transparent: true,
 			opacity: 0.8,
 		})
+		return material
 	}, [])
 
 	const screenMaterial = useMemo(() => {
-		return new THREE.MeshStandardMaterial({
+		const material = new THREE.MeshStandardMaterial({
 			color: new THREE.Color('pink'),
 			emissive: new THREE.Color(0.1, 0.2, 0.8),
-			emissiveIntensity: 1.2,
+			emissiveIntensity: 0.3,
 			toneMapped: false,
 		})
+		return material
 	}, [])
 
 	const indicatorMaterial = useMemo(() => {
-		return new THREE.MeshStandardMaterial({
+		const material = new THREE.MeshStandardMaterial({
 			color: new THREE.Color(1, 1, 1),
 			emissive: new THREE.Color(0, 1, 2),
-			emissiveIntensity: 1.8,
+			emissiveIntensity: 0.5,
 			toneMapped: false,
 		})
+		return material
 	}, [])
 
 	const plasticMaterial = useMemo(() => {
@@ -76,13 +84,12 @@ export function Model(props: React.JSX.IntrinsicElements['group']) {
 			color: '#808080',
 			roughness: 1,
 			metalness: 0.05,
-			side: THREE.DoubleSide,
 		})
 	}, [])
 
 	return (
 		<group {...props} dispose={null}>
-			<group position={[-0.177, -0.006, -0.073]} rotation={[-0.1, 0, 0]}>
+			<group ref={lidGroupRef} position={[-0.177, -0.006, -0.073]}>
 				<mesh
 					geometry={nodes.backSideOfTheLid.geometry}
 					material={backLidMaterial}
