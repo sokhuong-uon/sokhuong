@@ -42,29 +42,28 @@ function Scene({ isOpen }: { isOpen: boolean }) {
 	const lidGroupRef = useRef<THREE.Group>(null)
 	const { invalidate } = useThree()
 
-	const handleLidAnimation = () => {
-		if (lidGroupRef.current) {
-			const targetRotation = isOpen ? -0.1 : Math.PI * 0.5
-
-			animate(
-				lidGroupRef.current.rotation,
-				{ x: targetRotation },
-				{
-					type: 'spring',
-					stiffness: 120,
-					damping: 25,
-					duration: 1.2,
-					onUpdate: () => {
-						invalidate()
-					},
-				}
-			)
-		}
-	}
-
 	useEffect(() => {
+		const handleLidAnimation = () => {
+			if (lidGroupRef.current) {
+				const targetRotation = isOpen ? -0.1 : Math.PI * 0.5
+
+				animate(
+					lidGroupRef.current.rotation,
+					{ x: targetRotation },
+					{
+						type: 'spring',
+						stiffness: 120,
+						damping: 25,
+						duration: 1.2,
+						onUpdate: () => {
+							invalidate()
+						},
+					}
+				)
+			}
+		}
 		handleLidAnimation()
-	}, [isOpen])
+	}, [isOpen, invalidate])
 
 	return (
 		<>
