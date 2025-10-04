@@ -33,9 +33,9 @@ export function ThemeModeSwitcher(props: DropdownMenuTriggerProps) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild {...props}>
-				<Button variant="ghost" size="icon">
-					<Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-					<Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+				<Button variant="ghost" size="icon" className="flex">
+					<Sun className="mx-auto h-5 w-5 rotate-0 transition-all dark:hidden dark:-rotate-90" />
+					<Moon className="mx-auto hidden h-5 w-5 rotate-90 transition-all dark:block dark:rotate-0" />
 					<span className="sr-only">ToggleMode</span>
 				</Button>
 			</DropdownMenuTrigger>
