@@ -3,6 +3,7 @@ import { Noto_Sans_Khmer } from 'next/font/google'
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
+import { UmamiAnalytics } from '@/components/analytic/umami-analytics'
 import { Footer } from '@/components/footer/footer'
 import { Navbar } from '@/features/navigation/components/navbar'
 import { SkipToMainContent } from '@/features/navigation/components/skip-to-main-content'
@@ -59,6 +60,8 @@ export default async function RootLayout({
 						<Footer className="mt-auto lg:container" />
 					</ThemeWrapper>
 				</NextThemesProvider>
+
+				<UmamiAnalytics />
 			</body>
 		</html>
 	)
