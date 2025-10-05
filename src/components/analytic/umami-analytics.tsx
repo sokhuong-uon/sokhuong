@@ -9,7 +9,7 @@ export const UmamiAnalytics = () => {
 	return (
 		<Script
 			async
-			src="https://cloud.umami.is/script.js"
+			src={`/api/umami/script`}
 			data-website-id={websiteId}
 			strategy="afterInteractive"
 		/>
