@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu'
 import { cva } from 'class-variance-authority'
-import { ChevronDownIcon } from 'lucide-react'
+import { Equal, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 
@@ -74,11 +74,9 @@ function NavigationMenuTrigger({
 			className={cn(navigationMenuTriggerStyle(), 'group', className)}
 			{...props}
 		>
-			{children}{' '}
-			<ChevronDownIcon
-				className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
-				aria-hidden="true"
-			/>
+			{children}
+			<Equal className="relative size-8 transition duration-300 group-data-[state=open]:hidden" />
+			<X className="relative hidden size-8 transition duration-300 group-data-[state=open]:block" />
 		</NavigationMenuPrimitive.Trigger>
 	)
 }
@@ -105,11 +103,15 @@ function NavigationMenuViewport({
 	...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
 	return (
-		<div className={cn('absolute left-0 right-0 top-full isolate z-50 flex')}>
+		<div
+			className={cn(
+				'absolute left-0 right-0 top-full isolate z-50 flex bg-background/10'
+			)}
+		>
 			<NavigationMenuPrimitive.Viewport
 				data-slot="navigation-menu-viewport"
 				className={cn(
-					'origin-top-center relative h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90',
+					'origin-top-center relative -top-[4rem] h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md bg-popover/90 text-popover-foreground shadow backdrop-blur-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90',
 					className
 				)}
 				{...props}

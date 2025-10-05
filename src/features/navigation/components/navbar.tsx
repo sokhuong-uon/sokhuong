@@ -25,9 +25,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
-import { ThemeModeSwitcher } from '@/features/theme/components/theme-mode-switcher'
 
 export function Navbar() {
 	const homeMenu = {
@@ -51,23 +49,18 @@ export function Navbar() {
 	]
 
 	return (
-		<NavigationMenu className="w-full min-w-full justify-start py-3">
-			<NavigationMenuList className="flex w-full justify-between">
-				<NavigationMenuItem>
-					<NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-						<Link href="/">Home</Link>
+		<NavigationMenu className="w-full min-w-full justify-start py-3 [&>div]:w-full">
+			<NavigationMenuList className="container flex w-full justify-start">
+				<NavigationMenuItem className="z-[60]">
+					<NavigationMenuLink asChild>
+						<Link href="/">SOKHUONG</Link>
 					</NavigationMenuLink>
 				</NavigationMenuItem>
-				<NavigationMenuItem className="hidden md:block">
-					<NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-						<Link href="/work">Works</Link>
-					</NavigationMenuLink>
-				</NavigationMenuItem>
-				<NavigationMenuItem className="hidden md:block">
-					<NavigationMenuTrigger>Sketches</NavigationMenuTrigger>
-					<NavigationMenuContent className="h-80 w-full">
-						<ul className="grid h-full grid-cols-3 gap-2">
-							<li className="row-span-5">
+				<NavigationMenuItem className="z-[60] ml-auto hidden md:block">
+					<NavigationMenuTrigger className="px-2" />
+					<NavigationMenuContent className="h-[calc(100dvh-4rem)] min-w-full rounded-md pt-14">
+						<ul className="container grid h-full w-full grid-cols-4 grid-rows-8 gap-2">
+							<li className="row-span-3">
 								<NavigationMenuLink asChild>
 									<Link
 										className="bg-linear-to-b outline-hidden flex h-full w-full select-none flex-col justify-end rounded-md from-muted/50 to-muted p-6 no-underline focus:shadow-md"
@@ -111,7 +104,7 @@ export function Navbar() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 			</NavigationMenuList>
-			<ThemeModeSwitcher className="ml-auto hidden md:block" />
+			{/* <ThemeModeSwitcher className="ml-auto hidden md:block" /> */}
 			<Drawer>
 				<DrawerTrigger className="ml-auto flex p-2 md:hidden">
 					<Menu aria-label="Toggle menu" />
@@ -196,7 +189,7 @@ function ListItem({
 }: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
 	return (
 		<li {...props}>
-			<NavigationMenuLink asChild>
+			<NavigationMenuLink asChild className="h-full">
 				<Link href={href}>
 					<div className="text-sm font-medium leading-none">{title}</div>
 					<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
