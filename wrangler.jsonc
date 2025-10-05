@@ -4,11 +4,7 @@
   "name": "sokhuong",
   "compatibility_date": "2024-09-23",
   "compatibility_flags": [
-    // Enable Node.js API
-    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#nodejs-compatibility-flag
     "nodejs_compat",
-    // Allow to fetch URLs in your app
-    // see https://developers.cloudflare.com/workers/configuration/compatibility-flags/#global-fetch-strictly-public
     "global_fetch_strictly_public",
   ],
   "assets": {
@@ -18,7 +14,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      // The service should match the "name" of your worker
+      // The service should match the "name" of the worker
       "service": "sokhuong",
     },
   ],
@@ -30,4 +26,9 @@
       "preview_bucket_name": "sokhuong-next-inc-cache"
     }
   ],
+  "observability": {
+    "logs": {
+      "enabled": true
+    }
+  }
 }
