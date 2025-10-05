@@ -6,6 +6,7 @@ import {
 	SiYoutube,
 } from '@icons-pack/react-simple-icons'
 
+import { ThemeModeSwitcher } from '@/features/theme/components/theme-mode-switcher'
 import { cn } from '@/lib/utils'
 
 export function Footer({ className, ...props }: ComponentProps<'footer'>) {
@@ -41,6 +42,7 @@ export function Footer({ className, ...props }: ComponentProps<'footer'>) {
 						</a>
 					</li>
 				</ul>
+				<ThemeModeSwitcher />
 			</div>
 		</footer>
 	)
