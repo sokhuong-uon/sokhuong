@@ -1,6 +1,5 @@
 import { HeroSection } from '@/components/hero/hero-section'
 import { SkillSection } from '@/features/skill/components/tech-section'
-import { ThemeColorCustomizer } from '@/features/theme/components/theme-color-customizer'
 import { ThemeRadiusCustomizer } from '@/features/theme/components/theme-radius-customizer'
 import { ValueList } from '@/features/value/components/value-list'
 
@@ -11,9 +10,8 @@ export default function Home() {
 			className="flex w-full flex-col items-center justify-center"
 		>
 			<HeroSection />
-			<div className="flex flex-col space-y-6">
+			<div className="flex flex-col space-y-6 overflow-hidden">
 				<ThemeRadiusCustomizer className="container" />
-				<ThemeColorCustomizer className="container" />
 			</div>
 
 			<section className="container py-24">
