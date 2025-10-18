@@ -6,6 +6,8 @@ export function HeroSection() {
 			<div className="flex gap-4">
 				<ThemeColorPalette />
 			</div>
+
+			<div className="pointer-events-none absolute h-44 w-44 rounded-full bg-rose-500 opacity-60 blur-3xl"></div>
 		</div>
 	)
 }
